@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .base-normal {
+    @apply xl:text-[0.83vw] text-[0.67vw] font-normal leading-[20.06px] tracking-widest;
+  }
+
+  .base-semibold {
+    @apply xl:text-[0.83vw] text-[0.67vw] font-semibold leading-[20.06px];
+  }
+
+  .base-bold {
+    @apply text-[18px] font-bold leading-[140%];
+  }
+
+  .h1 {
+    @apply text-[1.33vw] font-normal leading-[1.6vw] tracking-[0.083vw];
+  }
+}
