@@ -4,42 +4,46 @@
 
 @layer utilities {
   .base-light {
-    @apply xl:text-[1.17vw] text-[14px] font-light leading-[1.41vw];
+    @apply xl:text-[1.17vw] text-[14px] font-extralight leading-[1.41vw];
   }
 
   .base-normal {
-    @apply xl:text-[0.83vw] text-[10px] font-normal leading-[1.67vw] tracking-widest;
+    @apply xl:text-[0.83vw] text-[10px] font-light leading-[1.67vw] tracking-widest;
   }
 
   .medium-normal {
-    @apply xl:text-[1vw] text-[12px] font-normal leading-[1.67vw] tracking-widest;
+    @apply xl:text-[1.17vw] text-[14px] font-light leading-[1.41vw];
+  }
+
+  .medium-normal {
+    @apply xl:text-[1vw] text-[12px] font-light leading-[1.67vw] tracking-widest;
   }
 
   .large-normal {
-    @apply xl:text-[2.08vw] text-[25px] font-normal leading-[1.88vw] tracking-[5px];
+    @apply xl:text-[2.08vw] text-[25px] font-light leading-[1.88vw] tracking-[5px];
   }
 
   .base-medium {
-    @apply xl:text-[1.67vw] text-[20px] font-medium leading-[1.5vw] tracking-[-1px];
+    @apply xl:text-[1.67vw] text-[20px] font-light leading-[1.5vw] tracking-[-1px];
   }
 
   .small-semibold {
-    @apply xl:text-[1.17vw] text-[14px] font-semibold leading-[1.41vw];
+    @apply xl:text-[1.17vw] text-[14px] font-medium leading-[1.41vw];
   }
 
   .base-semibold {
-    @apply xl:text-[0.83vw] text-[10px] font-semibold leading-[1.67vw];
+    @apply xl:text-[0.83vw] text-[10px] font-medium leading-[1.67vw];
   }
 
   .base-bold {
-    @apply text-[18px] font-bold leading-[140%];
+    @apply text-[18px] font-semibold leading-[140%];
   }
 
   .h1 {
-    @apply text-[1.33vw] font-normal leading-[1.67vw] tracking-[0.083vw];
+    @apply text-[1.33vw] font-light leading-[1.67vw] tracking-[0.083vw];
   }
 
   .h3 {
-    @apply text-[2.5vw] font-normal leading-[2.25vw] tracking-[-2px];
+    @apply text-[2.5vw] font-light leading-[2.25vw] tracking-[-2px];
   }
 }
