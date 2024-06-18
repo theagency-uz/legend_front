@@ -1,6 +1,7 @@
 import HeroBlock from "@/components/site/hero-block/hero.block";
 import CatalogBlock from "@/components/site/catalog-block/catalog-block";
 import PropertiesBlock from "@/components/site/properties-block/properties-block";
+import StepsBlock from "@/components/site/steps-block/steps-block";
 
 import { useTranslation } from "@/lib/i18n";
 
@@ -17,6 +18,7 @@ export default async function Home({
       <section className="bg-gradient-linear bg-top bg-cover w-[100%] aspect-[1200/1932]">
         <CatalogBlock />
         <PropertiesBlock />
+        <StepsBlock />
       </section>
     </>
   );

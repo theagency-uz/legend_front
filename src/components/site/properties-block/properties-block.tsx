@@ -4,7 +4,7 @@ export default async function PropertiesBlock() {
   const { t } = await useTranslation("ru");
 
   return (
-    <section className="text-white grid grid-cols-2 grid-rows-2 gap-y-5 gap-x-24 px-[100px]">
+    <section className="text-white grid grid-cols-2 grid-rows-2 gap-y-5 gap-x-24 px-[100px] mb-[138px]">
       <div className="row-span-1 flex flex-col gap-[20px]">
         <h3 className="h3">{t("Главное отличие - живая вода")}</h3>
         <p className="base-light">
@@ -33,9 +33,9 @@ export default async function PropertiesBlock() {
             {t("Было сделано для отбора источника с полезной водой")}
           </p>
         </div>
-        <div className="flex flex-col gap-5">
+        <div className="flex items-end flex-col gap-5">
           <h3 className="h3">{t("60 метров")}</h3>
-          <p className="base-light">
+          <p className="base-light text-end">
             {t("Глубина источника с наилучшим составом")}
           </p>
         </div>

@@ -59,6 +59,49 @@ const CATALOG_CARDS = [
   },
 ];
 
+const STEPS_CARDS = [
+  {
+    name: "Оседание",
+    src: "/assets/step-1.svg",
+    alt: "1 этап",
+    width: 60,
+    height: 60,
+    text: "Фильтрация мелких частиц после источника",
+  },
+  {
+    name: "Угольный фильтр",
+    src: "/assets/step-2.svg",
+    alt: "2 этап",
+    width: 60,
+    height: 60,
+    text: "Очищение от запахов и примесей, улучшение вкуса",
+  },
+  {
+    name: "Ионообменник",
+    src: "/assets/step-3.svg",
+    alt: "3 этап",
+    width: 60,
+    height: 60,
+    text: "Фильтрация солей жесткости для мягкости воды",
+  },
+  {
+    name: "Патронный фильтр",
+    src: "/assets/step-4.svg",
+    alt: "4 этап",
+    width: 60,
+    height: 60,
+    text: "Очищение от мутности и микрочастиц",
+  },
+  {
+    name: "Озонирование",
+    src: "/assets/step-5.svg",
+    alt: "5 этап",
+    width: 60,
+    height: 60,
+    text: "Уничтожение бактерии, вирусов для безопасности воды",
+  },
+];
+
 const DEFAULT_ICON_SIZE = 1.42;
 const DEFAULT_LOGO_SIZE = 7.92;
 const DEFAULT_VIEWPORT_WIDTH = 1200;
@@ -70,4 +113,5 @@ export {
   DEFAULT_LOGO_SIZE,
   DEFAULT_VIEWPORT_WIDTH,
   CATALOG_CARDS,
+  STEPS_CARDS,
 };

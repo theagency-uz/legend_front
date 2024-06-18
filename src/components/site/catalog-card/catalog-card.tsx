@@ -50,26 +50,15 @@ export default async function CatalogCard({
         {isMain ? (
           <>
             <Image
-              alt="волна"
-              src="/assets/water-flow.png"
-              width={381}
-              height={276}
-              className={`w-[${((381 / DEFAULT_VIEWPORT_WIDTH) * 100).toFixed(
-                2
-              )}] h-[${((276 / DEFAULT_VIEWPORT_WIDTH) * 100).toFixed(
-                2
-              )}] absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]`}
-            />
-            <Image
               alt="тень от бутылки"
               src="/assets/bottle-shadow.svg"
               width={166}
               height={19}
               className={`w-[${((166 / DEFAULT_VIEWPORT_WIDTH) * 100).toFixed(
                 2
-              )}] h-[${((19 / DEFAULT_VIEWPORT_WIDTH) * 100).toFixed(
+              )}vw] h-[${((19 / DEFAULT_VIEWPORT_WIDTH) * 100).toFixed(
                 2
-              )}] absolute bottom-[0] left-[50%] translate-x-[-50%]`}
+              )}vw] absolute bottom-[0] left-[50%] translate-x-[-50%]`}
             />
           </>
         ) : null}
