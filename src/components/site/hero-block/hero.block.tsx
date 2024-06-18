@@ -10,7 +10,7 @@ export default async function HeroBlock() {
         {t("headingText")}
       </h1>
 
-      <Image
+      {/* <Image
         alt="Legend water"
         width={121}
         height={431}
@@ -18,7 +18,7 @@ export default async function HeroBlock() {
         priority
         // className="w-[10.08vw] h-[35.92vw]"
         className="absolute top-[75%] left-[50%] translate-x-[-50%] translate-y-[-75%]"
-      />
+      /> */}
     </section>
   );
 }

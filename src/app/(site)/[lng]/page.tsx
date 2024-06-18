@@ -4,6 +4,7 @@ import PropertiesBlock from "@/components/site/properties-block/properties-block
 import StepsBlock from "@/components/site/steps-block/steps-block";
 
 import { useTranslation } from "@/lib/i18n";
+import CampanyBlock from "@/components/site/campany-block/campany-block";
 
 export default async function Home({
   params: { lng },
@@ -19,6 +20,7 @@ export default async function Home({
         <CatalogBlock />
         <PropertiesBlock />
         <StepsBlock />
+        <CampanyBlock />
       </section>
     </>
   );
