@@ -14,9 +14,10 @@ export default async function HeroBlock() {
         alt="Legend water"
         width={121}
         height={431}
-        src="/assets/hero-water.webp"
+        src="/assets/hero-water.png"
         priority
-        className="w-[10.08vw] h-[35.92vw]"
+        // className="w-[10.08vw] h-[35.92vw]"
+        className="absolute top-[75%] left-[50%] translate-x-[-50%] translate-y-[-75%]"
       />
     </section>
   );

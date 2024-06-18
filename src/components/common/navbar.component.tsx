@@ -1,6 +1,6 @@
-"use client";
+// "use client";
 
-import { useState, useEffect } from "react";
+// import { useState, useEffect } from "react";
 import Link from "next/link";
 
 import {
@@ -9,32 +9,34 @@ import {
   DEFAULT_ICON_SIZE,
   DEFAULT_LOGO_SIZE,
 } from "@/constants/site";
+import { useTranslation } from "@/lib/i18n";
 
-import { useTranslation } from "@/lib/i18n/client";
+export default async function Navbar() {
+  // const [scrolling, setScrolling] = useState(false);
 
-export default function Navbar() {
-  const [scrolling, setScrolling] = useState(false);
+  const { t } = await useTranslation("ru");
 
-  const { t } = useTranslation("ru");
+  // const handleScroll = function () {
+  //   if (window.scrollY > 20) {
+  //     setScrolling(true);
+  //   } else {
+  //     setScrolling(false);
+  //   }
+  // };
 
-  const handleScroll = function () {
-    if (window.scrollY > 20) {
-      setScrolling(true);
-    } else {
-      setScrolling(false);
-    }
-  };
-
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  // useEffect(() => {
+  //   window.addEventListener("scroll", handleScroll);
+  //   return () => window.removeEventListener("scroll", handleScroll);
+  // }, []);
 
   return (
+    // <nav
+    //   className={`flex items-center container pt-[1.67vw] fixed top-0 left-0 text-white ${
+    //     scrolling ? "text-primary-100 bg-white pb-[3.25vw]" : ""
+    //   }`}
+    // >
     <nav
-      className={`flex items-center container pt-[1.67vw] fixed top-0 left-0 text-white ${
-        scrolling ? "text-primary-100 bg-white pb-[3.25vw]" : ""
-      }`}
+      className={`flex items-center container pt-[1.67vw] absolute top-0 left-0 text-white`}
     >
       <div className="flex flex-1 justify-start gap-[7vw]">
         <span className="base-semibold cursor-pointer uppercase">ru | uz</span>
@@ -48,11 +50,12 @@ export default function Navbar() {
       </div>
       <div className="flex-1 flex justify-center cursor-pointer">
         <img
-          src={`${
-            scrolling
-              ? "/assets/legend-logo-blue.svg"
-              : "/assets/legend-logo.svg"
-          }`}
+          // src={`${
+          //   scrolling
+          //     ? "/assets/legend-logo-blue.svg"
+          //     : "/assets/legend-logo.svg"
+          // }`}
+          src={`${"/assets/legend-logo.svg"}`}
           alt="Legend logo"
           style={{ width: `${DEFAULT_LOGO_SIZE}vw`, height: "auto" }}
         />
