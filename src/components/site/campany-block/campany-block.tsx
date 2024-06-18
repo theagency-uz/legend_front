@@ -8,7 +8,7 @@ export default async function CampanyBlock() {
         width={1200}
         height={362}
         alt="капля падает в море"
-        className="w-[100vw] h-auto"
+        className="w-[100vw] h-auto aspect-custom1"
       />
     </section>
   );

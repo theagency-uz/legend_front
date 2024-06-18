@@ -38,6 +38,7 @@ const config: Config = {
       },
       aspectRatio: {
         custom: "1.61 / 1",
+        custom1: "3.31 / 1",
       },
       fontFamily: {
         inter: ["var(--font-inter)"],
