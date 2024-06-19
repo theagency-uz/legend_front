@@ -16,10 +16,10 @@ export default async function CampanyBlock() {
         width={1200}
         height={362}
         alt="капля падает в море"
-        className="w-[100vw] h-auto aspect-custom1"
+        className="w-[100vw] h-auto"
       />
 
-      <div className="flex px-[100px] mt-[4.5vw] mb-[250px]">
+      <div className="flex px-[100px] mt-[4.5vw] mb-[150px]">
         <div className="flex flex-col w-[50%] gap-14">
           <div className="flex flex-col gap-[20px]">
             <h3 className="h3">{t("О компании")}</h3>
@@ -46,10 +46,10 @@ export default async function CampanyBlock() {
         <div>
           <Image
             src="/assets/campany-bottle.png"
-            width={231}
-            height={566}
+            width={402}
+            height={632}
             alt="Буталка воды Legend"
-            className="w-[20vw] h-auto absolute top-[10%] right-[20%]"
+            className="w-[33.5vw] h-auto aspect-custom2 absolute top-[5%] right-[5%]"
           />
         </div>
       </div>
@@ -64,7 +64,7 @@ export default async function CampanyBlock() {
         />
       </div>
 
-      <div className="px-[100px]">
+      <div className="px-[100px] pb-[100px]">
         <h3 className="h3 mb-[40px]">{t("Новости")}</h3>
 
         <div className="flex justify-between">

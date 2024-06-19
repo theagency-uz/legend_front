@@ -123,6 +123,36 @@ const NEWS_CARDS = [
   },
 ];
 
+const FOOTER_CATALOG_LINKS = [
+  {
+    href: "",
+    text: "Вода в стеклянной таре",
+  },
+  {
+    href: "",
+    text: "Вода в пластиковой таре",
+  },
+  {
+    href: "",
+    text: "Вода в большом объеме",
+  },
+];
+
+const FOOTER_MENU_LINKS = [
+  {
+    href: "",
+    text: "Состав и источник",
+  },
+  {
+    href: "",
+    text: "Водоподготовка",
+  },
+  {
+    href: "",
+    text: "О компании",
+  },
+];
+
 const DEFAULT_ICON_SIZE = 1.42;
 const DEFAULT_LOGO_SIZE = 7.92;
 const DEFAULT_VIEWPORT_WIDTH = 1200;
@@ -136,4 +166,6 @@ export {
   CATALOG_CARDS,
   STEPS_CARDS,
   NEWS_CARDS,
+  FOOTER_CATALOG_LINKS,
+  FOOTER_MENU_LINKS,
 };

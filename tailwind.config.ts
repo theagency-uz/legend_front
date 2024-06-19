@@ -48,6 +48,7 @@ const config: Config = {
       aspectRatio: {
         custom: "1.61 / 1",
         custom1: "3.31 / 1",
+        custom2: "0.64 / 1",
       },
       fontFamily: {
         inter: ["var(--font-inter)"],
@@ -58,7 +59,7 @@ const config: Config = {
       backgroundImage: {
         "gradient-linear": "url('/assets/bg-picture.jpg')",
         light: "#FFF",
-        hero: "url('/assets/hero-picture.jpg')",
+        hero: "url('/assets/hero-picture.png')",
       },
       screens: {
         xs: "420px",

@@ -19,7 +19,7 @@
     @apply xl:text-[0.83vw] text-[10px] font-light leading-[1.67vw] tracking-widest;
   }
 
-  .medium-normal {
+  .medium-normal-nospacing {
     @apply xl:text-[1.17vw] text-[14px] font-light leading-[1.41vw];
   }
 

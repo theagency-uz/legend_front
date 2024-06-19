@@ -4,6 +4,7 @@ import localFont from "next/font/local";
 import "../../globals.css";
 
 import Navbar from "../../../components/common/navbar.component";
+import Footer from "@/components/common/footer.component";
 
 const inter = localFont({
   src: [
@@ -26,9 +27,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} font-inter`}>
+      <body className={`${inter.variable} font-inter relative`}>
         <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );
