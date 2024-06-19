@@ -7,6 +7,15 @@ const config: Config = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    keyframes: {
+      moveupdown: {
+        "0%, 100%": { transform: "translateY(0px)" },
+        "50%": { transform: "translateY(-30px)" },
+      },
+    },
+    animation: {
+      moveupdown: "moveupdown 3s ease-in-out infinite",
+    },
     screens: {
       sm: "640px",
       // => @media (min-width: 640px) { ... }

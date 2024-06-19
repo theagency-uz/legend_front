@@ -40,7 +40,9 @@ export default async function CatalogCard({
           height={height}
           className={`w-[${((width / DEFAULT_VIEWPORT_WIDTH) * 100).toFixed(
             2
-          )}vw] h-[${((height / DEFAULT_VIEWPORT_WIDTH) * 100).toFixed(2)}vw]`}
+          )}vw] h-[${((height / DEFAULT_VIEWPORT_WIDTH) * 100).toFixed(2)}vw] ${
+            isMain ? "animate-moveupdown" : ""
+          }`}
         />
         {isEmpty ? (
           <span className="uppercase large-normal absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]">
@@ -66,13 +68,6 @@ export default async function CatalogCard({
               alt="water splash animation"
               src="/assets/water-splash.gif"
               className="w-[620px] h-auto absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]"
-            />
-            <img
-              width={620}
-              height="auto"
-              alt="water splash animation"
-              src="/assets/water-splash.gif"
-              className="w-[620px] h-auto absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] rotate-180"
             />
             {/* <video
               width="320"

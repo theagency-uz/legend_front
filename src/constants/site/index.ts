@@ -102,6 +102,27 @@ const STEPS_CARDS = [
   },
 ];
 
+const NEWS_CARDS = [
+  {
+    src: "/assets/news-1.png",
+    alt: "news 1",
+    width: 300,
+    height: 250,
+  },
+  {
+    src: "/assets/news-2.png",
+    alt: "news 2",
+    width: 300,
+    height: 250,
+  },
+  {
+    src: "/assets/news-3.png",
+    alt: "news 3",
+    width: 300,
+    height: 250,
+  },
+];
+
 const DEFAULT_ICON_SIZE = 1.42;
 const DEFAULT_LOGO_SIZE = 7.92;
 const DEFAULT_VIEWPORT_WIDTH = 1200;
@@ -114,4 +135,5 @@ export {
   DEFAULT_VIEWPORT_WIDTH,
   CATALOG_CARDS,
   STEPS_CARDS,
+  NEWS_CARDS,
 };
