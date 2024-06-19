@@ -1,6 +1,6 @@
 "use client";
 
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
 
 import {
@@ -11,26 +11,42 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
-export default function LangSwitcher() {
-  const [lang, setLang] = useState("ru");
+export default function LangSwitcher({ lang }: { lang: string }) {
+  const [langVal, setLang] = useState(lang);
+  const path = usePathname();
 
   const router = useRouter();
 
-  const onToggleLanguage = async (lang: string) => {
-    setLang(lang);
+  const onToggleLanguage = async (langVal: string) => {
+    setLang(langVal);
 
-    router.push(`/${lang}`);
+    router.push(path.replace(/ru|uz/, langVal));
   };
 
   return (
     <DropdownMenu modal={false}>
       <DropdownMenuTrigger asChild>
-        <span className="base-semibold cursor-pointer uppercase">ru | uz</span>
+        <span className="small-semibold cursor-pointer uppercase text-primary-100">
+          ru | uz
+        </span>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="bg-white border-white p-2 text-black">
-        <DropdownMenuRadioGroup value={lang} onValueChange={onToggleLanguage}>
-          <DropdownMenuRadioItem value="ru">RU</DropdownMenuRadioItem>
-          <DropdownMenuRadioItem value="uz">UZ</DropdownMenuRadioItem>
+        <DropdownMenuRadioGroup
+          value={langVal}
+          onValueChange={onToggleLanguage}
+        >
+          <DropdownMenuRadioItem
+            className="hover:bg-slate-100 cursor-pointer"
+            value="ru"
+          >
+            RU
+          </DropdownMenuRadioItem>
+          <DropdownMenuRadioItem
+            className="hover:bg-slate-100 cursor-pointer"
+            value="uz"
+          >
+            UZ
+          </DropdownMenuRadioItem>
         </DropdownMenuRadioGroup>
       </DropdownMenuContent>
     </DropdownMenu>

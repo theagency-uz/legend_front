@@ -42,11 +42,11 @@ export default async function Navbar({ lang }: { lang: string }) {
       className={`flex items-center container pt-[1.67vw] absolute top-0 left-0 text-white`}
     >
       <div className="flex flex-1 justify-start gap-[7vw]">
-        <LangSwitcher />
+        <LangSwitcher lang={lang} />
         <ul className="flex gap-[2.5vw] base-normal uppercase cursor-pointer">
           {NAVBAR_LEFT.map(({ name, link }, i) => (
             <li key={i}>
-              <Link href={link}>{t(name)}</Link>
+              <Link href={`${lang}${link}`}>{t(name)}</Link>
             </li>
           ))}
         </ul>

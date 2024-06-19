@@ -6,8 +6,8 @@ import { useTranslation } from "@/lib/i18n";
 
 import { FOOTER_CATALOG_LINKS, FOOTER_MENU_LINKS } from "@/constants/site";
 
-export default async function Footer() {
-  const { t } = await useTranslation("ru");
+export default async function Footer({ lang }: { lang: string }) {
+  const { t } = await useTranslation(lang);
 
   return (
     <footer className="px-[100px] py-[50px]">
@@ -82,7 +82,7 @@ export default async function Footer() {
         </div>
 
         <div className="flex flex-col gap-[41px]">
-          <LangSwitcher />
+          <LangSwitcher lang={lang} />
         </div>
       </div>
 

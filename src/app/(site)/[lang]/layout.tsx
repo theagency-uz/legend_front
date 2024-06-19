@@ -32,7 +32,7 @@ export default function RootLayout({
       <body className={`${inter.variable} font-inter relative`}>
         <Navbar lang={lang} />
         {children}
-        <Footer />
+        <Footer lang={lang} />
       </body>
     </html>
   );
