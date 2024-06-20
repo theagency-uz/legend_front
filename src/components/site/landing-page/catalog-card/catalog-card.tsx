@@ -32,7 +32,9 @@ export default async function CatalogCard({
   return (
     <div
       key={key}
-      className={`flex-1 flex flex-col items-center justify-between h-[500px]`}
+      className={`flex-1 flex flex-col items-center justify-between h-[500px] ${
+        !isMain ? "max-xs:hidden" : ""
+      }`}
     >
       <div className={`relative w-full flex justify-center`}>
         <Image
@@ -43,7 +45,7 @@ export default async function CatalogCard({
           className={`w-[${((width / DEFAULT_VIEWPORT_WIDTH) * 100).toFixed(
             2
           )}vw] h-[${((height / DEFAULT_VIEWPORT_WIDTH) * 100).toFixed(2)}vw] ${
-            isMain ? "animate-moveupdown" : ""
+            isMain ? "" : ""
           }`}
         />
         {isEmpty ? (
@@ -64,29 +66,17 @@ export default async function CatalogCard({
                 2
               )}vw] absolute bottom-[0] left-[50%] translate-x-[-50%]`}
             />
-            <img
+            {/* <img
               width={620}
               height="auto"
               alt="water splash animation"
               src="/assets/water-splash.gif"
               className="w-[620px] h-auto absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]"
-            />
-            {/* <video
-              width="320"
-              height="240"
-              autoPlay
-              loop
-              muted
-              playsInline
-              preload="none"
-            >
-              <source src="/assets/water-splash.gif" type="video/gif" />
-              Your browser does not support the video tag.
-            </video> */}
+            /> */}
           </>
         ) : null}
       </div>
-      <div className="flex flex-col items-center gap-[3px]">
+      <div className="flex flex-col items-center gap-[3px] max-xs:gap-[15px]">
         <span className="medium-normal uppercase">{volume}</span>
         <p className="base-medium">{name}</p>
       </div>

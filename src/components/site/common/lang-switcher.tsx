@@ -1,7 +1,7 @@
 "use client";
 
 import { usePathname, useRouter } from "next/navigation";
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import {
   DropdownMenu,
@@ -11,10 +11,16 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
-export default function LangSwitcher({ lang }: { lang: string }) {
+export default function LangSwitcher({
+  lang,
+  children,
+}: {
+  lang: string;
+  children: React.ReactNode;
+}) {
   const [langVal, setLang] = useState(lang);
-  const path = usePathname();
 
+  const path = usePathname();
   const router = useRouter();
 
   const onToggleLanguage = async (langVal: string) => {
@@ -23,13 +29,15 @@ export default function LangSwitcher({ lang }: { lang: string }) {
     router.push(path.replace(/ru|uz/, langVal));
   };
 
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      localStorage.setItem("lang", lang);
+    }
+  }, [langVal]);
+
   return (
     <DropdownMenu modal={false}>
-      <DropdownMenuTrigger asChild>
-        <span className="small-semibold cursor-pointer uppercase text-primary-100">
-          ru | uz
-        </span>
-      </DropdownMenuTrigger>
+      <DropdownMenuTrigger asChild className="max-xs:max-w-fit">{children}</DropdownMenuTrigger>
       <DropdownMenuContent className="bg-white border-white p-2 text-black">
         <DropdownMenuRadioGroup
           value={langVal}

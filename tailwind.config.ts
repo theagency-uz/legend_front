@@ -17,6 +17,9 @@ const config: Config = {
       moveupdown: "moveupdown 3s ease-in-out infinite",
     },
     screens: {
+      xs: "320px",
+      // => @media (min-width: 320px) { ... }
+
       sm: "640px",
       // => @media (min-width: 640px) { ... }
 
@@ -49,6 +52,7 @@ const config: Config = {
         custom: "1.61 / 1",
         custom1: "3.31 / 1",
         custom2: "0.64 / 1",
+        custom3: "0.51 / 1",
       },
       fontFamily: {
         inter: ["var(--font-inter)"],
@@ -57,9 +61,13 @@ const config: Config = {
         "primary-100": "0px 0px 5px 0px #287A8F",
       },
       backgroundImage: {
-        "gradient-linear": "url('/assets/bg-picture.jpg')",
+        "gradient-linear": "url('/assets/bg-picture.webp')",
+        "gradient-linear-mob": "url('/assets/bg-picture-mob.png')",
         light: "#FFF",
-        hero: "url('/assets/hero-picture.png')",
+        hero: "url('/assets/hero-picture.webp')",
+        "hero-mob": "url('/assets/hero-picture-mob.png')",
+        "nav-gradient":
+          "linear-gradient(to bottom, #1D6782 5%, #175D7533 76%, #3384A600 100%)",
       },
       screens: {
         xs: "420px",

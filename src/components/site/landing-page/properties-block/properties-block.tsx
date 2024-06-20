@@ -4,7 +4,7 @@ export default async function PropertiesBlock({ lang }: { lang: string }) {
   const { t } = await useTranslation(lang);
 
   return (
-    <section className="text-white grid grid-cols-2 grid-rows-2 gap-y-5 gap-x-24 px-[100px] mb-[138px]">
+    <section className="text-white grid grid-cols-2 grid-rows-2 max-xs:grid-cols-1 max-xs:grid-rows-1 gap-y-5 gap-x-24 px-[100px] max-xs:px-[10px] mb-[138px]">
       <div className="row-span-1 flex flex-col gap-[20px]">
         <h3 className="h3">{t("Главное отличие - живая вода")}</h3>
         <p className="base-light">
@@ -26,16 +26,16 @@ export default async function PropertiesBlock({ lang }: { lang: string }) {
 
         <p className="base-light">{t("Источник-текст")}</p>
       </div>
-      <div className="row-span-1 flex gap-20 items-end justify-center">
-        <div className="flex flex-col gap-5">
+      <div className="row-span-1 flex max-xs:flex-col max-xs:items-start max-xs:gap-[20px] gap-20 items-end justify-center">
+        <div className="flex flex-col gap-5 max-xs:gap-[10px] max-xs:w-[60%]">
           <h3 className="h3">{t("3 пробы")}</h3>
           <p className="base-light">
             {t("Было сделано для отбора источника с полезной водой")}
           </p>
         </div>
-        <div className="flex items-end flex-col gap-5">
+        <div className="flex items-end max-xs:items-start max-xs:w-[60%] flex-col gap-5 max-xs:gap-[10px]">
           <h3 className="h3">{t("60 метров")}</h3>
-          <p className="base-light text-end">
+          <p className="base-light text-end max-xs:text-start">
             {t("Глубина источника с наилучшим составом")}
           </p>
         </div>

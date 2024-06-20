@@ -12,29 +12,29 @@ export default async function CampanyBlock({ lang }: { lang: string }) {
   return (
     <section className="text-white relative">
       <Image
-        src="/assets/campany.jpg"
+        src="/assets/campany.webp"
         width={1200}
         height={362}
         alt="капля падает в море"
         className="w-[100vw] h-auto"
       />
 
-      <div className="flex px-[100px] mt-[4.5vw] mb-[150px]">
-        <div className="flex flex-col w-[50%] gap-14">
+      <div className="flex px-[100px] mt-[4.5vw] mb-[150px] max-xs:mb-[60px] max-xs:flex-col-reverse max-xs:px-[10px] max-xs:mt-[-180px] max-xs:gap-[20px]">
+        <div className="flex flex-col w-[50%] gap-14 max-xs:w-[90%]">
           <div className="flex flex-col gap-[20px]">
             <h3 className="h3">{t("О компании")}</h3>
             <p className="base-light">{t("О компании-текст")}</p>
           </div>
 
-          <div className="flex items-center justify-between gap-[31px]">
-            <div className="flex flex-col gap-[20px] flex-1">
+          <div className="flex items-center justify-between gap-[31px] max-xs:flex-col max-xs:items-start">
+            <div className="flex flex-col gap-[20px] max-xs:gap-[10px] max-xs:w-[60%] flex-1">
               <h3 className="h3">{t("11 000 м")}</h3>
               <p className="base-light">
                 {t("Занимает здание производства без учета территории")}
               </p>
             </div>
 
-            <div className="flex flex-col gap-[20px] flex-1">
+            <div className="flex flex-col gap-[20px] max-xs:gap-[10px] max-xs:w-[60%] flex-1">
               <h3 className="h3">{t("2 этажа")}</h3>
               <p className="base-light">
                 {t("Где расположены производство и склад")}
@@ -43,18 +43,18 @@ export default async function CampanyBlock({ lang }: { lang: string }) {
           </div>
         </div>
 
-        <div>
+        <div className="max-xs:w-[100%] max-xs:flex max-xs:justify-center">
           <Image
-            src="/assets/campany-bottle.png"
+            src="/assets/campany-bottle.webp"
             width={402}
             height={632}
             alt="Буталка воды Legend"
-            className="w-[33.5vw] h-auto aspect-custom2 absolute top-[5%] right-[5%]"
+            className="w-[33.5vw] h-auto aspect-custom2 absolute top-[5%] right-[5%] max-xs:relative max-xs:self-center max-xs:w-[70%]"
           />
         </div>
       </div>
 
-      <div className="w-full flex justify-center items-center mb-[150px]">
+      <div className="w-full flex justify-center items-center mb-[150px] max-xs:mb-[60px]">
         <img
           src="/assets/campany-legend.svg"
           alt="Лого Legend"
@@ -64,10 +64,10 @@ export default async function CampanyBlock({ lang }: { lang: string }) {
         />
       </div>
 
-      <div className="px-[100px] pb-[100px]">
-        <h3 className="h3 mb-[40px]">{t("Новости")}</h3>
+      <div className="px-[100px] pb-[100px] max-xs:px-0">
+        <h3 className="h3 mb-[40px] max-xs:px-[10px]">{t("Новости")}</h3>
 
-        <div className="flex justify-between">
+        <div className="flex justify-between max-xs:flex-col max-xs:gap-[40px]">
           {NEWS_CARDS.map(({ src, alt, width, height }, index) => {
             return (
               <CampanyCard

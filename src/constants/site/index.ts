@@ -104,19 +104,19 @@ const STEPS_CARDS = [
 
 const NEWS_CARDS = [
   {
-    src: "/assets/news-1.png",
+    src: "/assets/news-1.webp",
     alt: "news 1",
     width: 300,
     height: 250,
   },
   {
-    src: "/assets/news-2.png",
+    src: "/assets/news-2.webp",
     alt: "news 2",
     width: 300,
     height: 250,
   },
   {
-    src: "/assets/news-3.png",
+    src: "/assets/news-3.webp",
     alt: "news 3",
     width: 300,
     height: 250,
