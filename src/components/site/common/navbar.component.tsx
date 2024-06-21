@@ -43,11 +43,12 @@ export default async function Navbar({ lang }: { lang: string }) {
     >
       <div className="flex-1">
         <div className="flex justify-start gap-[7vw] max-xs:hidden">
-          <LangSwitcher lang={lang}>
+          {/* <LangSwitcher lang={lang}>
             <span className="base-semibold cursor-pointer uppercase">
               ru | uz
             </span>
-          </LangSwitcher>
+          </LangSwitcher> */}
+          <LangSwitcher lang={lang} variant="header" />
           <ul className="flex gap-[2.5vw] base-normal uppercase cursor-pointer">
             {NAVBAR_LEFT.map(({ name, link }, i) => (
               <li key={i}>
@@ -73,7 +74,7 @@ export default async function Navbar({ lang }: { lang: string }) {
           // }`}
           src={`${"/assets/legend-logo.svg"}`}
           alt="Legend logo"
-          className={`max-xs:w-[100px] max-xs:h-auto w-[${DEFAULT_LOGO_SIZE.toString()}vw] h-auto`}
+          className={`max-xs:w-[100px] max-xs:h-auto w-[7.92vw] h-auto`}
         />
       </div>
       <div className="flex flex-1 justify-end gap-[14.4vw]">
@@ -95,7 +96,7 @@ export default async function Navbar({ lang }: { lang: string }) {
           <img
             alt="cart icon"
             src="/assets/cart.svg"
-            className={`max-xs:w-[16px] max-xs:h-[16px] w-[${DEFAULT_ICON_SIZE.toString()}vw] h-[${DEFAULT_ICON_SIZE.toString()}vw]`}
+            className={`max-xs:w-[16px] max-xs:h-[16px] w-[1.42vw] h-[1.42vw]`}
           />
         </span>
       </div>

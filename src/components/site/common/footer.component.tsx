@@ -82,11 +82,12 @@ export default async function Footer({ lang }: { lang: string }) {
         </div>
 
         <div className="flex flex-col gap-[41px] max-xs:gap-[20px]">
-          <LangSwitcher lang={lang}>
+          {/* <LangSwitcher lang={lang}>
             <span className="small-semibold cursor-pointer uppercase text-primary-100">
               ru | uz
             </span>
-          </LangSwitcher>
+          </LangSwitcher> */}
+          <LangSwitcher lang={lang} variant="footer" />
         </div>
       </div>
 

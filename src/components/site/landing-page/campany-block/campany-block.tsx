@@ -12,11 +12,11 @@ export default async function CampanyBlock({ lang }: { lang: string }) {
   return (
     <section className="text-white relative">
       <Image
-        src="/assets/campany.webp"
+        src="/assets/campany-1.webp"
         width={1200}
         height={362}
         alt="капля падает в море"
-        className="w-[100vw] h-auto"
+        className="w-[100vw] h-auto aspect-[1200/362]"
       />
 
       <div className="flex px-[100px] mt-[4.5vw] mb-[150px] max-xs:mb-[60px] max-xs:flex-col-reverse max-xs:px-[10px] max-xs:mt-[-180px] max-xs:gap-[20px]">

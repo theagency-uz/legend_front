@@ -17,7 +17,7 @@ const config: Config = {
       moveupdown: "moveupdown 3s ease-in-out infinite",
     },
     screens: {
-      xs: "320px",
+      xs: "450px",
       // => @media (min-width: 320px) { ... }
 
       sm: "640px",
@@ -53,6 +53,7 @@ const config: Config = {
         custom1: "3.31 / 1",
         custom2: "0.64 / 1",
         custom3: "0.51 / 1",
+        mob: "0.049 / 1",
       },
       fontFamily: {
         inter: ["var(--font-inter)"],
@@ -68,6 +69,7 @@ const config: Config = {
         "hero-mob": "url('/assets/hero-picture-mob.png')",
         "nav-gradient":
           "linear-gradient(to bottom, #1D6782 5%, #175D7533 76%, #3384A600 100%)",
+        mob: "url('/assets/bg-mob.jpg')",
       },
       screens: {
         xs: "420px",
