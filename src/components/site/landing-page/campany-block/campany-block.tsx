@@ -11,15 +11,9 @@ export default async function CampanyBlock({ lang }: { lang: string }) {
 
   return (
     <section className="text-white relative">
-      <Image
-        src="/assets/campany-1.webp"
-        width={1200}
-        height={362}
-        alt="капля падает в море"
-        className="w-[100vw] h-auto aspect-[1200/362]"
-      />
+      <div className="w-full h-auto aspect-[1200/362] bg-campany bg-cover bg-center max-xs:bg-campany-mob max-xs:aspect-[320/246]"></div>
 
-      <div className="flex px-[100px] mt-[4.5vw] mb-[150px] max-xs:mb-[60px] max-xs:flex-col-reverse max-xs:px-[10px] max-xs:mt-[-180px] max-xs:gap-[20px]">
+      <div className="flex px-[100px] mt-[4.5vw] mb-[150px] max-xs:mb-[60px] max-xs:flex-col-reverse max-xs:px-[10px] max-xs:mt-[-250px] max-xs:gap-[20px]">
         <div className="flex flex-col w-[50%] gap-14 max-xs:w-[90%]">
           <div className="flex flex-col gap-[20px]">
             <h3 className="h3">{t("О компании")}</h3>

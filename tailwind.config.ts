@@ -69,7 +69,8 @@ const config: Config = {
         "hero-mob": "url('/assets/hero-picture-mob.png')",
         "nav-gradient":
           "linear-gradient(to bottom, #1D6782 5%, #175D7533 76%, #3384A600 100%)",
-        mob: "url('/assets/bg-mob.jpg')",
+        campany: "url('/assets/campany.webp')",
+        "campany-mob": "url('/assets/campany-mob.webp')",
       },
       screens: {
         xs: "420px",
