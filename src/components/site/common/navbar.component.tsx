@@ -1,45 +1,38 @@
-// "use client";
+"use client";
 
-// import { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 
-import {
-  NAVBAR_RIGHT,
-  NAVBAR_LEFT,
-  DEFAULT_ICON_SIZE,
-  DEFAULT_LOGO_SIZE,
-} from "@/constants/site";
-
-import { useTranslation } from "@/lib/i18n";
+import { NAVBAR_RIGHT, NAVBAR_LEFT, DEFAULT_ICON_SIZE } from "@/constants/site";
 
 import LangSwitcher from "./lang-switcher";
+import NavbarMob from "./navbar-mob.component";
 
-export default async function Navbar({ lang }: { lang: string }) {
-  // const [scrolling, setScrolling] = useState(false);
+import { useTranslation } from "@/lib/i18n/client";
 
-  const { t } = await useTranslation(lang);
+export default function Navbar({ lang }: { lang: string }) {
+  const [scrolling, setScrolling] = useState(false);
 
-  // const handleScroll = function () {
-  //   if (window.scrollY > 20) {
-  //     setScrolling(true);
-  //   } else {
-  //     setScrolling(false);
-  //   }
-  // };
+  const { t } = useTranslation(lang);
 
-  // useEffect(() => {
-  //   window.addEventListener("scroll", handleScroll);
-  //   return () => window.removeEventListener("scroll", handleScroll);
-  // }, []);
+  const handleScroll = function () {
+    if (window.scrollY > 20) {
+      setScrolling(true);
+    } else {
+      setScrolling(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    // <nav
-    //   className={`flex items-center container pt-[1.67vw] fixed top-0 left-0 text-white ${
-    //     scrolling ? "text-primary-100 bg-white pb-[3.25vw]" : ""
-    //   }`}
-    // >
     <nav
-      className={`w-screen flex items-center container pt-[1.67vw] max-xs:pt-[15px] max-xs:pl-[20px] max-xs:pr-[20px] fixed z-50 top-0 left-0 text-white bg-nav-gradient`}
+      className={`w-screen flex items-center bg-primary-200 container pt-[1.67vw] pb-[40px] max-xs:pt-[15px] max-xs:pl-[20px] max-xs:pr-[20px] fixed z-50 top-0 left-0 text-white bg-nav-gradient ${
+        scrolling ? "bg-primary-200" : ""
+      }`}
     >
       <div className="flex-1">
         <div className="flex justify-start gap-[7vw] max-xs:hidden">
@@ -57,13 +50,7 @@ export default async function Navbar({ lang }: { lang: string }) {
             ))}
           </ul>
         </div>
-        <img
-          src="/assets/hamburger.svg"
-          height={16}
-          width={16}
-          alt="Иконка навигации"
-          className="xs:hidden"
-        />
+        <NavbarMob lang={lang} />
       </div>
       <div className="flex-1 flex justify-center cursor-pointer">
         <img
@@ -74,7 +61,7 @@ export default async function Navbar({ lang }: { lang: string }) {
           // }`}
           src={`${"/assets/legend-logo.svg"}`}
           alt="Legend logo"
-          className={`max-xs:w-[100px] max-xs:h-auto w-[7.92vw] h-auto`}
+          className={`max-xs:w-[150px] max-xs:h-auto w-[7.92vw] h-auto`}
         />
       </div>
       <div className="flex flex-1 justify-end gap-[14.4vw]">
@@ -96,7 +83,7 @@ export default async function Navbar({ lang }: { lang: string }) {
           <img
             alt="cart icon"
             src="/assets/cart.svg"
-            className={`max-xs:w-[16px] max-xs:h-[16px] w-[1.42vw] h-[1.42vw]`}
+            className={`max-xs:w-[20px] max-xs:h-[20px] w-[1.42vw] h-[1.42vw]`}
           />
         </span>
       </div>

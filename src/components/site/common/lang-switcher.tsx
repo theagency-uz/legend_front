@@ -66,20 +66,12 @@
 import { usePathname, useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuRadioGroup,
-  DropdownMenuRadioItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-
 export default function LangSwitcher({
   lang,
   variant,
 }: {
   lang: string;
-  variant: "header" | "footer";
+  variant: "header" | "footer" | "nav-mob";
 }) {
   const [langVal, setLang] = useState(lang);
 
@@ -105,6 +97,8 @@ export default function LangSwitcher({
           ? "text-white base-semibold"
           : variant === "footer"
           ? "text-primary-100 small-semibold"
+          : variant === "nav-mob"
+          ? "small-semibold"
           : ""
       }
     >

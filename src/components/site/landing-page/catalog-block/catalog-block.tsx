@@ -6,7 +6,7 @@ import { CATALOG_CARDS } from "@/constants/site";
 
 import { useTranslation } from "@/lib/i18n";
 
-export default async function ({ lang }: { lang: string }) {
+export default async function CatalogBlock({ lang }: { lang: string }) {
   const { t } = await useTranslation(lang);
 
   //aspect-[1200/1932]
