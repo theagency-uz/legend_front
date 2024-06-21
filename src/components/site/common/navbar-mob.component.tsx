@@ -13,12 +13,11 @@ import {
 
 import { NAVBAR_LEFT, NAVBAR_RIGHT } from "@/constants/site";
 
-import { useTranslation } from "@/lib/i18n";
-
 import LangSwitcher from "./lang-switcher";
+import { useTranslation } from "@/lib/i18n/client";
 
-export default async function NavbarMob({ lang }: { lang: string }) {
-  const { t } = await useTranslation(lang);
+export default function NavbarMob({ lang }: { lang: string }) {
+  const { t } = useTranslation(lang);
 
   return (
     <Sheet>
