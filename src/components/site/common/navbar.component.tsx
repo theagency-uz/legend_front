@@ -30,8 +30,8 @@ export default function Navbar({ lang }: { lang: string }) {
 
   return (
     <nav
-      className={`w-screen flex items-center  container pt-[1.67vw] pb-[40px] max-xs:pt-[15px] max-xs:pl-[20px] max-xs:pr-[20px] fixed z-50 top-0 left-0 text-white bg-nav-gradient ${
-        scrolling ? "" : ""
+      className={`w-screen flex items-center  container pt-[1.67vw] pb-[40px] max-xs:pt-[15px] max-xs:pl-[20px] max-xs:pr-[20px] fixed z-50 top-0 left-0 text-white ${
+        scrolling ? "bg-nav-gradient-scrolling" : "bg-nav-gradient"
       }`}
     >
       <div className="flex-1">
@@ -83,7 +83,7 @@ export default function Navbar({ lang }: { lang: string }) {
           <img
             alt="cart icon"
             src="/assets/cart.svg"
-            className={`max-xs:w-[20px] max-xs:h-[20px] w-[1.42vw] h-[1.42vw]`}
+            className={`max-xs:w-[25px] max-xs:h-[25px] w-[1.42vw] h-[1.42vw]`}
           />
         </span>
       </div>

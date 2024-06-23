@@ -24,8 +24,8 @@ export default function NavbarMob({ lang }: { lang: string }) {
       <SheetTrigger asChild>
         <img
           src="/assets/hamburger.svg"
-          height={20}
-          width={20}
+          height={25}
+          width={25}
           alt="Иконка навигации"
           className="xs:hidden"
         />
@@ -41,7 +41,7 @@ export default function NavbarMob({ lang }: { lang: string }) {
             >
               <div className="flex-1 flex justify-start">
                 <SheetClose>
-                  <X className="h-[20px] w-[20px]" />
+                  <X className="h-[25px] w-[25px]" />
                 </SheetClose>
               </div>
               <div className="flex-1 justify-center cursor-pointer">
@@ -55,7 +55,7 @@ export default function NavbarMob({ lang }: { lang: string }) {
                 <img
                   alt="cart icon"
                   src="/assets/cart.svg"
-                  className={`w-[20px] h-[20px]`}
+                  className={`w-[25px] h-[25px]`}
                 />
               </div>
             </nav>
@@ -73,7 +73,7 @@ export default function NavbarMob({ lang }: { lang: string }) {
               <ul className="flex gap-[20px]">
                 {NAVBAR_RIGHT.map(({ src, alt }, i) => (
                   <li className="cursor-pointer" key={i}>
-                    <img src={src} alt={alt} className="w-[20px] h-[20px]" />
+                    <img src={src} alt={alt} className="w-[25px] h-[25px]" />
                   </li>
                 ))}
               </ul>
@@ -82,7 +82,6 @@ export default function NavbarMob({ lang }: { lang: string }) {
             </div>
           </SheetDescription>
         </SheetHeader>
-        <div className="grid gap-4 py-4"></div>
       </SheetContent>
     </Sheet>
   );

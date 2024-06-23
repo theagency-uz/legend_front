@@ -1,18 +1,14 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // i18n: {
-  //   locales: ["ru", "uz"],
-  //   defaultLocale: "ru",
-  // },
-  // async redirects() {
-  //   return [
-  //     {
-  //       source: "/",
-  //       destination: "/lang",
-  //       permanent: true,
-  //     },
-  //   ];
-  // },
+  async redirects() {
+    return [
+      {
+        source: "/",
+        destination: "/ru",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

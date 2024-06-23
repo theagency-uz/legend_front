@@ -72,9 +72,11 @@ const config: Config = {
           "linear-gradient(to bottom, transparent 90%, #3C899C 100%), url('/assets/hero-picture-mob.webp')",
         "nav-gradient":
           "linear-gradient(to bottom, #1D6782 5%, #175D7533 76%, #3384A600 100%)",
+        "nav-gradient-scrolling":
+          "linear-gradient(to bottom, #1D6782 5%, #175D7533 76%, #3384A600 100%)",
         campany: "url('/assets/campany.webp')",
         "campany-mob": "url('/assets/campany-mob.webp')",
-        "nav-mob": "linear-gradient(to bottom, #3C899C 28%, #216070 76%)"
+        "nav-mob": "linear-gradient(to bottom, #3C899C 28%, #216070 76%)",
       },
       screens: {
         xs: "420px",
