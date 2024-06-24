@@ -32,7 +32,7 @@ export default function NavbarMob({ lang }: { lang: string }) {
       </SheetTrigger>
       <SheetContent
         side="left"
-        className="text-white w-full border-none bg-nav-mob"
+        className="text-white w-full border-none bg-nav-mob aspect-[320/736] bg-cover bg-center overflow-y-scroll"
       >
         <SheetHeader>
           <SheetTitle>
@@ -60,7 +60,7 @@ export default function NavbarMob({ lang }: { lang: string }) {
               </div>
             </nav>
           </SheetTitle>
-          <SheetDescription className="h-[90vh] flex flex-col items-center justify-evenly">
+          <SheetDescription className="h-[90vh] flex flex-col items-center justify-between pt-[90px] pb-[50px]">
             <ul className="flex flex-col justify-center gap-[30px] h3 uppercase cursor-pointer">
               {NAVBAR_LEFT.map(({ name, link }, i) => (
                 <li key={i}>
@@ -73,7 +73,7 @@ export default function NavbarMob({ lang }: { lang: string }) {
               <ul className="flex gap-[20px]">
                 {NAVBAR_RIGHT.map(({ src, alt }, i) => (
                   <li className="cursor-pointer" key={i}>
-                    <img src={src} alt={alt} className="w-[25px] h-[25px]" />
+                    <img src={src} alt={alt} className="w-[30px] h-[30px]" />
                   </li>
                 ))}
               </ul>
