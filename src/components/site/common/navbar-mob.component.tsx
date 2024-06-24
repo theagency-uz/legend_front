@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 import { X } from "lucide-react";
 import {
@@ -18,6 +19,8 @@ import { useTranslation } from "@/lib/i18n/client";
 
 export default function NavbarMob({ lang }: { lang: string }) {
   const { t } = useTranslation(lang);
+
+  const path = usePathname().slice(0, 3);
 
   return (
     <Sheet>
@@ -64,7 +67,7 @@ export default function NavbarMob({ lang }: { lang: string }) {
             <ul className="flex flex-col justify-center gap-[30px] h3 uppercase cursor-pointer">
               {NAVBAR_LEFT.map(({ name, link }, i) => (
                 <li key={i}>
-                  <Link href={`${lang}${link}`}>{t(name)}</Link>
+                  <Link href={`${path}${link}`}>{t(name)}</Link>
                 </li>
               ))}
             </ul>

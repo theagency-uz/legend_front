@@ -19,6 +19,10 @@
     @apply xl:text-[0.83vw] text-[10px] font-light leading-[150%] tracking-widest;
   }
 
+  .base-normal-nospacing {
+    @apply xl:text-[0.83vw] text-[10px] font-light leading-[150%];
+  }
+
   .medium-normal-nospacing {
     @apply xl:text-[1.17vw] text-[14px] font-light leading-[150%];
   }
@@ -27,12 +31,24 @@
     @apply xl:text-[1vw] text-[12px] font-light leading-[150%] tracking-widest;
   }
 
+  .medium-normal-nospacing {
+    @apply xl:text-[1vw] text-[12px] font-light leading-[150%];
+  }
+
   .large-normal {
     @apply xl:text-[2.08vw] text-[25px] font-light leading-[150%] tracking-[5px];
   }
 
   .base-medium {
-    @apply xl:text-[150%] text-[20px] font-light leading-[1.5vw] tracking-[-1px];
+    @apply xl:text-[1.67vw] text-[20px] font-light leading-[100%] tracking-[-1px];
+  }
+
+  .large-medium {
+    @apply xl:text-[1.83vw] text-[22px] font-light leading-[100%] tracking-[-1px];
+  }
+
+  .large-medium-90 {
+    @apply xl:text-[1.83vw] text-[22px] font-light leading-[90%] tracking-[-1px];
   }
 
   .small-semibold {
@@ -49,6 +65,10 @@
 
   .h1 {
     @apply xl:text-[1.33vw] text-[14px] font-light leading-[150%] tracking-[0.083vw];
+  }
+
+  .h2 {
+    @apply xl:text-[3.33vw] text-[40px] font-light leading-[90%] tracking-[-2px];
   }
 
   .h3 {

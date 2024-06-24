@@ -1,0 +1,65 @@
+import { useTranslation } from "@/lib/i18n";
+import Image from "next/image";
+
+export default async function CatalogCard({
+  imgSrc,
+  alt,
+  title,
+  volume,
+  cost,
+  lang,
+}: {
+  imgSrc: string;
+  alt: string;
+  title: string;
+  volume: string | number;
+  cost: string | number;
+  lang: string;
+}) {
+  const { t } = await useTranslation(lang);
+
+  return (
+    <div className="bg-catalog-card w-[21.67vw] h-[40.83vw] rounded-[10px] max-xs:w-full max-xs:h-auto">
+      <div className="rounded-[10px] text-white p-[26px] w-full h-full backdrop-blur-[15px] max-xs:backdrop-blur-[5px]">
+        <div className="flex flex-col h-full gap-[10px]">
+          <div className="h-[70%] flex justify-center items-center">
+            <Image
+              src={imgSrc}
+              alt={alt}
+              width={150}
+              height={313}
+              className="self-center w-[10vw] h-auto max-xs:w-1/3"
+            />
+          </div>
+
+          <div className="flex flex-col gap-[35px]">
+            <div className="flex flex-col gap-[5px]">
+              <span className="medium-normal-nospacing">{volume}</span>
+              <h3 className="large-medium">{title}</h3>
+            </div>
+
+            <div className="flex justify-between">
+              <div className="flex flex-col gap-[5px]">
+                <span className="large-medium-90">{cost}</span>
+                <span className="base-normal-nospacing uppercase">
+                  {t("сум / блок")}
+                </span>
+              </div>
+
+              <div className="flex flex-col items-center gap-[5px] justify-between cursor-pointer">
+                <img
+                  alt="cart icon"
+                  src="/assets/cart.svg"
+                  className={`w-[25px] h-[25px]`}
+                />
+                <span className="base-normal-nospacing uppercase">
+                  {t("в корзину")}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}

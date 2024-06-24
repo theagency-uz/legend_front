@@ -77,6 +77,10 @@ const config: Config = {
         campany: "url('/assets/campany.webp')",
         "campany-mob": "url('/assets/campany-mob.webp')",
         "nav-mob": "url('/assets/nav-mob.webp')",
+        catalog: "url('/assets/bg-catalog.webp')",
+        "catalog-mob": "url('/assets/bg-catalog-mob.webp')",
+        "catalog-card":
+          "linear-gradient(to bottom right, #FFFFFF44 0%, #4A8FA144 53%, #34738444 100%)",
       },
       screens: {
         xs: "420px",
