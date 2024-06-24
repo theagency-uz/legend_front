@@ -33,8 +33,12 @@ export function Filter({ lang }: { lang: string }) {
         <div className="flex flex-col gap-[0.83vw]">
           <h3>{i18n.t("Материал")}</h3>
           <div className="flex flex-col gap-[0.67vw]">
-            {filters.slice(0, 2).map(({ filterVal }) => (
-              <CheckboxCustom filterVal={filterVal} id={filterVal} />
+            {filters.slice(0, 2).map(({ filterVal }, index) => (
+              <CheckboxCustom
+                key={index}
+                filterVal={filterVal}
+                id={filterVal}
+              />
             ))}
           </div>
         </div>
@@ -42,8 +46,12 @@ export function Filter({ lang }: { lang: string }) {
         <div className="flex flex-col gap-[0.83vw]">
           <h3>{i18n.t("Литраж")}</h3>
           <div className="flex flex-col gap-[0.67vw]">
-            {filters.slice(2).map(({ filterVal }) => (
-              <CheckboxCustom filterVal={filterVal} id={filterVal} />
+            {filters.slice(2).map(({ filterVal }, index) => (
+              <CheckboxCustom
+                key={index}
+                filterVal={filterVal}
+                id={filterVal}
+              />
             ))}
           </div>
         </div>

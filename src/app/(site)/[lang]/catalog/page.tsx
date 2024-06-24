@@ -114,7 +114,13 @@ export default async function Catalog({
           </BreadcrumbList>
         </Breadcrumb>
 
-        <h2 className="uppercase h2">{t("Вода")}</h2>
+        <div className="flex justify-between">
+          <h2 className="uppercase h2">{t("Вода")}</h2>
+          <h3 className="flex items-center gap-[1.08vw] xs:hidden">
+            <img src="/assets/filter.svg" width={16} height={16} />{" "}
+            <span>{t("Фильтры")}</span>
+          </h3>
+        </div>
       </div>
 
       <div className="flex gap-[1vw] max-xs:flex-col">

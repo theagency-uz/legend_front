@@ -6,7 +6,6 @@ import {
   Sheet,
   SheetClose,
   SheetContent,
-  SheetDescription,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
@@ -63,7 +62,7 @@ export default function NavbarMob({ lang }: { lang: string }) {
               </div>
             </nav>
           </SheetTitle>
-          <SheetDescription className="h-[90vh] flex flex-col items-center justify-between pt-[90px] pb-[50px]">
+          <div className="h-[90vh] flex flex-col items-center justify-between pt-[90px] pb-[50px]">
             <ul className="flex flex-col justify-center gap-[30px] h3 uppercase cursor-pointer">
               {NAVBAR_LEFT.map(({ name, link }, i) => (
                 <li key={i}>
@@ -83,7 +82,7 @@ export default function NavbarMob({ lang }: { lang: string }) {
 
               <LangSwitcher lang={lang} variant="nav-mob" />
             </div>
-          </SheetDescription>
+          </div>
         </SheetHeader>
       </SheetContent>
     </Sheet>
