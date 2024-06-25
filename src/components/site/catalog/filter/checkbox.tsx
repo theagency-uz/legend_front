@@ -8,7 +8,7 @@ export default function CheckboxCustom({
   id: string;
 }) {
   return (
-    <div className="flex items-center gap-[0.83vw]">
+    <div className="flex items-center gap-[0.83vw] max-xs:gap-[10px]">
       <Checkbox id={id} />
       <label htmlFor={id} className="medium-normal-nospacing">
         {filterVal}

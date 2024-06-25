@@ -81,6 +81,8 @@ const config: Config = {
         "catalog-mob": "url('/assets/bg-catalog-mob.webp')",
         "catalog-card":
           "linear-gradient(to bottom right, #FFFFFF44 0%, #4A8FA144 53%, #34738444 100%)",
+        "filter-mob":
+          "linear-gradient(to bottom right, #22779244 0%, #4A8FA144 26%, #143F4B66 65%)",
       },
       screens: {
         xs: "420px",

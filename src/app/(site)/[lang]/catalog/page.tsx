@@ -9,9 +9,10 @@ import {
 } from "@/components/ui/breadcrumb";
 
 import CatalogCard from "@/components/site/catalog/card/card";
-import { Filter } from "@/components/site/catalog/filter/filter";
+import Filter from "@/components/site/catalog/filter/filter";
 
 import { useTranslation } from "@/lib/i18n";
+import { FilterMob } from "@/components/site/catalog/filter/filter-mob";
 
 const products = [
   {
@@ -88,7 +89,7 @@ export default async function Catalog({
   const { t } = await useTranslation(lang);
 
   return (
-    <main className="px-[100px] py-[11.83vw] max-xs:py-[28vw] w-full h-auto bg-catalog bg-center bg-cover aspect-[1200/1942] text-white max-xs:px-[10px] max-xs:bg-catalog-mob max-xs:aspect-[442/1878] max-xs:bg-top max-xs:bg-fixed">
+    <main className="px-[100px] py-[11.83vw] max-xs:py-[28vw] w-full h-auto bg-catalog bg-cover aspect-[1200/1942] text-white max-xs:px-[10px] max-xs:bg-catalog-mob max-xs:aspect-[442/1878] bg-top bg-fixed">
       <div className="flex flex-col gap-[50px] mb-[3.92vw] max-xs:mb-[19vw]">
         <Breadcrumb>
           <BreadcrumbList>
@@ -116,10 +117,7 @@ export default async function Catalog({
 
         <div className="flex justify-between">
           <h2 className="uppercase h2">{t("Вода")}</h2>
-          <h3 className="flex items-center gap-[1.08vw] xs:hidden">
-            <img src="/assets/filter.svg" width={16} height={16} />{" "}
-            <span>{t("Фильтры")}</span>
-          </h3>
+          <FilterMob lang={lang} />
         </div>
       </div>
 

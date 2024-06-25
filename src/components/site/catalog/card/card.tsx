@@ -20,7 +20,7 @@ export default async function CatalogCard({
 
   return (
     <div className="bg-catalog-card w-[21.67vw] h-[40.83vw] rounded-[10px] max-xs:w-full max-xs:h-auto">
-      <div className="rounded-[10px] text-white p-[26px] w-full h-full backdrop-blur-[15px] max-xs:backdrop-blur-[5px]">
+      <div className="rounded-[10px] text-white p-[26px] w-full h-full backdrop-blur-[5px]">
         <div className="flex flex-col h-full gap-[10px]">
           <div className="h-[70%] flex justify-center items-center">
             <Image
