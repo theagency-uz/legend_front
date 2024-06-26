@@ -1,13 +1,20 @@
-import { useTranslation } from "@/lib/i18n";
-import Image from "next/image";
+"use client";
 
-export default async function CatalogCard({
+import Image from "next/image";
+import Link from "next/link";
+
+import { useTranslation } from "@/lib/i18n/client";
+
+import { usePathname } from "next/navigation";
+
+export default function CatalogCard({
   imgSrc,
   alt,
   title,
   volume,
   cost,
   lang,
+  slug
 }: {
   imgSrc: string;
   alt: string;
@@ -15,11 +22,16 @@ export default async function CatalogCard({
   volume: string | number;
   cost: string | number;
   lang: string;
+  slug: string;
 }) {
-  const { t } = await useTranslation(lang);
+  const { i18n } = useTranslation(lang);
+  const path = usePathname();
 
   return (
-    <div className="bg-catalog-card w-[21.67vw] h-[40.83vw] rounded-[10px] max-xs:w-full max-xs:h-auto">
+    <Link
+      href={`${path}/${slug}`}
+      className="bg-catalog-card w-[21.67vw] h-[40.83vw] rounded-[10px] max-xs:w-full max-xs:h-auto cursor-pointer"
+    >
       <div className="rounded-[10px] text-white p-[26px] w-full h-full backdrop-blur-[5px]">
         <div className="flex flex-col h-full gap-[10px]">
           <div className="h-[70%] flex justify-center items-center">
@@ -42,7 +54,7 @@ export default async function CatalogCard({
               <div className="flex flex-col gap-[5px]">
                 <span className="large-medium-90">{cost}</span>
                 <span className="base-normal-nospacing uppercase">
-                  {t("сум / блок")}
+                  {i18n.t("сум / блок")}
                 </span>
               </div>
 
@@ -53,13 +65,13 @@ export default async function CatalogCard({
                   className={`w-[25px] h-[25px]`}
                 />
                 <span className="base-normal-nospacing uppercase">
-                  {t("в корзину")}
+                  {i18n.t("в корзину")}
                 </span>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }

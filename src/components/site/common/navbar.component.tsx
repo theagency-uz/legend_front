@@ -45,7 +45,7 @@ export default function Navbar({ lang }: { lang: string }) {
           <ul className="flex gap-[2.5vw] base-normal uppercase cursor-pointer">
             {NAVBAR_LEFT.map(({ name, link }, i) => (
               <li key={i}>
-                <Link href={`${lang}${link}`}>{t(name)}</Link>
+                <Link href={`/${lang}${link}`}>{t(name)}</Link>
               </li>
             ))}
           </ul>
@@ -53,16 +53,18 @@ export default function Navbar({ lang }: { lang: string }) {
         <NavbarMob lang={lang} />
       </div>
       <div className="flex-1 flex justify-center cursor-pointer">
-        <img
-          // src={`${
-          //   scrolling
-          //     ? "/assets/legend-logo-blue.svg"
-          //     : "/assets/legend-logo.svg"
-          // }`}
-          src={`${"/assets/legend-logo.svg"}`}
-          alt="Legend logo"
-          className={`max-xs:w-[150px] max-xs:h-auto w-[7.92vw] h-auto`}
-        />
+        <Link href={`/${lang}`}>
+          <img
+            // src={`${
+            //   scrolling
+            //     ? "/assets/legend-logo-blue.svg"
+            //     : "/assets/legend-logo.svg"
+            // }`}
+            src={`${"/assets/legend-logo.svg"}`}
+            alt="Legend logo"
+            className={`max-xs:w-[150px] max-xs:h-auto w-[7.92vw] h-auto`}
+          />
+        </Link>
       </div>
       <div className="flex flex-1 justify-end gap-[14.4vw]">
         <ul className="flex gap-[1.67vw] max-xs:hidden">

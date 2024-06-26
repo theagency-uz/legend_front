@@ -10,7 +10,7 @@ export default async function Footer({ lang }: { lang: string }) {
   const { t } = await useTranslation(lang);
 
   return (
-    <footer className="px-[100px] py-[50px] max-xs:px-[10px]">
+    <footer className="px-[100px] py-[50px] max-xs:px-[10px] bg-white">
       <div className="flex justify-between mb-[4.67vw] max-xs:flex-col max-xs:gap-[40px]">
         <div className="flex flex-col gap-[41px] justify-between">
           <img

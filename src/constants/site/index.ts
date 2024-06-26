@@ -159,6 +159,97 @@ const DEFAULT_VIEWPORT_WIDTH = 1200;
 
 const MOBILE_SIZE = 450;
 
+const PRODUCTS = [
+  {
+    title: "Вода в пластиковой бутылке",
+    description:
+      "Минеральная артезианская питьевая вода без газа для ежедневного приёма взрослым и детям.",
+    slug: "voda",
+    imgSrc: "/assets/cat-1.png",
+    alt: "Вода в пластиковой бутылке",
+    volume: "0.33 л",
+    cost: "500 000",
+    material: "plastic",
+  },
+  {
+    title: "Вода в пластиковой бутылке",
+    description:
+      "Минеральная артезианская питьевая вода без газа для ежедневного приёма взрослым и детям.",
+    slug: "voda",
+    imgSrc: "/assets/cat-2.png",
+    alt: "Вода в пластиковой бутылке",
+    volume: "0.33 л",
+    cost: "500 000",
+    material: "plastic",
+  },
+  {
+    title: "Вода в пластиковой бутылке",
+    description:
+      "Минеральная артезианская питьевая вода без газа для ежедневного приёма взрослым и детям.",
+    slug: "voda",
+    imgSrc: "/assets/cat-3.png",
+    alt: "Вода в пластиковой бутылке",
+    volume: "0.33 л",
+    cost: "500 000",
+    material: "plastic",
+  },
+  {
+    title: "Вода в пластиковой бутылке",
+    description:
+      "Минеральная артезианская питьевая вода без газа для ежедневного приёма взрослым и детям.",
+    slug: "voda",
+    imgSrc: "/assets/cat-1.png",
+    alt: "Вода в пластиковой бутылке",
+    volume: "0.33 л",
+    cost: "500 000",
+    material: "plastic",
+  },
+  {
+    title: "Вода в пластиковой бутылке",
+    description:
+      "Минеральная артезианская питьевая вода без газа для ежедневного приёма взрослым и детям.",
+    slug: "voda",
+    imgSrc: "/assets/cat-2.png",
+    alt: "Вода в пластиковой бутылке",
+    volume: "0.33 л",
+    cost: "500 000",
+    material: "glass",
+  },
+  {
+    title: "Вода в пластиковой бутылке",
+    description:
+      "Минеральная артезианская питьевая вода без газа для ежедневного приёма взрослым и детям.",
+    slug: "voda",
+    imgSrc: "/assets/cat-3.png",
+    alt: "Вода в пластиковой бутылке",
+    volume: "0.33 л",
+    cost: "500 000",
+    material: "glass",
+  },
+  {
+    title: "Вода в пластиковой бутылке",
+    description:
+      "Минеральная артезианская питьевая вода без газа для ежедневного приёма взрослым и детям.",
+    slug: "voda",
+    imgSrc: "/assets/cat-1.png",
+    alt: "Вода в пластиковой бутылке",
+    volume: "0.33 л",
+    cost: "500 000",
+    material: "glass",
+  },
+  {
+    title: "Вода в пластиковой бутылке",
+    description:
+      "Минеральная артезианская питьевая вода без газа для ежедневного приёма взрослым и детям.",
+    slug: "voda",
+    imgSrc: "/assets/cat-2.png",
+    alt: "Вода в пластиковой бутылке",
+    volume: "0.33 л",
+    cost: "500 000",
+    material: "glass",
+  },
+];
+
 export {
   NAVBAR_LEFT,
   NAVBAR_RIGHT,
@@ -171,4 +262,5 @@ export {
   FOOTER_CATALOG_LINKS,
   FOOTER_MENU_LINKS,
   MOBILE_SIZE,
+  PRODUCTS,
 };
