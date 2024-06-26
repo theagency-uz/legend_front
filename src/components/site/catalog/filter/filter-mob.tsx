@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Sheet,
   SheetClose,
@@ -5,27 +7,34 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+
 import { X } from "lucide-react";
 
-import { useTranslation } from "@/lib/i18n";
+import { useTranslation } from "@/lib/i18n/client";
 
-import Filter from "./filter";
 import Navbar from "../../common/navbar.component";
+import FilterContent from "./filter-content";
 
-export async function FilterMob({ lang }: { lang: string }) {
-  const { t } = await useTranslation(lang);
+import useWindowSize from "@/hooks/useWindowSize";
 
-  return (
+import { MOBILE_SIZE } from "@/constants/site";
+
+export function FilterMob({ lang }: { lang: string }) {
+  const { i18n } = useTranslation(lang);
+
+  const windowSize = useWindowSize();
+
+  return (windowSize.width ?? 0) <= MOBILE_SIZE ? (
     <Sheet>
       <SheetTrigger asChild>
-        <h3 className="flex items-center gap-[1.08vw] xs:hidden">
+        <h3 className="flex items-center gap-[1.08vw]">
           <img
             src="/assets/filter.svg"
             width={16}
             height={16}
-            className="max-xs:w-[4.69vw] max-xs:h-[4.69vw]"
+            className="w-[4.69vw] h-[4.69vw]"
           />{" "}
-          <span>{t("Фильтры")}</span>
+          <span>{i18n.t("Фильтры")}</span>
         </h3>
       </SheetTrigger>
       <SheetContent className="text-white w-full border-none bg-nav-mob aspect-[320/736] bg-cover bg-center overflow-y-scroll">
@@ -33,14 +42,16 @@ export async function FilterMob({ lang }: { lang: string }) {
           <Navbar lang={lang} />
         </SheetTitle>
 
-        <div className="max-xs:p-[22px] mx-[10px] mt-[80px] max-xs:bg-filter-mob max-xs:rounded-xl ">
-          <Filter lang={lang}>
-            <SheetClose asChild>
-              <X className="h-[25px] w-[25px]" />
-            </SheetClose>
-          </Filter>
+        <div className="p-[22px] mx-[10px] mt-[80px] bg-filter-mob rounded-xl">
+          <div className="w-full h-full backdrop-blur-[5px]">
+            <FilterContent lang={lang}>
+              <SheetClose asChild>
+                <X className="h-[25px] w-[25px]" />
+              </SheetClose>
+            </FilterContent>
+          </div>
         </div>
       </SheetContent>
     </Sheet>
-  );
+  ) : null;
 }

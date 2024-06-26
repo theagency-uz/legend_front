@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+const defaultTheme = require("tailwindcss/defaultTheme");
 
 const config: Config = {
   content: [
@@ -7,6 +8,10 @@ const config: Config = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    screens: {
+      xs: "450px",
+      ...defaultTheme.screens,
+    },
     keyframes: {
       moveupdown: {
         "0%, 100%": { transform: "translateY(0px)" },
@@ -15,25 +20,6 @@ const config: Config = {
     },
     animation: {
       moveupdown: "moveupdown 3s ease-in-out infinite",
-    },
-    screens: {
-      xs: "450px",
-      // => @media (min-width: 320px) { ... }
-
-      sm: "640px",
-      // => @media (min-width: 640px) { ... }
-
-      md: "768px",
-      // => @media (min-width: 768px) { ... }
-
-      lg: "1024px",
-      // => @media (min-width: 1024px) { ... }
-
-      xl: "1200px",
-      // => @media (min-width: 1200px) { ... }
-
-      "2xl": "1536px",
-      // => @media (min-width: 1536px) { ... }
     },
     container: {
       center: true,
