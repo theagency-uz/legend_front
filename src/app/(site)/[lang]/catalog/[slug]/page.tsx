@@ -12,12 +12,15 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { Button } from "@/components/ui/button";
+
+import ProductGallery from "@/components/site/product/product-gallery";
+import ProductVolumeDropdown from "@/components/site/product/product-volume-dropdown";
+import ProductCount from "@/components/site/common/product-count";
 
 import { useTranslation } from "@/lib/i18n";
 
 import { PRODUCTS } from "@/constants/site";
-import Image from "next/image";
-import { Button } from "@/components/ui/button";
 
 export default async function Product({
   params: { lang, slug },
@@ -68,23 +71,21 @@ export default async function Product({
       </div>
 
       <section className="flex justify-end gap-[18vw] items-center mb-[4.5vw]">
-        <div>
-          <Image
-            src={"/assets/p1.webp"}
-            alt={product?.alt ?? ""}
-            width={204}
-            height={427}
-            className="w-[17vw] h-auto"
-          />
+        <div className="w-[40%]">
+          <ProductGallery />
         </div>
 
-        <div className="flex flex-col w-[40%] gap-[4vw]">
-          <h2 className="h3">{product?.title}</h2>
+        <div className="flex flex-col w-[50%] gap-[4vw]">
+          <div className="flex flex-col gap-[1.42vw]">
+            <h2 className="h3">{product?.title}</h2>
+            <ProductVolumeDropdown />
+          </div>
 
-          <div>
+          <div className="flex flex-col gap-[1.08vw]">
             <p className="h1 leading-[110%] tracking-[-1px]">
               {product?.description}
             </p>
+            <ProductCount lang={lang} />
           </div>
 
           <div className="flex justify-between">

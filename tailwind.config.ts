@@ -43,6 +43,7 @@ const config: Config = {
         primary: {
           100: "#285F71",
           200: "#3C899C",
+          300: "#4B90A2"
         },
       },
       aspectRatio: {
