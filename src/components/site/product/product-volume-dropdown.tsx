@@ -15,11 +15,11 @@ export default function ProductVolumeDropdown() {
     <DropdownMenu modal={false}>
       <DropdownMenuTrigger asChild>
         <Button className="w-fit py-[1px] px-[20px] text-primary-300 flex justify-between items-center gap-[15px]">
-          <span className="small-semibold">0.33 л</span>
-          <ChevronDown />
+          <span className="small-semibold tracking-tighter">0.33 л</span>
+          <ChevronDown width={20} />
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="bg-white border-white p-2 text-black">
+      <DropdownMenuContent className="bg-white border-white p-2 text-primary-300">
         <DropdownMenuRadioGroup>
           <DropdownMenuRadioItem
             className="hover:bg-slate-100 cursor-pointer small-semibold"

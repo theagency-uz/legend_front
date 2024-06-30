@@ -47,13 +47,15 @@ export default function NavbarMob({ lang }: { lang: string }) {
                 </SheetClose>
               </div>
               <div className="flex-1 justify-center cursor-pointer">
-                <Link href={`/${lang}`}>
-                  <img
-                    src={`${"/assets/legend-logo.svg"}`}
-                    alt="Legend logo"
-                    className={`w-[150px] h-auto`}
-                  />
-                </Link>
+                <SheetTrigger asChild>
+                  <Link href={`/${lang}`}>
+                    <img
+                      src={`${"/assets/legend-logo.svg"}`}
+                      alt="Legend logo"
+                      className={`w-[150px] h-auto`}
+                    />
+                  </Link>
+                </SheetTrigger>
               </div>
               <div className="flex-1 flex justify-end cursor-pointer">
                 <img

@@ -5,8 +5,13 @@ import {
   SwiperSlide,
 } from "@/components/site/common/slider/slider.component";
 
+import useWindowSize from "@/hooks/useWindowSize";
+import { MOBILE_SIZE } from "@/constants/site";
+
 export default function CarouselThumbs({ gallery, setThumbsSwiper }) {
-  return (
+  const windowSize = useWindowSize();
+
+  return windowSize.width > MOBILE_SIZE ? (
     <Swiper
       freeMode={true}
       onSwiper={setThumbsSwiper}
@@ -27,5 +32,5 @@ export default function CarouselThumbs({ gallery, setThumbsSwiper }) {
         </SwiperSlide>
       ))}
     </Swiper>
-  );
+  ) : null;
 }

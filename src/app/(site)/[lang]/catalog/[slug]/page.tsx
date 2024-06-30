@@ -32,7 +32,7 @@ export default async function Product({
   const product = PRODUCTS.find((p) => p.slug === slug);
 
   return (
-    <main className="px-[11.75vw] py-[11.83vw] max-xs:py-[28vw] w-full h-auto bg-product bg-cover text-white max-xs:px-[10px] max-xs:bg-catalog-mob max-xs:aspect-[442/1878] bg-top bg-fixed">
+    <main className="px-[11.75vw] py-[11.83vw] max-xs:py-[28vw] w-full h-auto bg-product bg-cover text-white max-xs:px-[10px] max-xs:bg-catalog-mob bg-top bg-fixed">
       <div className="flex flex-col gap-[50px] mb-[3.92vw] max-xs:mb-[19vw]">
         <Breadcrumb>
           <BreadcrumbList>
@@ -70,12 +70,12 @@ export default async function Product({
         </Breadcrumb>
       </div>
 
-      <section className="flex justify-end gap-[18vw] items-center mb-[4.5vw]">
-        <div className="w-[40%]">
+      <section className="flex justify-end gap-[18vw] items-center mb-[4.5vw] max-xs:flex-col">
+        <div className="w-[40%] max-xs:w-full">
           <ProductGallery />
         </div>
 
-        <div className="flex flex-col w-[50%] gap-[4vw]">
+        <div className="flex flex-col w-[50%] gap-[4vw] max-xs:w-full">
           <div className="flex flex-col gap-[1.42vw]">
             <h2 className="h3">{product?.title}</h2>
             <ProductVolumeDropdown />
@@ -106,8 +106,8 @@ export default async function Product({
         <Accordion defaultValue="item-1" type="single" collapsible>
           <AccordionItem value="item-1" className="border-t">
             <AccordionTrigger>{t("Состав и характеристики")}</AccordionTrigger>
-            <AccordionContent>
-              <div className="row-span-1 flex flex-col gap-[14px] w-2/4">
+            <AccordionContent className="w-2/4 max-xs:w-full">
+              <div className="row-span-1 flex flex-col gap-[14px]">
                 <p className="small-normal-nospacing">
                   {t("Основной состав, мг/л:")}
                 </p>
@@ -128,7 +128,7 @@ export default async function Product({
         <Accordion defaultValue="item-2" type="single" collapsible>
           <AccordionItem value="item-2">
             <AccordionTrigger>{t("Оплата и доставка")}</AccordionTrigger>
-            <AccordionContent className="w-[50%]">
+            <AccordionContent className="w-[50%] max-xs:w-full">
               {t("Оплата и доставка (текст)")}
             </AccordionContent>
           </AccordionItem>
