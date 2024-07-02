@@ -21,6 +21,7 @@ import ProductCount from "@/components/site/common/product-count";
 import { useTranslation } from "@/lib/i18n";
 
 import { PRODUCTS } from "@/constants/site";
+import Link from "next/link";
 
 export default async function Product({
   params: { lang, slug },
@@ -76,12 +77,12 @@ export default async function Product({
         </div>
 
         <div className="flex flex-col w-[50%] gap-[4vw] max-xs:w-full">
-          <div className="flex flex-col gap-[1.42vw]">
+          <div className="flex flex-col gap-[1.42vw] max-xs:gap-[20px]">
             <h2 className="h3">{product?.title}</h2>
             <ProductVolumeDropdown />
           </div>
 
-          <div className="flex flex-col gap-[1.08vw]">
+          <div className="flex flex-col gap-[1.08vw] max-xs:gap-[31px] max-xs:mb-[41px]">
             <p className="h1 leading-[110%] tracking-[-1px]">
               {product?.description}
             </p>
@@ -96,7 +97,7 @@ export default async function Product({
               </span>
             </div>
             <Button className="px-[2.75vw] py-[0.083vw] base-normal-nospacing">
-              {t("Заказать")}
+              <Link href={`/${lang}/checkout`}>{t("Заказать")}</Link>
             </Button>
           </div>
         </div>

@@ -1,6 +1,9 @@
 .swiper {
   width: 100%;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
 }
 
 .swiper-slide {
@@ -56,4 +59,29 @@
 
 .mySwiper .swiper-wrapper {
   flex-direction: column;
+}
+
+.swiper-pagination {
+  position: relative;
+  display: none;
+}
+
+.swiper-pagination-bullet {
+  background-color: #5dabbd;
+  width: 13px;
+  height: 13px;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #fff;
+}
+
+@media not all and (min-width: 420px) {
+  .swiper-pagination {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
 }
