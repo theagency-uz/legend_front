@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import { Button } from "@/components/ui/button";
 
 import CatalogCard from "../catalog-card/catalog-card";
@@ -31,6 +33,7 @@ export default async function CatalogBlock({ lang }: { lang: string }) {
             index
           ) => (
             <CatalogCard
+              index={index}
               key={index}
               name={name}
               volume={volume}
@@ -47,7 +50,9 @@ export default async function CatalogBlock({ lang }: { lang: string }) {
       </section>
 
       <div className="flex justify-center">
-        <Button>{t("Весь каталог")}</Button>
+        <Button>
+          <Link href={`/${lang}/catalog`}>{t("Весь каталог")}</Link>
+        </Button>
       </div>
     </section>
   );

@@ -48,10 +48,7 @@ export default async function Footer({ lang }: { lang: string }) {
             {FOOTER_CATALOG_LINKS.map(({ text, href }, index) => {
               return (
                 <li key={index}>
-                  <Link
-                    className="medium-normal-nospacing text-primary-100"
-                    href={href}
-                  >
+                  <Link className="small-semibold text-primary-100" href={href}>
                     {text}
                   </Link>
                 </li>
@@ -69,10 +66,7 @@ export default async function Footer({ lang }: { lang: string }) {
             {FOOTER_MENU_LINKS.map(({ text, href }, index) => {
               return (
                 <li key={index}>
-                  <Link
-                    className="medium-normal-nospacing text-primary-100"
-                    href={href}
-                  >
+                  <Link className="small-semibold text-primary-100" href={href}>
                     {text}
                   </Link>
                 </li>
@@ -82,17 +76,12 @@ export default async function Footer({ lang }: { lang: string }) {
         </div>
 
         <div className="flex flex-col gap-[41px] max-xs:gap-[20px]">
-          {/* <LangSwitcher lang={lang}>
-            <span className="small-semibold cursor-pointer uppercase text-primary-100">
-              ru | uz
-            </span>
-          </LangSwitcher> */}
           <LangSwitcher lang={lang} variant="footer" />
         </div>
       </div>
 
       <div className="flex justify-between max-xs:flex-col max-xs:gap-[30px]">
-        <div className="flex flex-col gap-[22px] max-xs:gap-[10px] text-primary-100 medium-normal-nospacing">
+        <div className="flex flex-col gap-[22px] max-xs:gap-[10px] text-primary-100 small-semibold">
           <div className="flex flex-col gap-[5px] max-xs:gap-[2px]">
             <span>Тел.: +998 (71) 200 20-23</span>
             <div className="flex flex-col gap-[5px] max-xs:gap-[2px]">
@@ -109,7 +98,7 @@ export default async function Footer({ lang }: { lang: string }) {
 
         <Link
           href=""
-          className="underline text-primary-100 medium-normal-nospacing self-end max-xs:self-start"
+          className="underline text-primary-100 small-semibold self-end max-xs:self-start"
         >
           {t("Разработка сайта")}
         </Link>

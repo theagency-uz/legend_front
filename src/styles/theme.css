@@ -28,11 +28,11 @@
   }
 
   .base-normal-nospacing {
-    @apply xl:text-[0.83vw] text-[10px] font-light leading-[150%];
+    @apply xl:text-[0.83vw] text-[14px] font-light leading-[150%];
   }
 
   .medium-normal-nospacing {
-    @apply xl:text-[1.17vw] text-[4.38vw] font-light leading-[150%];
+    @apply xl:text-[1vw] text-[14px] font-light leading-[150%];
   }
 
   .medium-normal {
@@ -41,6 +41,10 @@
 
   .large-normal {
     @apply xl:text-[2.08vw] text-[25px] font-light leading-[150%] tracking-[5px];
+  }
+
+  .small-medium {
+    @apply xl:text-[1.33vw] text-[16px] font-light leading-[100%] tracking-[-1px];
   }
 
   .base-medium {
@@ -56,15 +60,19 @@
   }
 
   .small-semibold {
-    @apply xl:text-[1.17vw] text-[14px] font-medium leading-[150%];
+    @apply xl:text-[1vw] text-[14px] font-medium leading-[150%];
   }
 
   .base-semibold {
     @apply xl:text-[0.83vw] text-[10px] font-medium leading-[150%];
   }
 
+  .large-semibold {
+    @apply xl:text-[1.2vw] text-[20px] font-medium;
+  }
+
   .base-bold {
-    @apply text-[18px] font-semibold leading-[140%];
+    @apply xl:text-[1.5vw] text-[18px] font-semibold leading-[140%];
   }
 
   .h1 {
