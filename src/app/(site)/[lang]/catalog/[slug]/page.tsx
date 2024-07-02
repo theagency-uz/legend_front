@@ -25,7 +25,6 @@ import ProductCount from "@/components/site/common/product-count";
 import { useTranslation } from "@/lib/i18n";
 
 import { PRODUCTS } from "@/constants/site";
-import Link from "next/link";
 
 export default async function Product({
   params: { lang, slug },
