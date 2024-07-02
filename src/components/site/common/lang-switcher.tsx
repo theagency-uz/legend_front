@@ -84,12 +84,6 @@ export default function LangSwitcher({
     router.push(path.replace(/ru|uz/, langVal));
   };
 
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      localStorage.setItem("lang", lang);
-    }
-  }, [langVal]);
-
   return (
     <div
       className={
@@ -102,7 +96,25 @@ export default function LangSwitcher({
           : ""
       }
     >
-      <span className="cursor-pointer uppercase">ru | uz</span>
+      <span className="uppercase cursor-pointer">
+        <span
+          className={
+            variant === "header" && lang !== "ru" ? `text-primary-400` : ""
+          }
+          onClick={() => onToggleLanguage("ru")}
+        >
+          ru
+        </span>{" "}
+        |{" "}
+        <span
+          className={
+            variant === "header" && lang !== "uz" ? `text-primary-400` : ""
+          }
+          onClick={() => onToggleLanguage("uz")}
+        >
+          uz
+        </span>
+      </span>
     </div>
   );
 }

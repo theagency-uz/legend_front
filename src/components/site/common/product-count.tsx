@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 
 import { Minus, Plus } from "lucide-react";
+
 import { useTranslation } from "@/lib/i18n/client";
 
 export default function ProductCount({ lang }: { lang: string }) {
@@ -19,7 +20,7 @@ export default function ProductCount({ lang }: { lang: string }) {
   }
 
   return (
-    <div className="flex items-center rounded-[200px] border border-white w-fit	py-[5px] px-[10px] base-semibold gap-[50px] h-fit">
+    <div className="flex items-center rounded-[200px] border border-white w-fit	py-[5px] px-[10px] base-semibold gap-[50px] h-fit max-xs:gap-[15px]">
       <div className="">
         <button
           className="flex items-center"
@@ -36,10 +37,11 @@ export default function ProductCount({ lang }: { lang: string }) {
             width: `${String(count).length}ch`,
             minWidth: `${String(count).length}ch`,
           }}
+          className="small-semibold"
         >
           <input
             id="count"
-            className="w-full text-center"
+            className="w-full text-center "
             min="1"
             name="quantity"
             value={count}
@@ -47,7 +49,9 @@ export default function ProductCount({ lang }: { lang: string }) {
             onChange={(e) => handleInputChange(Number(e.target.value))}
           />
         </div>
-        <label htmlFor="count">{i18n.t("шт.")}</label>
+        <label className="small-semibold" htmlFor="count">
+          {i18n.t("шт.")}
+        </label>
       </div>
       <div className="">
         <button

@@ -26,6 +26,13 @@ const productsInCart = [
     alt: "Вода в пластиковой бутылке 19 л",
     cost: 100000,
   },
+  {
+    id: 2,
+    name: "Вода в пластиковой бутылке 19 л",
+    imgSrc: "/assets/product-cart.webp",
+    alt: "Вода в пластиковой бутылке 19 л",
+    cost: 300000,
+  },
 ];
 
 export default async function Checkout({
@@ -36,7 +43,7 @@ export default async function Checkout({
   const { t } = await useTranslation(lang);
 
   return (
-    <main className="px-[11.75vw] py-[11.83vw] max-xs:py-[28vw] w-full h-auto bg-product bg-cover text-white max-xs:bg-catalog-mob bg-top bg-fixed max-xs:px-0">
+    <main className="px-[8vw] py-[11.83vw] max-xs:py-[28vw] w-full h-auto bg-product bg-cover text-white max-xs:bg-catalog-mob bg-top bg-fixed max-xs:px-0">
       <div className="flex flex-col gap-[50px] mb-[32px] max-xs:mb-[16px] max-xs:px-[10px]">
         <Breadcrumb>
           <BreadcrumbList>
@@ -64,7 +71,7 @@ export default async function Checkout({
       </div>
 
       <section className="flex flex-col">
-        <div className="flex flex-col gap-[40px] mb-[80px] max-xs:mb-[30px] max-xs:px-[10px]">
+        <div className="flex flex-col gap-[40px] mb-[80px] max-xs:mb-[30px] max-xs:px-[10px] max-xs:gap-[20px]">
           <h2 className="h2">{t("Оформление заказа")}</h2>
           <p className="small-normal-nospacing">
             {t("Минимальная сумма заказа - 100 тысяч сум.")}
@@ -98,7 +105,7 @@ export default async function Checkout({
                   </div>
 
                   <div className="flex justify-between flex-1 items-center max-xs:flex-col max-xs:items-start max-xs:gap-[20px]">
-                    <p className="base-medium w-[40%] max-xs:w-full">{name}</p>
+                    <p className="base-medium w-[20ch] max-xs:w-full">{name}</p>
                     <ProductCount lang={lang} />
                     <div className="flex flex-col gap-[5px]">
                       <span className="large-medium-90">{cost}</span>
@@ -155,12 +162,16 @@ export default async function Checkout({
                 {t("Адрес доставки:")}
               </h3>
 
+              <Separator className="max-xs:h-[1px] p-0 m-0 h-0" />
+
               <p className="py-[17px] px-[25px] border-white rounded-[5px] border-2 w-full small-normal-nospacing leading-[130%] mb-[60px] max-xs:border-0 max-xs:px-[10px] max-xs:mb-0">
                 {t("address-description")}
               </p>
 
-              <div className="flex flex-col gap-[40px] mb-[40px] max-xs:px-[10px]">
-                <p className="small-normal-nospacing leading-[130%] w-[65%]">
+              <Separator className="max-xs:h-[1px] p-0 m-0 h-0" />
+
+              <div className="flex flex-col gap-[40px] mb-[40px] max-xs:px-[10px] max-xs:gap-[20px]">
+                <p className="small-normal-nospacing leading-[130%] w-[65%] max-xs:w-[30ch]">
                   {t(
                     "Напишите точный адрес доставки или укажите его на карте:"
                   )}

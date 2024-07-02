@@ -23,14 +23,14 @@ export default async function CampanyBlock({ lang }: { lang: string }) {
           <div className="flex items-center justify-between gap-[31px] max-xs:flex-col max-xs:items-start">
             <div className="flex flex-col gap-[20px] max-xs:gap-[10px] max-xs:w-[60%] flex-1">
               <h3 className="h3">{t("11 000 м")}</h3>
-              <p className="base-light">
+              <p className="base-light w-[26ch]">
                 {t("Занимает здание производства без учета территории")}
               </p>
             </div>
 
             <div className="flex flex-col gap-[20px] max-xs:gap-[10px] max-xs:w-[60%] flex-1">
               <h3 className="h3">{t("2 этажа")}</h3>
-              <p className="base-light">
+              <p className="base-light w-[26ch]">
                 {t("Где расположены производство и склад")}
               </p>
             </div>

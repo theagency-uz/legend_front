@@ -36,13 +36,8 @@ export default function Navbar({ lang }: { lang: string }) {
     >
       <div className="flex-1">
         <div className="flex justify-start gap-[7vw] max-xs:hidden">
-          {/* <LangSwitcher lang={lang}>
-            <span className="base-semibold cursor-pointer uppercase">
-              ru | uz
-            </span>
-          </LangSwitcher> */}
           <LangSwitcher lang={lang} variant="header" />
-          <ul className="flex gap-[2.5vw] base-normal uppercase cursor-pointer">
+          <ul className="flex gap-[2.5vw] base-semibold tracking-widest uppercase cursor-pointer">
             {NAVBAR_LEFT.map(({ name, link }, i) => (
               <li key={i}>
                 <Link href={`/${lang}${link}`}>{t(name)}</Link>
@@ -55,11 +50,6 @@ export default function Navbar({ lang }: { lang: string }) {
       <div className="flex-1 flex justify-center cursor-pointer">
         <Link href={`/${lang}`}>
           <img
-            // src={`${
-            //   scrolling
-            //     ? "/assets/legend-logo-blue.svg"
-            //     : "/assets/legend-logo.svg"
-            // }`}
             src={`${"/assets/legend-logo.svg"}`}
             alt="Legend logo"
             className={`max-xs:w-[150px] max-xs:h-auto w-[7.92vw] h-auto`}
