@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -5,7 +7,9 @@ import {
   BreadcrumbList,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
+
 import { Slash } from "lucide-react";
+
 import {
   Accordion,
   AccordionContent,
@@ -96,7 +100,7 @@ export default async function Product({
               </span>
             </div>
             <Button className="px-[2.75vw] py-[0.083vw] base-normal-nospacing">
-              {t("Заказать")}
+              <Link href={`/${lang}/checkout`}>{t("Заказать")}</Link>
             </Button>
           </div>
         </div>
