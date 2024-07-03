@@ -21,7 +21,7 @@ export default function ProductCount({ lang }: { lang: string }) {
 
   return (
     <div className="flex items-center rounded-[200px] border border-white w-fit	py-[5px] px-[10px] base-semibold gap-[50px] h-fit max-xs:gap-[15px]">
-      <div className="">
+      <div>
         <button
           className="flex items-center"
           onClick={() =>
@@ -33,15 +33,12 @@ export default function ProductCount({ lang }: { lang: string }) {
       </div>
       <div className="flex items-center justify-center">
         <div
-          style={{
-            width: `${String(count).length}ch`,
-            minWidth: `${String(count).length}ch`,
-          }}
-          className="small-semibold"
+          className="small-semibold w-[1ch] min-w-[1ch] max-w-[3ch]"
+          style={{ width: `${String(count).length}ch` }}
         >
           <input
             id="count"
-            className="w-full text-center "
+            className="w-full text-end"
             min="1"
             name="quantity"
             value={count}

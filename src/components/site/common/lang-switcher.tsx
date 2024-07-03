@@ -99,7 +99,9 @@ export default function LangSwitcher({
       <span className="uppercase cursor-pointer">
         <span
           className={
-            variant === "header" && lang !== "ru" ? `text-primary-400` : ""
+            (variant === "header" || variant === "nav-mob") && lang !== "ru"
+              ? `text-primary-400`
+              : ""
           }
           onClick={() => onToggleLanguage("ru")}
         >
@@ -108,7 +110,9 @@ export default function LangSwitcher({
         |{" "}
         <span
           className={
-            variant === "header" && lang !== "uz" ? `text-primary-400` : ""
+            (variant === "header" || variant === "nav-mob") && lang !== "uz"
+              ? `text-primary-400`
+              : ""
           }
           onClick={() => onToggleLanguage("uz")}
         >

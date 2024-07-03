@@ -58,7 +58,7 @@ export default async function CampanyBlock({ lang }: { lang: string }) {
         />
       </div>
 
-      <div className="px-[100px] pb-[100px] max-xs:px-0">
+      <div className="px-[100px] pb-[100px] max-xs:px-0 max-xs:pb-[60px]">
         <h3 className="h3 mb-[40px] max-xs:px-[10px]">{t("Новости")}</h3>
 
         <div className="flex justify-between max-xs:flex-col max-xs:gap-[40px]">

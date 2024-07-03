@@ -6,6 +6,8 @@ import CheckboxCustom from "./checkbox";
 import { useTranslation } from "@/lib/i18n/client";
 
 const filters = [
+  { filterVal: "Без газа" },
+  { filterVal: "С газом" },
   { filterVal: "Стекло" },
   { filterVal: "Пластик" },
   { filterVal: "0.33 л" },
@@ -41,7 +43,7 @@ export default function FilterContent({
 
       <div className="flex flex-col gap-[2.5vw] max-xs:gap-[20px]">
         <div className="flex flex-col gap-[0.83vw] max-xs:gap-[10px]">
-          <h3>{i18n.t("Материал")}</h3>
+          <h3>{i18n.t("Газ")}</h3>
           <div className="flex flex-col gap-[0.67vw] max-xs:gap-[5px]">
             {filters.slice(0, 2).map(({ filterVal }, index) => (
               <CheckboxCustom
@@ -54,9 +56,22 @@ export default function FilterContent({
         </div>
 
         <div className="flex flex-col gap-[0.83vw] max-xs:gap-[10px]">
+          <h3>{i18n.t("Материал")}</h3>
+          <div className="flex flex-col gap-[0.67vw] max-xs:gap-[5px]">
+            {filters.slice(2, 4).map(({ filterVal }, index) => (
+              <CheckboxCustom
+                key={index}
+                filterVal={filterVal}
+                id={filterVal}
+              />
+            ))}
+          </div>
+        </div>
+
+        <div className="flex flex-col gap-[0.83vw] max-xs:gap-[10px]">
           <h3>{i18n.t("Литраж")}</h3>
           <div className="flex flex-col gap-[0.67vw] max-xs:gap-[5px]">
-            {filters.slice(2).map(({ filterVal }, index) => (
+            {filters.slice(4).map(({ filterVal }, index) => (
               <CheckboxCustom
                 key={index}
                 filterVal={filterVal}

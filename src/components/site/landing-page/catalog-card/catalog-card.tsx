@@ -31,7 +31,7 @@ export default async function CatalogCard({
 
   return (
     <div
-      className={`flex-1 flex flex-col items-center justify-between h-[500px] ${
+      className={`flex-1 flex flex-col items-center gap-[30px] h-[500px] ${
         !isMain ? "max-xs:hidden" : ""
       }`}
     >
@@ -41,7 +41,7 @@ export default async function CatalogCard({
           src={src}
           width={width}
           height={height}
-          className="z-30 lg:hover:animate-moveupdown"
+          className="z-30 lg:hover:translate-y-[-30px] transition-all object-cover"
         />
         {isEmpty ? (
           <span className="uppercase large-normal absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]">

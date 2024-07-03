@@ -10,8 +10,8 @@ export default async function StepsBlock({ lang }: { lang: string }) {
   const { t } = await useTranslation(lang);
 
   return (
-    <section className="text-white flex justify-between gap-y-5 gap-x-24 px-[100px] max-xs:px-0 mb-[141px] max-xs:flex-col-reverse">
-      <div className="w-[47.9vw] flex flex-col gap-[50px] max-xs:px-[10px] max-xs:w-[90%]">
+    <section className="text-white flex justify-between gap-y-5 gap-x-24 px-[100px] max-xs:px-0 mb-[141px] max-xs:flex-col-reverse max-xs:mb-[60px]">
+      <div className="w-[47.9vw] flex flex-col gap-[50px] max-xs:px-[10px] max-xs:w-[100%] max-xs:gap-[30px]">
         <div className="flex flex-col gap-[20px]">
           <h3 className="h3">{t("5 этапов водоподготовки:")}</h3>
           <p className="base-light">

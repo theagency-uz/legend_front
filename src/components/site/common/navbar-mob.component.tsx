@@ -67,7 +67,7 @@ export default function NavbarMob({ lang }: { lang: string }) {
             </nav>
           </SheetTitle>
           <div className="h-[90vh] flex flex-col items-center justify-between pt-[90px] pb-[50px]">
-            <ul className="flex flex-col justify-center gap-[30px] h3 uppercase cursor-pointer">
+            <ul className="flex flex-col justify-center gap-[30px] h3 cursor-pointer">
               {NAVBAR_LEFT.map(({ name, link }, i) => (
                 <li key={i}>
                   <SheetTrigger asChild>

@@ -36,7 +36,7 @@ export default async function Product({
   const product = PRODUCTS.find((p) => p.slug === slug);
 
   return (
-    <main className="px-[11.75vw] py-[11.83vw] max-xs:py-[28vw] w-full h-auto bg-product bg-cover text-white max-xs:px-[10px] max-xs:bg-catalog-mob bg-top bg-fixed">
+    <main className="px-[11.75vw] py-[11.83vw] max-xs:py-[60px] w-full h-auto bg-product bg-cover text-white max-xs:px-[10px] max-xs:bg-catalog-mob bg-top bg-fixed max-xs:pt-[100px]">
       <div className="flex flex-col gap-[50px] mb-[3.92vw] max-xs:mb-[19vw]">
         <Breadcrumb>
           <BreadcrumbList>
@@ -74,32 +74,39 @@ export default async function Product({
         </Breadcrumb>
       </div>
 
-      <section className="flex justify-end gap-[18vw] items-center mb-[4.5vw] max-xs:flex-col">
-        <div className="w-[40%] max-xs:w-full">
+      <section className="flex justify-end gap-[10vw] items-center mb-[4.5vw] max-xs:flex-col max-xs:mb-[48px]">
+        <div className="w-[45%] max-xs:w-full">
           <ProductGallery />
         </div>
 
-        <div className="flex flex-col w-[50%] gap-[4vw] max-xs:w-full">
+        <div className="flex flex-col w-[55%] gap-[4vw] max-xs:w-full max-xs:gap-[20px]">
           <div className="flex flex-col gap-[1.42vw] max-xs:gap-[20px]">
             <h2 className="h3">{product?.title}</h2>
             <ProductVolumeDropdown />
           </div>
 
-          <div className="flex flex-col gap-[1.08vw] max-xs:gap-[31px] max-xs:mb-[41px]">
-            <p className="h1 leading-[110%] tracking-[-1px]">
-              {product?.description}
+          <div className="flex flex-col gap-[1.08vw] max-xs:gap-[31px] max-xs:mb-[21px]">
+            <p className="medium-normal-nospacing leading-normal">
+              {t("product-description", { isGaz: product?.isGaz })}
             </p>
-            <ProductCount lang={lang} />
-          </div>
-
-          <div className="flex justify-between">
-            <div className="flex flex-col gap-[5px]">
-              <span className="large-medium-90">{product?.cost}</span>
-              <span className="base-normal-nospacing uppercase">
-                {t("сум / штука")}
+            <div className="flex items-center gap-[34px] max-xs:gap-[17px]">
+              <ProductCount lang={lang} />
+              <span className="medium-normal uppercase tracking-[1px]">
+                {product?.category === 1 ? "" : t("в блоке", { number: product?.number })}
               </span>
             </div>
-            <Button className="px-[2.75vw] py-[0.083vw] base-normal-nospacing">
+          </div>
+
+          <div className="flex justify-between items-center">
+            <div className="flex flex-col gap-[5px]">
+              <span className="large-medium-90">
+                {new Intl.NumberFormat(lang, {}).format(product?.cost || 0)}
+              </span>
+              <span className="base-normal-nospacing uppercase">
+                {t(product?.category === 1 ? "сум / штука" : "сум / блок")}
+              </span>
+            </div>
+            <Button className="px-[2.75vw] py-[0.5vw] base-normal-nospacing max-xs:w-[142px] max-xs:py-[20px] max-xs:py-[8px] h-fit">
               <Link href={`/${lang}/checkout`}>{t("Заказать")}</Link>
             </Button>
           </div>
@@ -107,7 +114,7 @@ export default async function Product({
       </section>
 
       <section>
-        <Accordion defaultValue="item-1" type="single" collapsible>
+        <Accordion type="single" collapsible>
           <AccordionItem value="item-1" className="border-t">
             <AccordionTrigger>{t("Состав и характеристики")}</AccordionTrigger>
             <AccordionContent className="w-2/4 max-xs:w-full">
@@ -129,7 +136,7 @@ export default async function Product({
           </AccordionItem>
         </Accordion>
 
-        <Accordion defaultValue="item-2" type="single" collapsible>
+        <Accordion type="single" collapsible>
           <AccordionItem value="item-2">
             <AccordionTrigger>{t("Оплата и доставка")}</AccordionTrigger>
             <AccordionContent className="w-[50%] max-xs:w-full">

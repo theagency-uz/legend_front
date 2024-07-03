@@ -32,7 +32,7 @@
   }
 
   .medium-normal-nospacing {
-    @apply xl:text-[1vw] text-[14px] font-light leading-[150%];
+    @apply xl:text-[1.17vw] text-[14px] font-light leading-[150%];
   }
 
   .medium-normal {

@@ -43,7 +43,7 @@ export default async function Checkout({
   const { t } = await useTranslation(lang);
 
   return (
-    <main className="px-[8vw] py-[11.83vw] max-xs:py-[28vw] w-full h-auto bg-product bg-cover text-white max-xs:bg-catalog-mob bg-top bg-fixed max-xs:px-0">
+    <main className="px-[8vw] py-[11.83vw] max-xs:py-[28vw] pb-[60px] w-full h-auto bg-checkout-mob bg-cover text-white max-xs:bg-checkout-mob bg-top bg-fixed max-xs:px-0">
       <div className="flex flex-col gap-[50px] mb-[32px] max-xs:mb-[16px] max-xs:px-[10px]">
         <Breadcrumb>
           <BreadcrumbList>

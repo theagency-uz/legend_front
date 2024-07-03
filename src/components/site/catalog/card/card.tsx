@@ -14,7 +14,7 @@ export default function CatalogCard({
   volume,
   cost,
   lang,
-  slug
+  slug,
 }: {
   imgSrc: string;
   alt: string;
@@ -38,9 +38,9 @@ export default function CatalogCard({
             <Image
               src={imgSrc}
               alt={alt}
-              width={150}
-              height={313}
-              className="self-center w-[10vw] h-auto max-xs:w-1/3"
+              width={1200}
+              height={1200}
+              className="self-center w-full h-auto"
             />
           </div>
 

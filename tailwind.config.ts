@@ -14,8 +14,8 @@ const config: Config = {
     },
     keyframes: {
       moveupdown: {
-        "0%, 100%": { transform: "translateY(0px)" },
-        "50%": { transform: "translateY(-30px)" },
+        "0%": { transform: "translateY(0px)" },
+        "100%": { transform: "translateY(-30px)" },
       },
       "accordion-down": {
         from: { height: "0" },
@@ -82,6 +82,8 @@ const config: Config = {
         "filter-mob":
           "linear-gradient(to bottom right, #22779244 0%, #4A8FA144 26%, #143F4B66 65%)",
         product: "url('/assets/bg-product.webp')",
+        "checkout-mob":
+          "url('/assets/bg.png'), linear-gradient(to bottom right, #4A8FA1 53%, #347384 100%)",
       },
       screens: {
         xs: "420px",
