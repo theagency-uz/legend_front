@@ -24,7 +24,7 @@ export default function CarouselThumbs({ gallery, setThumbsSwiper }) {
       {gallery?.map((item) => (
         <SwiperSlide key={`product-thumb-gallery-${item.id}`} className="">
           <Image
-            src={item.imgUrl}
+            src={process.env.NEXT_PUBLIC_IMAGE_UPLOAD_URL + item.imgUrl}
             alt={`Product thumb gallery ${item.id}`}
             width={300}
             height={300}

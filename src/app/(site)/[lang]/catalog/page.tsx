@@ -15,12 +15,27 @@ import { Slash } from "lucide-react";
 
 import { PRODUCTS } from "@/constants/site";
 
+async function getData() {
+  const url: string =
+    process.env.NEXT_PUBLIC_BASE_URL + "products/public" || "";
+
+  const res = await fetch(url);
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch data");
+  }
+
+  return res.json();
+}
+
 export default async function Catalog({
   params: { lang },
 }: {
   params: { lang: string };
 }) {
   const { t } = await useTranslation(lang);
+
+  const products = await getData();
 
   return (
     <main className="px-[100px] py-[11.83vw] max-xs:py-[28vw] w-full h-auto bg-catalog bg-cover aspect-[1200/1942] text-white max-xs:px-[10px] max-xs:bg-catalog-mob max-xs:aspect-[442/1878] bg-top bg-fixed">
@@ -61,13 +76,13 @@ export default async function Catalog({
         </div>
 
         <div className="flex flex-wrap gap-[2.5vw] max-xs:flex-col max-xs:gap-[6.26vw]">
-          {PRODUCTS.map(({ imgSrc, alt, cost, title, volume, slug }, index) => (
+          {products.map(({ previewImage, name, price, volume, slug, id }) => (
             <CatalogCard
-              key={index}
-              imgSrc={imgSrc}
-              alt={alt}
-              cost={cost}
-              title={title}
+              key={id}
+              imgSrc={previewImage}
+              alt={name}
+              cost={price}
+              title={name}
               volume={volume}
               lang={lang}
               slug={slug}

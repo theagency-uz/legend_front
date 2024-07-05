@@ -37,7 +37,7 @@ export default function Navbar({ lang }: { lang: string }) {
       <div className="flex-1">
         <div className="flex justify-start gap-[7vw] max-xs:hidden">
           <LangSwitcher lang={lang} variant="header" />
-          <ul className="flex gap-[2.5vw] base-semibold tracking-widest uppercase cursor-pointer">
+          <ul className="flex gap-[2.5vw] items-center base-semibold tracking-widest uppercase cursor-pointer">
             {NAVBAR_LEFT.map(({ name, link }, i) => (
               <li key={i}>
                 <Link href={`/${lang}${link}`}>{t(name)}</Link>

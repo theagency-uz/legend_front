@@ -20,7 +20,7 @@ export default function ProductCount({ lang }: { lang: string }) {
   }
 
   return (
-    <div className="flex items-center rounded-[200px] border border-white w-fit	py-[5px] px-[10px] base-semibold gap-[50px] h-fit max-xs:gap-[15px]">
+    <div className="flex items-center rounded-[200px] border border-white w-fit	py-[5px] px-[10px] base-semibold gap-[17px] h-fit max-xs:gap-[15px]">
       <div>
         <button
           className="flex items-center"

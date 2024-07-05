@@ -6,6 +6,7 @@ import Link from "next/link";
 import { useTranslation } from "@/lib/i18n/client";
 
 import { usePathname } from "next/navigation";
+import { formatCost } from "@/lib/utils";
 
 export default function CatalogCard({
   imgSrc,
@@ -20,12 +21,14 @@ export default function CatalogCard({
   alt: string;
   title: string;
   volume: string | number;
-  cost: string | number;
+  cost: number;
   lang: string;
   slug: string;
 }) {
   const { i18n } = useTranslation(lang);
   const path = usePathname();
+
+  const url = process.env.NEXT_PUBLIC_IMAGE_UPLOAD_URL + imgSrc;
 
   return (
     <Link
@@ -36,8 +39,8 @@ export default function CatalogCard({
         <div className="flex flex-col h-full gap-[10px]">
           <div className="h-[70%] flex justify-center items-center">
             <Image
-              src={imgSrc}
-              alt={alt}
+              src={url}
+              alt={alt[lang]}
               width={1200}
               height={1200}
               className="self-center w-full h-auto"
@@ -46,13 +49,17 @@ export default function CatalogCard({
 
           <div className="flex flex-col gap-[35px]">
             <div className="flex flex-col gap-[5px]">
-              <span className="medium-normal-nospacing">{volume}</span>
-              <h3 className="large-medium">{title}</h3>
+              <span className="medium-normal tracking-normal">
+                {volume} {i18n.t("Л")}
+              </span>
+              <h3 className="large-medium">{title[lang]}</h3>
             </div>
 
             <div className="flex justify-between">
               <div className="flex flex-col gap-[5px]">
-                <span className="large-medium-90">{cost}</span>
+                <span className="large-medium-90">
+                  {formatCost(lang, cost || 0)}
+                </span>
                 <span className="base-normal-nospacing uppercase">
                   {i18n.t("сум / блок")}
                 </span>

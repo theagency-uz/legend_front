@@ -10,7 +10,7 @@ const gallery = [
   { id: 2, imgUrl: "/assets/p2-back.webp" },
 ];
 
-export default function ProductGallery() {
+export default function ProductGallery({ gallery }: { gallery: any[] }) {
   const [thumbsSwiper, setThumbsSwiper] = useState();
 
   return (

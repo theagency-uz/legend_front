@@ -67,7 +67,7 @@ const config: Config = {
         light: "#FFF",
         hero: "url('/assets/hero-picture.webp')",
         "hero-mob":
-          "linear-gradient(to bottom, transparent 90%, #3C899C 100%), url('/assets/hero-picture-mob.webp')",
+          "linear-gradient(to bottom, transparent 90%, #3C899C 100%), url('/assets/hero-picture-mob-1.webp')",
         "nav-gradient":
           "linear-gradient(to bottom, #1D6782 5%, #175D7533 76%, #3384A600 100%)",
         "nav-gradient-scrolling":

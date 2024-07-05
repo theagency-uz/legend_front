@@ -21,7 +21,7 @@ export default function ProductImage({ gallery, thumbsSwiper }) {
       {gallery?.map((item) => (
         <SwiperSlide key={`product-gallery-${item.id}`} className="">
           <Image
-            src={item.imgUrl}
+            src={process.env.NEXT_PUBLIC_IMAGE_UPLOAD_URL + item.imgUrl}
             alt={`Product gallery ${item.id}`}
             width={1200}
             height={1200}
