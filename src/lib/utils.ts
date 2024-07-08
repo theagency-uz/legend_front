@@ -5,6 +5,6 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-export function formatCost(locale: string, cost: number) {
-  return new Intl.NumberFormat(locale, {}).format(cost);
+export function formatCost(cost: number) {
+  return new Intl.NumberFormat("ru", {}).format(cost);
 }

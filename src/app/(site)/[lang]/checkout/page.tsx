@@ -79,7 +79,7 @@ export default async function Checkout({
         </div>
 
         <div className="flex gap-[80px] justify-between max-xs:flex-col max-xs:gap-0">
-          <div className="w-[80%] max-xs:w-full">
+          <div className="w-[75%] max-xs:w-full">
             <div className="max-xs:px-[10px]">
               <Separator className="mt-0 max-xs:mt-0 max-xs:px-[10px]" />
             </div>
@@ -127,7 +127,7 @@ export default async function Checkout({
                 {t("Данные получателя:")}
               </h3>
 
-              <div className="flex flex-wrap w-full justify-between max-xs:gap-[20px]">
+              <div className="flex flex-wrap w-full gap-7 max-xs:gap-[20px]">
                 <div className="grid w-full max-w-sm items-center gap-1.5">
                   <Label className="max-xs:small-medium" htmlFor="surname">
                     {t("Фамилия")}
@@ -171,7 +171,7 @@ export default async function Checkout({
               <Separator className="max-xs:h-[1px] p-0 m-0 h-0" />
 
               <div className="flex flex-col gap-[40px] mb-[40px] max-xs:px-[10px] max-xs:gap-[20px]">
-                <p className="small-normal-nospacing leading-[130%] w-[65%] max-xs:w-[30ch]">
+                <p className="small-normal-nospacing leading-[130%] max-xs:w-[30ch]">
                   {t(
                     "Напишите точный адрес доставки или укажите его на карте:"
                   )}
@@ -239,7 +239,7 @@ export default async function Checkout({
             <Separator className="max-xs:opacity-0" />
           </div>
 
-          <div className="w-[20%] max-xs:w-full max-xs:px-[10px]">
+          <div className="w-[25%] max-xs:w-full max-xs:px-[10px]">
             <CheckoutCard lang={lang} />
           </div>
         </div>

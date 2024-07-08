@@ -49,7 +49,7 @@ export default async function Footer({ lang }: { lang: string }) {
               return (
                 <li key={index}>
                   <Link className="small-semibold text-primary-100" href={href}>
-                    {text}
+                    {t(text)}
                   </Link>
                 </li>
               );
@@ -67,7 +67,7 @@ export default async function Footer({ lang }: { lang: string }) {
               return (
                 <li key={index}>
                   <Link className="small-semibold text-primary-100" href={href}>
-                    {text}
+                    {t(text)}
                   </Link>
                 </li>
               );
@@ -83,17 +83,14 @@ export default async function Footer({ lang }: { lang: string }) {
       <div className="flex justify-between max-xs:flex-col max-xs:gap-[30px]">
         <div className="flex flex-col gap-[22px] max-xs:gap-[10px] text-primary-100 small-semibold">
           <div className="flex flex-col gap-[5px] max-xs:gap-[2px]">
-            <span>Тел.: +998 (71) 200 20-23</span>
+            <span>{t("Тел")} +998 (71) 200 20-23</span>
             <div className="flex flex-col gap-[5px] max-xs:gap-[2px]">
               <span>E-mail: info@legendwater.uz</span>
-              <span>E-mail (отдел продаж): sales@legendwater.uz </span>
+              <span>E-mail ({t("отдел продаж")}): sales@legendwater.uz </span>
             </div>
           </div>
 
-          <span>
-            Ташкентская область, <br />
-            н.п. Юкориюз <br /> Ниёзбек Йули, 30
-          </span>
+          <span>{t("address")}</span>
         </div>
 
         <Link

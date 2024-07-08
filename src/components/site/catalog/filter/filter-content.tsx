@@ -10,11 +10,11 @@ const filters = [
   { filterVal: "С газом" },
   { filterVal: "Стекло" },
   { filterVal: "Пластик" },
-  { filterVal: "0.33 л" },
-  { filterVal: "0.5 л" },
-  { filterVal: "1 л" },
-  { filterVal: "1.5 л" },
-  { filterVal: "19 л" },
+  { filterVal: "0.33" },
+  { filterVal: "0.5" },
+  { filterVal: "1" },
+  { filterVal: "1.5" },
+  { filterVal: "19" },
 ];
 
 export default function FilterContent({
@@ -74,7 +74,7 @@ export default function FilterContent({
             {filters.slice(4).map(({ filterVal }, index) => (
               <CheckboxCustom
                 key={index}
-                filterVal={filterVal}
+                filterVal={`${filterVal} ${i18n.t("Л")}`}
                 id={filterVal}
               />
             ))}

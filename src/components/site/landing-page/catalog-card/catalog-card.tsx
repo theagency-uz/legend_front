@@ -62,8 +62,8 @@ export default async function CatalogCard({
         />
       </div>
       <div className="flex flex-col items-center gap-[3px] max-xs:gap-[15px]">
-        <span className="medium-normal uppercase">{volume}</span>
-        <p className="base-medium">{name}</p>
+        <span className="medium-normal uppercase">{t(volume)}</span>
+        <p className="base-medium">{t(name)}</p>
       </div>
     </div>
   );

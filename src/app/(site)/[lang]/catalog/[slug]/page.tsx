@@ -29,7 +29,7 @@ import { PRODUCTS } from "@/constants/site";
 
 async function getData(productSlug: string) {
   const url: string =
-    process.env.NEXT_PUBLIC_BASE_URL + "products/public/" + productSlug || "";
+    process.env.NEXT_PUBLIC_BASE_URL + "products/public/" + productSlug;
 
   const res = await fetch(url);
 
@@ -53,8 +53,6 @@ export default async function Product({
     id,
     imgUrl,
   }));
-
-  console.log(gallery);
 
   return (
     <main className="px-[11.75vw] py-[11.83vw] max-xs:py-[60px] w-full h-auto bg-product bg-cover text-white max-xs:px-[10px] max-xs:bg-catalog-mob bg-top bg-fixed max-xs:pt-[100px]">
@@ -127,7 +125,7 @@ export default async function Product({
           <div className="flex justify-between items-center">
             <div className="flex flex-col gap-[5px]">
               <span className="large-medium-90">
-                {formatCost(lang, product?.price || 0)}
+                {formatCost(product?.price)}
               </span>
               <span className="base-normal-nospacing uppercase">
                 {t(
@@ -153,7 +151,7 @@ export default async function Product({
                 <p className="small-normal-nospacing">
                   {t("Основной состав, мг/л:")}
                 </p>
-                <img src="/assets/chemical-table.svg" alt="12" />
+                <img src={`/assets/chemical-table-${lang}.svg`} alt="12" />
                 <div className="flex justify-between">
                   <p className="small-normal-nospacing">
                     {t("Общая минерализация: 80-160")}

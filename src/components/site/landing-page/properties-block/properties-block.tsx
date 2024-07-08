@@ -17,7 +17,7 @@ export default async function PropertiesBlock({ lang }: { lang: string }) {
         <p className="medium-normal tracking-normal">
           {t("Основной состав, мг/л:")}
         </p>
-        <img src="/assets/chemical-table.svg" alt="12" />
+        <img src={`/assets/chemical-table-${lang}.svg`} alt="12" />
         <div className="flex justify-between">
           <p className="medium-normal tracking-normal">
             {t("Общая минерализация: 80-160")}

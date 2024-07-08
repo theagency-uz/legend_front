@@ -58,7 +58,7 @@ export default function CatalogCard({
             <div className="flex justify-between">
               <div className="flex flex-col gap-[5px]">
                 <span className="large-medium-90">
-                  {formatCost(lang, cost || 0)}
+                  {formatCost(cost)}
                 </span>
                 <span className="base-normal-nospacing uppercase">
                   {i18n.t("сум / блок")}

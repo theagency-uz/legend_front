@@ -1,11 +1,13 @@
+import { useTranslation } from "@/lib/i18n";
+
 export default async function StepsCard({
   name,
   src,
   width,
   height,
   alt,
-  key,
   text,
+  lang,
 }: {
   name: string;
   src: string;
@@ -13,10 +15,12 @@ export default async function StepsCard({
   height: number;
   alt: string;
   text: string;
-  key?: string | number;
+  lang: string;
 }) {
+  const { t } = await useTranslation(lang);
+
   return (
-    <div key={key} className="">
+    <div className="">
       <img
         src={src}
         alt={alt}
@@ -25,8 +29,8 @@ export default async function StepsCard({
         className="mb-[14px]"
       />
       <div className="flex flex-col gap-1">
-        <h4 className="small-normal">{name}</h4>
-        <p className="small-light">{text}</p>
+        <h4 className="small-normal">{t(name)}</h4>
+        <p className="small-light">{t(text)}</p>
       </div>
     </div>
   );

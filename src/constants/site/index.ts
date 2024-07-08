@@ -108,18 +108,27 @@ const NEWS_CARDS = [
     alt: "news 1",
     width: 300,
     height: 250,
+    date: "20.02.2024",
+    title: "news.title",
+    text: "news.text",
   },
   {
     src: "/assets/news-2.webp",
     alt: "news 2",
     width: 300,
     height: 250,
+    date: "20.02.2024",
+    title: "news.title",
+    text: "news.text",
   },
   {
     src: "/assets/news-3.webp",
     alt: "news 3",
     width: 300,
     height: 250,
+    date: "20.02.2024",
+    title: "news.title",
+    text: "news.text",
   },
 ];
 

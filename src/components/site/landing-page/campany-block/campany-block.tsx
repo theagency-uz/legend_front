@@ -62,18 +62,23 @@ export default async function CampanyBlock({ lang }: { lang: string }) {
         <h3 className="h3 mb-[40px] max-xs:px-[10px]">{t("Новости")}</h3>
 
         <div className="flex justify-between max-xs:flex-col max-xs:gap-[40px]">
-          {NEWS_CARDS.map(({ src, alt, width, height }, index) => {
-            return (
-              <CampanyCard
-                key={index}
-                src={src}
-                alt={alt}
-                width={width}
-                height={height}
-                lang={lang}
-              />
-            );
-          })}
+          {NEWS_CARDS.map(
+            ({ src, alt, width, height, date, text, title }, index) => {
+              return (
+                <CampanyCard
+                  key={index}
+                  src={src}
+                  alt={alt}
+                  width={width}
+                  height={height}
+                  lang={lang}
+                  date={date}
+                  title={title}
+                  text={text}
+                />
+              );
+            }
+          )}
         </div>
       </div>
     </section>

@@ -9,6 +9,9 @@ export default async function CampanyCard({
   height,
   key,
   lang,
+  date,
+  title,
+  text,
 }: {
   src: string;
   alt: string;
@@ -16,6 +19,9 @@ export default async function CampanyCard({
   height: number;
   key?: number | string;
   lang: string;
+  date: string;
+  title: string;
+  text: string;
 }) {
   const { t } = await useTranslation(lang);
 
@@ -30,11 +36,9 @@ export default async function CampanyCard({
       />
 
       <div className="flex flex-col max-xs:px-[10px]">
-        <span className="small-semibold mb-[10px]">20.02.2024</span>
-        <h4 className="small-semibold mb-[10px]">Новая категория товара</h4>
-        <p className="base-light mb-[24px]">
-          Каталонские ученые разработали теплицу с солнечными панелями
-        </p>
+        <span className="small-semibold mb-[10px]">{date}</span>
+        <h4 className="small-semibold mb-[10px]">{t(title)}</h4>
+        <p className="base-light mb-[24px]">{t(text)}</p>
         <Link className="small-semibold" href="#">
           {t("Подробнее")}
         </Link>

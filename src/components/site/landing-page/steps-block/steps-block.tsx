@@ -31,6 +31,7 @@ export default async function StepsBlock({ lang }: { lang: string }) {
               height={height}
               alt={alt}
               text={text}
+              lang={lang}
             />
           ))}
         </div>
