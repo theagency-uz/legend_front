@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -6,17 +8,17 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import { Separator } from "@/components/ui/separator";
-
-import { MapPin, Slash } from "lucide-react";
-
-import { useTranslation } from "@/lib/i18n";
-import Image from "next/image";
 import ProductCount from "@/components/site/common/product-count";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import CheckoutCard from "@/components/site/checkout/checkout-card";
+
+import { MapPin, Slash } from "lucide-react";
+
+import { useTranslation } from "@/lib/i18n";
+import { formatCost } from "@/lib/utils";
 
 const productsInCart = [
   {
@@ -108,7 +110,9 @@ export default async function Checkout({
                     <p className="base-medium w-[20ch] max-xs:w-full">{name}</p>
                     <ProductCount lang={lang} />
                     <div className="flex flex-col gap-[5px]">
-                      <span className="large-medium-90">{cost}</span>
+                      <span className="large-medium-90">
+                        {formatCost(cost)}
+                      </span>
                       <span className="base-normal-nospacing uppercase">
                         {t("сум / блок")}
                       </span>

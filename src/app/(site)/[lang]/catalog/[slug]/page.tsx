@@ -117,7 +117,7 @@ export default async function Product({
               <span className="medium-normal uppercase tracking-[1px]">
                 {product?.productCategoryId === 3
                   ? ""
-                  : t("в блоке", { number: product?.number })}
+                  : t("в блоке", { number: product?.itemsPerBlock })}
               </span>
             </div>
           </div>
