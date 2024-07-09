@@ -1,70 +1,8 @@
-// "use client";
-
-// import { usePathname, useRouter } from "next/navigation";
-// import React, { useEffect, useState } from "react";
-
-// import {
-//   DropdownMenu,
-//   DropdownMenuContent,
-//   DropdownMenuRadioGroup,
-//   DropdownMenuRadioItem,
-//   DropdownMenuTrigger,
-// } from "@/components/ui/dropdown-menu";
-
-// export default function LangSwitcher({
-//   lang,
-//   children,
-// }: {
-//   lang: string;
-//   children: React.ReactNode;
-// }) {
-//   const [langVal, setLang] = useState(lang);
-
-//   const path = usePathname();
-//   const router = useRouter();
-
-//   const onToggleLanguage = async (langVal: string) => {
-//     setLang(langVal);
-
-//     router.push(path.replace(/ru|uz/, langVal));
-//   };
-
-//   useEffect(() => {
-//     if (typeof window !== "undefined") {
-//       localStorage.setItem("lang", lang);
-//     }
-//   }, [langVal]);
-
-//   return (
-//     <DropdownMenu modal={false}>
-//       <DropdownMenuTrigger asChild className="max-xs:max-w-fit">{children}</DropdownMenuTrigger>
-//       <DropdownMenuContent className="bg-white border-white p-2 text-black">
-//         <DropdownMenuRadioGroup
-//           value={langVal}
-//           onValueChange={onToggleLanguage}
-//         >
-//           <DropdownMenuRadioItem
-//             className="hover:bg-slate-100 cursor-pointer"
-//             value="ru"
-//           >
-//             RU
-//           </DropdownMenuRadioItem>
-//           <DropdownMenuRadioItem
-//             className="hover:bg-slate-100 cursor-pointer"
-//             value="uz"
-//           >
-//             UZ
-//           </DropdownMenuRadioItem>
-//         </DropdownMenuRadioGroup>
-//       </DropdownMenuContent>
-//     </DropdownMenu>
-//   );
-// }
-
 "use client";
 
-import { usePathname, useRouter } from "next/navigation";
-import React, { useEffect, useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import React from "react";
 
 export default function LangSwitcher({
   lang,
@@ -73,16 +11,7 @@ export default function LangSwitcher({
   lang: string;
   variant: "header" | "footer" | "nav-mob";
 }) {
-  const [langVal, setLang] = useState(lang);
-
   const path = usePathname();
-  const router = useRouter();
-
-  const onToggleLanguage = async (langVal: string) => {
-    setLang(langVal);
-
-    router.push(path.replace(/ru|uz/, langVal));
-  };
 
   return (
     <div
@@ -103,9 +32,8 @@ export default function LangSwitcher({
               ? `text-primary-400`
               : ""
           }
-          onClick={() => onToggleLanguage("ru")}
         >
-          ru
+          <Link href={path.replace(/ru|uz/, "ru")}>ru</Link>
         </span>{" "}
         |{" "}
         <span
@@ -114,9 +42,8 @@ export default function LangSwitcher({
               ? `text-primary-400`
               : ""
           }
-          onClick={() => onToggleLanguage("uz")}
         >
-          uz
+          <Link href={path.replace(/ru|uz/, "uz")}>uz</Link>
         </span>
       </span>
     </div>

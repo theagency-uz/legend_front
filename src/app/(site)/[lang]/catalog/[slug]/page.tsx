@@ -101,9 +101,9 @@ export default async function Product({
         <div className="flex flex-col w-[55%] gap-[4vw] max-xs:w-full max-xs:gap-[20px]">
           <div className="flex flex-col gap-[1.42vw] max-xs:gap-[20px]">
             <h2 className="h3">{product?.name[lang]}</h2>
-            {product?.productCategoryId === 3 ? (
+            {product?.productCategoryId === 3 ? null : (
               <ProductVolumeDropdown />
-            ) : null}
+            )}
           </div>
 
           <div className="flex flex-col gap-[1.08vw] max-xs:gap-[31px] max-xs:mb-[21px]">

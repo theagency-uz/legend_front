@@ -33,9 +33,7 @@ const runsOnServerSide = typeof window === "undefined";
 
 export function useTranslation(lng?: string, ns?: string, options?: {}) {
   const ret = useTranslationOrg(ns, options);
-
   const { i18n } = ret;
-
   if (runsOnServerSide && i18n.resolvedLanguage !== lng) {
     i18n.changeLanguage(lng);
   } else {

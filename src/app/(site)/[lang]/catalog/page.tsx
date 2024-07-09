@@ -1,3 +1,5 @@
+import { ReadonlyURLSearchParams } from "next/navigation";
+
 import CatalogCard from "@/components/site/catalog/card/card";
 import Filter from "@/components/site/catalog/filter/filter";
 
@@ -16,8 +18,7 @@ import { Slash } from "lucide-react";
 import { PRODUCTS } from "@/constants/site";
 
 async function getData() {
-  const url: string =
-    process.env.NEXT_PUBLIC_BASE_URL + "products/public" || "";
+  const url: string = process.env.NEXT_PUBLIC_BASE_URL + "products/public";
 
   const res = await fetch(url);
 
@@ -30,8 +31,10 @@ async function getData() {
 
 export default async function Catalog({
   params: { lang },
+  searchParams,
 }: {
   params: { lang: string };
+  searchParams: ReadonlyURLSearchParams;
 }) {
   const { t } = await useTranslation(lang);
 

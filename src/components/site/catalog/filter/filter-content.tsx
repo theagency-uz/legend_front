@@ -24,7 +24,7 @@ export default function FilterContent({
   lang: string;
   children?: React.ReactNode;
 }) {
-  const { i18n } = useTranslation(lang);
+  const { i18n, t } = useTranslation(lang);
 
   return (
     <div className="flex flex-col gap-[3.08vw] max-xs:gap-[40px] text-white medium-normal-nospacing w-full">
@@ -36,7 +36,7 @@ export default function FilterContent({
             height={16}
             className="w-[1.33vw] max-xs:w-[4.69vw] max-xs:h-[4.69vw]"
           />{" "}
-          <span>{i18n.t("Фильтры")}</span>
+          <span>{t("Фильтры")}</span>
         </h3>
         {children}
       </div>
@@ -50,6 +50,7 @@ export default function FilterContent({
                 key={index}
                 filterVal={filterVal}
                 id={filterVal}
+                name={"gaz"}
               />
             ))}
           </div>
@@ -63,6 +64,7 @@ export default function FilterContent({
                 key={index}
                 filterVal={filterVal}
                 id={filterVal}
+                name={"material"}
               />
             ))}
           </div>
@@ -76,6 +78,7 @@ export default function FilterContent({
                 key={index}
                 filterVal={`${filterVal} ${i18n.t("Л")}`}
                 id={filterVal}
+                name={"litrage"}
               />
             ))}
           </div>

@@ -11,9 +11,9 @@ import NavbarMob from "./navbar-mob.component";
 import { useTranslation } from "@/lib/i18n/client";
 
 export default function Navbar({ lang }: { lang: string }) {
-  const [scrolling, setScrolling] = useState(false);
+  const { t, i18n } = useTranslation(lang);
 
-  const { t } = useTranslation(lang);
+  const [scrolling, setScrolling] = useState(false);
 
   const handleScroll = function () {
     if (window.scrollY > 20) {
