@@ -44,11 +44,7 @@ export function FilterMob({ lang }: { lang: string }) {
 
         <div className="p-[22px] mx-[10px] mt-[80px] bg-filter-mob rounded-xl">
           <div className="w-full h-full backdrop-blur-[5px]">
-            <FilterContent lang={lang}>
-              <SheetClose asChild>
-                <X className="h-[25px] w-[25px]" />
-              </SheetClose>
-            </FilterContent>
+            <FilterContent lang={lang} />
           </div>
         </div>
       </SheetContent>

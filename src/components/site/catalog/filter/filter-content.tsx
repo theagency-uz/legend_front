@@ -5,6 +5,9 @@ import CheckboxCustom from "./checkbox";
 
 import { useTranslation } from "@/lib/i18n/client";
 
+import { SheetClose, SheetTrigger } from "@/components/ui/sheet";
+import { X } from "lucide-react";
+
 const filters = [
   { filterVal: "Без газа" },
   { filterVal: "С газом" },
@@ -17,14 +20,8 @@ const filters = [
   { filterVal: "19" },
 ];
 
-export default function FilterContent({
-  lang,
-  children,
-}: {
-  lang: string;
-  children?: React.ReactNode;
-}) {
-  const { i18n, t } = useTranslation(lang);
+export default function FilterContent({ lang }: { lang: string }) {
+  const { t } = useTranslation(lang);
 
   return (
     <div className="flex flex-col gap-[3.08vw] max-xs:gap-[40px] text-white medium-normal-nospacing w-full">
@@ -38,12 +35,14 @@ export default function FilterContent({
           />{" "}
           <span>{t("Фильтры")}</span>
         </h3>
-        {children}
+        <SheetClose asChild>
+          <X className="h-[25px] w-[25px]" />
+        </SheetClose>
       </div>
 
       <div className="flex flex-col gap-[2.5vw] max-xs:gap-[20px]">
         <div className="flex flex-col gap-[0.83vw] max-xs:gap-[10px]">
-          <h3>{i18n.t("Газ")}</h3>
+          <h3>{t("Газ")}</h3>
           <div className="flex flex-col gap-[0.67vw] max-xs:gap-[5px]">
             {filters.slice(0, 2).map(({ filterVal }, index) => (
               <CheckboxCustom
@@ -57,7 +56,7 @@ export default function FilterContent({
         </div>
 
         <div className="flex flex-col gap-[0.83vw] max-xs:gap-[10px]">
-          <h3>{i18n.t("Материал")}</h3>
+          <h3>{t("Материал")}</h3>
           <div className="flex flex-col gap-[0.67vw] max-xs:gap-[5px]">
             {filters.slice(2, 4).map(({ filterVal }, index) => (
               <CheckboxCustom
@@ -71,12 +70,12 @@ export default function FilterContent({
         </div>
 
         <div className="flex flex-col gap-[0.83vw] max-xs:gap-[10px]">
-          <h3>{i18n.t("Литраж")}</h3>
+          <h3>{t("Литраж")}</h3>
           <div className="flex flex-col gap-[0.67vw] max-xs:gap-[5px]">
             {filters.slice(4).map(({ filterVal }, index) => (
               <CheckboxCustom
                 key={index}
-                filterVal={`${filterVal} ${i18n.t("Л")}`}
+                filterVal={`${filterVal} ${t("Л")}`}
                 id={filterVal}
                 name={"litrage"}
               />
@@ -86,9 +85,11 @@ export default function FilterContent({
       </div>
 
       <div className="xs:hidden flex justify-center mt-[40px]">
-        <Button className="px-[70px]" type="submit">
-          {i18n.t("Применить")}
-        </Button>
+        <SheetTrigger asChild>
+          <Button className="px-[70px]" type="submit">
+            {t("Применить")}
+          </Button>
+        </SheetTrigger>
       </div>
     </div>
   );
