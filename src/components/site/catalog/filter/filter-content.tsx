@@ -20,7 +20,13 @@ const filters = [
   { filterVal: "19" },
 ];
 
-export default function FilterContent({ lang }: { lang: string }) {
+export default function FilterContent({
+  lang,
+  isMob,
+}: {
+  lang: string;
+  isMob?: boolean;
+}) {
   const { t } = useTranslation(lang);
 
   return (
@@ -35,9 +41,11 @@ export default function FilterContent({ lang }: { lang: string }) {
           />{" "}
           <span>{t("Фильтры")}</span>
         </h3>
-        <SheetClose asChild>
-          <X className="h-[25px] w-[25px]" />
-        </SheetClose>
+        {isMob ? (
+          <SheetTrigger asChild>
+            <X className="h-[25px] w-[25px]" />
+          </SheetTrigger>
+        ) : null}
       </div>
 
       <div className="flex flex-col gap-[2.5vw] max-xs:gap-[20px]">
@@ -84,13 +92,15 @@ export default function FilterContent({ lang }: { lang: string }) {
         </div>
       </div>
 
-      <div className="xs:hidden flex justify-center mt-[40px]">
-        <SheetTrigger asChild>
-          <Button className="px-[70px]" type="submit">
-            {t("Применить")}
-          </Button>
-        </SheetTrigger>
-      </div>
+      {isMob ? (
+        <div className="xs:hidden flex justify-center mt-[40px]">
+          <SheetTrigger asChild>
+            <Button className="px-[70px]" type="submit">
+              {t("Применить")}
+            </Button>
+          </SheetTrigger>
+        </div>
+      ) : null}
     </div>
   );
 }

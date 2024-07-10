@@ -27,7 +27,7 @@ export function FilterMob({ lang }: { lang: string }) {
   return (windowSize.width ?? 0) <= MOBILE_SIZE ? (
     <Sheet>
       <SheetTrigger asChild>
-        <h3 className="flex items-center gap-[1.08vw]">
+        <h3 className="flex items-center gap-[1.08vw] xs:hidden">
           <img
             src="/assets/filter.svg"
             width={16}
@@ -44,7 +44,7 @@ export function FilterMob({ lang }: { lang: string }) {
 
         <div className="p-[22px] mx-[10px] mt-[80px] bg-filter-mob rounded-xl">
           <div className="w-full h-full backdrop-blur-[5px]">
-            <FilterContent lang={lang} />
+            <FilterContent lang={lang} isMob />
           </div>
         </div>
       </SheetContent>

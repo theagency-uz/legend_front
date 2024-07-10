@@ -17,9 +17,9 @@ export default function CheckboxCustom({
     <div className="flex items-center gap-[0.83vw] max-xs:gap-[10px]">
       <Checkbox
         checked={filterName?.includes(filterVal) ?? false}
-        onCheckedChange={(isChecked) =>
-          isChecked ? setFilterName(filterVal) : setFilterName(null)
-        }
+        onCheckedChange={(isChecked) => {
+          isChecked ? setFilterName(filterVal) : setFilterName(null);
+        }}
         id={id}
       />
       <label htmlFor={id} className="medium-normal-nospacing">

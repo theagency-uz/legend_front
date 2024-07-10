@@ -1,5 +1,3 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
 
@@ -57,9 +55,7 @@ export default function CatalogCard({
 
             <div className="flex justify-between">
               <div className="flex flex-col gap-[5px]">
-                <span className="large-medium-90">
-                  {formatCost(cost)}
-                </span>
+                <span className="large-medium-90">{formatCost(cost)}</span>
                 <span className="base-normal-nospacing uppercase">
                   {i18n.t("сум / блок")}
                 </span>
