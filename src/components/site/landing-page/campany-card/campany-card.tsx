@@ -7,7 +7,6 @@ export default async function CampanyCard({
   alt,
   width,
   height,
-  key,
   lang,
   date,
   title,
@@ -17,7 +16,6 @@ export default async function CampanyCard({
   alt: string;
   width: number;
   height: number;
-  key?: number | string;
   lang: string;
   date: string;
   title: string;
@@ -26,7 +24,7 @@ export default async function CampanyCard({
   const { t } = await useTranslation(lang);
 
   return (
-    <div key={key} className="flex flex-col gap-[20px] w-[25%] max-xs:w-[100%]">
+    <div className="flex flex-col gap-[20px] w-[25%] max-xs:w-[100%]">
       <Image
         src={src}
         alt={alt}

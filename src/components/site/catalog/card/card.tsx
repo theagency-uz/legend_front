@@ -16,8 +16,8 @@ export default function CatalogCard({
   slug,
 }: {
   imgSrc: string;
-  alt: string;
-  title: string;
+  alt: any;
+  title: any;
   volume: string | number;
   cost: number;
   lang: string;

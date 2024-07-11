@@ -9,16 +9,18 @@ import {
   Pagination,
 } from "@/components/site/common/slider/slider.component";
 
-export default function ProductImage({ gallery, thumbsSwiper }) {
+export default function ProductImage({ gallery, thumbsSwiper }: any) {
   return (
     <Swiper
       modules={[FreeMode, Navigation, Thumbs, Pagination]}
-      thumbs={{ swiper: thumbsSwiper }}
+      thumbs={{
+        swiper: thumbsSwiper,
+      }}
       className="mySwiper2"
       grabCursor={true}
       pagination
     >
-      {gallery?.map((item) => (
+      {gallery?.map((item: any) => (
         <SwiperSlide key={`product-gallery-${item.id}`} className="">
           <Image
             src={process.env.NEXT_PUBLIC_IMAGE_UPLOAD_URL + item.imgUrl}

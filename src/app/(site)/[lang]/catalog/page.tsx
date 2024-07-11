@@ -1,10 +1,3 @@
-import { ReadonlyURLSearchParams } from "next/navigation";
-
-import Filter from "@/components/site/catalog/filter/filter";
-
-import { useTranslation } from "@/lib/i18n";
-import { FilterMob } from "@/components/site/catalog/filter/filter-mob";
-
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -12,40 +5,22 @@ import {
   BreadcrumbList,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
-import { Slash } from "lucide-react";
-
-import { PRODUCTS } from "@/constants/site";
-
+import Filter from "@/components/site/catalog/filter/filter";
+import { FilterMob } from "@/components/site/catalog/filter/filter-mob";
 import ProductsRow from "@/components/site/catalog/products-row/products-row";
 
-async function getData() {
-  try {
-    const url: string = process.env.NEXT_PUBLIC_BASE_URL + "products/public";
+import { Slash } from "lucide-react";
 
-    const res = await fetch(url);
+import { useTranslation } from "@/lib/i18n";
 
-    if (!res.ok) {
-      throw new Error("Failed to fetch data");
-    }
-
-    return res.json();
-  } catch (err) {
-    console.log(err);
-  }
-}
+import { Language } from "@/types/language";
 
 export default async function Catalog({
   params: { lang },
-  searchParams,
 }: {
-  params: { lang: string };
-  searchParams: ReadonlyURLSearchParams;
+  params: { lang: keyof Language };
 }) {
   const { t } = await useTranslation(lang);
-
-  const products = await getData();
-
-  console.log(searchParams);
 
   return (
     <main className="px-[100px] py-[11.83vw] max-xs:py-[28vw] w-full h-auto bg-catalog bg-cover aspect-[1200/1942] text-white max-xs:px-[10px] max-xs:bg-catalog-mob max-xs:aspect-[442/1878] bg-top bg-fixed">
@@ -86,7 +61,7 @@ export default async function Catalog({
         </div>
 
         <div className="flex flex-wrap gap-[2.5vw] max-xs:flex-col max-xs:gap-[6.26vw]">
-          <ProductsRow products={products} lang={lang} />
+          <ProductsRow lang={lang} />
         </div>
       </div>
     </main>

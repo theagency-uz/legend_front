@@ -16,9 +16,9 @@ export default function CheckboxCustom({
   return (
     <div className="flex items-center gap-[0.83vw] max-xs:gap-[10px]">
       <Checkbox
-        checked={filterName?.includes(filterVal) ?? false}
+        checked={filterName === id ?? false}
         onCheckedChange={(isChecked) => {
-          isChecked ? setFilterName(filterVal) : setFilterName(null);
+          isChecked ? setFilterName(id) : setFilterName(null);
         }}
         id={id}
       />

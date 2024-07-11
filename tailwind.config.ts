@@ -84,6 +84,7 @@ const config: Config = {
         product: "url('/assets/bg-product.webp')",
         "checkout-mob":
           "url('/assets/bg.webp'), linear-gradient(to bottom right, #4A8FA1 53%, #347384 100%)",
+        legend: "linear-gradient(to bottom right, #4A8FA1 53%, #347384 100%)",
       },
       screens: {
         xs: "420px",

@@ -8,7 +8,7 @@ import {
 import useWindowSize from "@/hooks/useWindowSize";
 import { MOBILE_SIZE } from "@/constants/site";
 
-export default function CarouselThumbs({ gallery, setThumbsSwiper }) {
+export default function CarouselThumbs({ gallery, setThumbsSwiper }: any) {
   const windowSize = useWindowSize();
 
   return windowSize.width > MOBILE_SIZE ? (
@@ -21,7 +21,7 @@ export default function CarouselThumbs({ gallery, setThumbsSwiper }) {
       observeParents={true}
       className="mySwiper"
     >
-      {gallery?.map((item) => (
+      {gallery?.map((item: any) => (
         <SwiperSlide key={`product-thumb-gallery-${item.id}`} className="">
           <Image
             src={process.env.NEXT_PUBLIC_IMAGE_UPLOAD_URL + item.imgUrl}
