@@ -14,18 +14,24 @@ import {
 } from "@/components/ui/breadcrumb";
 import { Slash } from "lucide-react";
 
+import { PRODUCTS } from "@/constants/site";
+
 import ProductsRow from "@/components/site/catalog/products-row/products-row";
 
 async function getData() {
-  const url: string = process.env.NEXT_PUBLIC_BASE_URL + "products/public";
+  try {
+    const url: string = process.env.NEXT_PUBLIC_BASE_URL + "products/public";
 
-  const res = await fetch(url);
+    const res = await fetch(url);
 
-  if (!res.ok) {
-    throw new Error("Failed to fetch data");
+    if (!res.ok) {
+      throw new Error("Failed to fetch data");
+    }
+
+    return res.json();
+  } catch (err) {
+    console.log(err);
   }
-
-  return res.json();
 }
 
 export default async function Catalog({
