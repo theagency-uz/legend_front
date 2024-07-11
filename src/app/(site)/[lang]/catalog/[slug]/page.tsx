@@ -8,11 +8,12 @@ import {
 import ProductInfo from "@/components/site/product/product-info";
 
 import { useTranslation } from "@/lib/i18n";
+import { Language } from "@/types/language";
 
 export default async function Product({
   params: { lang, slug },
 }: {
-  params: { lang: string; slug: string };
+  params: { lang: keyof Language; slug: string };
 }) {
   const { t } = await useTranslation(lang);
 

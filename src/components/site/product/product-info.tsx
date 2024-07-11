@@ -1,8 +1,10 @@
 "use client";
 
+import { ChangeEvent, useState } from "react";
 import Link from "next/link";
 
 import { formatCost } from "@/lib/utils";
+import { useTranslation } from "@/lib/i18n/client";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -12,28 +14,66 @@ import {
   BreadcrumbList,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
-import { Slash } from "lucide-react";
-
 import ProductCount from "../common/product-count";
 import ProductVolumeDropdown from "./product-volume-dropdown";
 import ProductGallery from "./product-gallery";
+
+import { Slash } from "lucide-react";
+
 import useFetch from "@/hooks/useFetch";
-import { useTranslation } from "@/lib/i18n/client";
+
+import { useCart } from "@/context/cart.context";
+
+import { IProduct } from "@/types/product";
+import { Language } from "@/types/language";
 
 export default function ProductInfo({
   slug,
   lang,
 }: {
   slug: string;
-  lang: string;
+  lang: keyof Language;
 }) {
   const { t } = useTranslation(lang);
 
-  const {
-    data: product,
-    error,
-    loading,
-  } = useFetch({ url: `/products/public/${slug}` });
+  const { data, error, loading } = useFetch({
+    url: `/products/public/${slug}`,
+  });
+
+  const product: IProduct = data;
+
+  const [count, setCount] = useState(1);
+  const { addToCart, removeFromCart, cartItems } = useCart();
+
+  function handleInputCount(e: ChangeEvent<HTMLInputElement>) {
+    if (+e.target.value <= 1) return setCount(1);
+
+    setCount(+e.target.value);
+  }
+
+  function handlePlusCount() {
+    setCount((count) => count + 1);
+    addToCart({
+      id: product.id,
+      imageUrl: product.previewImage,
+      price: product.price,
+      title: product.name[lang],
+      quantity: count + 1,
+    });
+  }
+
+  function handleMinusCount() {
+    if (count <= 1) return setCount(1);
+
+    setCount((count) => count - 1);
+    removeFromCart({
+      id: product.id,
+      imageUrl: product.previewImage,
+      price: product.price,
+      title: product.name[lang],
+      quantity: count - 1,
+    });
+  }
 
   const gallery = product?.images?.map((imgUrl: string, id: number) => ({
     id,
@@ -103,7 +143,13 @@ export default function ProductInfo({
                 })}
               </p>
               <div className="flex items-center gap-[34px] max-xs:gap-[17px]">
-                <ProductCount lang={lang} />
+                <ProductCount
+                  lang={lang}
+                  count={count}
+                  handleInputCount={handleInputCount}
+                  handlePlusCount={handlePlusCount}
+                  handleMinusCount={handleMinusCount}
+                />
                 <span className="medium-normal uppercase tracking-[1px]">
                   {product?.productCategoryId
                     ? t("в блоке", { number: product?.itemsPerBlock })
@@ -118,11 +164,7 @@ export default function ProductInfo({
                   {formatCost(product?.price)}
                 </span>
                 <span className="base-normal-nospacing uppercase">
-                  {t(
-                    product?.productCategoryId === 3
-                      ? "сум / штука"
-                      : "сум / блок"
-                  )}
+                  {t(product?.productCategoryId ? "сум / блок" : "сум / штука")}
                 </span>
               </div>
               <Button className="px-[2.75vw] py-[0.5vw] base-normal-nospacing max-xs:w-[142px] max-xs:py-[8px] h-fit">

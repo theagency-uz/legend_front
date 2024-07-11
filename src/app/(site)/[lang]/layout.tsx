@@ -6,6 +6,8 @@ import "../../globals.css";
 import Navbar from "../../../components/site/common/navbar.component";
 import Footer from "@/components/site/common/footer.component";
 
+import Providers from "@/app/providers";
+
 const inter = localFont({
   src: [
     {
@@ -30,9 +32,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.variable} font-inter relative`}>
-        <Navbar lang={lang} />
-        {children}
-        <Footer lang={lang} />
+        <Providers>
+          <Navbar lang={lang} />
+          {children}
+          <Footer lang={lang} />
+        </Providers>
       </body>
     </html>
   );

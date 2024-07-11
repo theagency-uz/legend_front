@@ -1,32 +1,32 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { ChangeEventHandler } from "react";
 
 import { Minus, Plus } from "lucide-react";
 
 import { useTranslation } from "@/lib/i18n/client";
 
-export default function ProductCount({ lang }: { lang: string }) {
+export default function ProductCount({
+  lang,
+  count,
+  handleInputCount,
+  handlePlusCount,
+  handleMinusCount,
+}: {
+  lang: string;
+  count: number;
+  handleInputCount: ChangeEventHandler<HTMLInputElement>;
+  handlePlusCount: Function;
+  handleMinusCount: Function;
+}) {
   const { i18n } = useTranslation(lang);
-
-  const [count, setCount] = useState(1);
-
-  function handleInputChange(value: number) {
-    if (value > 1) {
-      setCount(value);
-    } else {
-      setCount(1);
-    }
-  }
 
   return (
     <div className="flex items-center rounded-[200px] border border-white w-fit	py-[5px] px-[10px] base-semibold gap-[17px] h-fit max-xs:gap-[15px]">
       <div>
         <button
           className="flex items-center"
-          onClick={() =>
-            setCount((curCount) => (curCount !== 1 ? curCount - 1 : 1))
-          }
+          onClick={() => handleMinusCount()}
         >
           <Minus />
         </button>
@@ -43,7 +43,7 @@ export default function ProductCount({ lang }: { lang: string }) {
             name="quantity"
             value={count}
             type="number"
-            onChange={(e) => handleInputChange(Number(e.target.value))}
+            onChange={handleInputCount}
           />
         </div>
         <label className="small-semibold" htmlFor="count">
@@ -53,7 +53,9 @@ export default function ProductCount({ lang }: { lang: string }) {
       <div className="">
         <button
           className="flex items-center"
-          onClick={() => setCount((curCount) => curCount + 1)}
+          onClick={() => {
+            handlePlusCount();
+          }}
         >
           <Plus />
         </button>
