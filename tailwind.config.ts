@@ -12,25 +12,6 @@ const config: Config = {
       xs: "450px",
       ...defaultTheme.screens,
     },
-    keyframes: {
-      moveupdown: {
-        "0%": { transform: "translateY(0px)" },
-        "100%": { transform: "translateY(-30px)" },
-      },
-      "accordion-down": {
-        from: { height: "0" },
-        to: { height: "var(--radix-accordion-content-height)" },
-      },
-      "accordion-up": {
-        from: { height: "var(--radix-accordion-content-height)" },
-        to: { height: "0" },
-      },
-    },
-    animation: {
-      moveupdown: "moveupdown 0.8s ease-in-out",
-      "accordion-down": "accordion-down 0.2s ease-out",
-      "accordion-up": "accordion-up 0.2s ease-out",
-    },
     container: {
       center: true,
       padding: "6.66vw",

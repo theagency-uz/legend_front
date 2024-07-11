@@ -1,9 +1,19 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import { useTranslation } from "@/lib/i18n";
 
-export default async function CheckoutCard({ lang }: { lang: string }) {
-  const { t } = await useTranslation(lang);
+import { useTranslation } from "@/lib/i18n/client";
+import { formatCost } from "@/lib/utils";
+
+import { Language } from "@/types/language";
+
+import { useCart } from "@/context/cart.context";
+
+export default function CheckoutCard({ lang }: { lang: keyof Language }) {
+  const { t } = useTranslation(lang);
+
+  const { getCartTotal } = useCart();
 
   return (
     <div className="w-full rounded-[10px] bg-white bg-opacity-20">
@@ -11,7 +21,10 @@ export default async function CheckoutCard({ lang }: { lang: string }) {
         <div className="py-[28px] px-[20px]">
           <h3 className="large-semibold mb-[30px]">{t("Ваш заказ:")}</h3>
           <p className="flex justify-between items-center mb-[20px] max-xs:mb-[5px]">
-            <span>{t("Товары")} (5):</span> <span>100 000 {t("сум")}</span>
+            <span>{t("Товары")} (5):</span>{" "}
+            <span>
+              {formatCost(getCartTotal())} {t("сум")}
+            </span>
           </p>
           <p className="flex justify-between items-center">
             <span>{t("Доставка")}</span> <span>{t("бесплатно")}</span>
@@ -24,7 +37,9 @@ export default async function CheckoutCard({ lang }: { lang: string }) {
 
         <div className="py-[28px] px-[20px] flex justify-between flex-wrap gap-[20px] items-end max-xs:py-0 large-semibold">
           <h3>{t("Итого")}</h3>
-          <span>100 000 {t("сум")}</span>
+          <span>
+            {formatCost(getCartTotal())} {t("сум")}
+          </span>
         </div>
 
         <div className="flex flex-col gap-[20px] py-[28px] px-[20px]">

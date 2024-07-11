@@ -1,6 +1,5 @@
 "use client";
 
-import { ChangeEvent, useState } from "react";
 import Link from "next/link";
 
 import { formatCost } from "@/lib/utils";
@@ -22,8 +21,6 @@ import { Slash } from "lucide-react";
 
 import useFetch from "@/hooks/useFetch";
 
-import { useCart } from "@/context/cart.context";
-
 import { IProduct } from "@/types/product";
 import { Language } from "@/types/language";
 
@@ -41,39 +38,6 @@ export default function ProductInfo({
   });
 
   const product: IProduct = data;
-
-  const [count, setCount] = useState(1);
-  const { addToCart, removeFromCart, cartItems } = useCart();
-
-  function handleInputCount(e: ChangeEvent<HTMLInputElement>) {
-    if (+e.target.value <= 1) return setCount(1);
-
-    setCount(+e.target.value);
-  }
-
-  function handlePlusCount() {
-    setCount((count) => count + 1);
-    addToCart({
-      id: product.id,
-      imageUrl: product.previewImage,
-      price: product.price,
-      title: product.name,
-      quantity: count + 1,
-    });
-  }
-
-  function handleMinusCount() {
-    if (count <= 1) return setCount(1);
-
-    setCount((count) => count - 1);
-    removeFromCart({
-      id: product.id,
-      imageUrl: product.previewImage,
-      price: product.price,
-      title: product.name,
-      quantity: count - 1,
-    });
-  }
 
   const gallery = product?.images?.map((imgUrl: string, id: number) => ({
     id,
@@ -145,10 +109,13 @@ export default function ProductInfo({
               <div className="flex items-center gap-[34px] max-xs:gap-[17px]">
                 <ProductCount
                   lang={lang}
-                  count={count}
-                  handleInputCount={handleInputCount}
-                  handlePlusCount={handlePlusCount}
-                  handleMinusCount={handleMinusCount}
+                  product={{
+                    id: product.id,
+                    imageUrl: product.previewImage,
+                    price: product.price,
+                    title: product.name,
+                    quantity: 1,
+                  }}
                 />
                 <span className="medium-normal uppercase tracking-[1px]">
                   {product?.productCategoryId

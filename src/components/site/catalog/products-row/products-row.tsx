@@ -6,6 +6,8 @@ import CatalogCard from "../card/card";
 
 import useFetch from "@/hooks/useFetch";
 
+import CatalogCardPlaceholder from "../catalog-card-skelet";
+
 export default function ProductsRow({ lang }: { lang: keyof Language }) {
   const {
     data: products,
@@ -13,8 +15,16 @@ export default function ProductsRow({ lang }: { lang: keyof Language }) {
     loading,
   } = useFetch({ url: "/products/public" });
 
+  console.log(loading);
+
   if (loading) {
-    return <p>Loading ...</p>;
+    return (
+      <>
+        {Array.from({ length: 6 }).map((_, i) => (
+          <CatalogCardPlaceholder key={i} />
+        ))}
+      </>
+    );
   }
 
   if (products) {

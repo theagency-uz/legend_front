@@ -65,9 +65,11 @@ export default function NavbarMob({ lang }: { lang: string }) {
                     src="/assets/cart.svg"
                     className={`w-[25px] h-[25px]`}
                   />
-                  <div className="text-xs w-[20px] rounded-xl border-white border-2 flex items-center justify-center absolute bottom-[-40%] right-[-55%] bg-[#488493]">
-                    {cartItems?.length}
-                  </div>
+                  {cartItems?.length ? (
+                    <div className="text-xs w-[20px] rounded-xl border-white border-2 flex items-center justify-center absolute bottom-[-40%] right-[-55%] bg-[#488493]">
+                      {cartItems?.length}
+                    </div>
+                  ) : null}
                 </Link>
               </div>
             </nav>

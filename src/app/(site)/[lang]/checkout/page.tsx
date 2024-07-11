@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -8,39 +6,23 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import { Separator } from "@/components/ui/separator";
-import ProductCount from "@/components/site/common/product-count";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import CheckoutCard from "@/components/site/checkout/checkout-card";
+import CartItemsList from "@/components/site/checkout/cart-items-list";
 
 import { MapPin, Slash } from "lucide-react";
 
 import { useTranslation } from "@/lib/i18n";
-import { formatCost } from "@/lib/utils";
 
-const productsInCart = [
-  {
-    id: 1,
-    name: "Вода в пластиковой бутылке 19 л",
-    imgSrc: "/assets/product-cart.webp",
-    alt: "Вода в пластиковой бутылке 19 л",
-    cost: 100000,
-  },
-  {
-    id: 2,
-    name: "Вода в пластиковой бутылке 19 л",
-    imgSrc: "/assets/product-cart.webp",
-    alt: "Вода в пластиковой бутылке 19 л",
-    cost: 300000,
-  },
-];
+import { Language } from "@/types/language";
 
 export default async function Checkout({
   params: { lang },
 }: {
-  params: { lang: string; slug: string };
+  params: { lang: keyof Language; slug: string };
 }) {
   const { t } = await useTranslation(lang);
 
@@ -86,41 +68,7 @@ export default async function Checkout({
               <Separator className="mt-0 max-xs:mt-0 max-xs:px-[10px]" />
             </div>
 
-            <div className="px-[20px] max-xs:px-[10px]">
-              <h3 className="h3 mb-[46px] max-xs:mb-[23px]">
-                {t("Товары в корзине:")}
-              </h3>
-
-              {productsInCart.map(({ id, imgSrc, name, alt, cost }) => (
-                <div
-                  key={id}
-                  className="flex w-full items-center gap-[40px] justify-between max-xs:px-[10px]"
-                >
-                  <div className="flex items-center">
-                    <Image
-                      src={imgSrc}
-                      width={1000}
-                      height={2000}
-                      alt={alt}
-                      className="w-[100px] h-auto"
-                    />
-                  </div>
-
-                  <div className="flex justify-between flex-1 items-center max-xs:flex-col max-xs:items-start max-xs:gap-[20px]">
-                    <p className="base-medium w-[20ch] max-xs:w-full">{name}</p>
-                    <ProductCount lang={lang} />
-                    <div className="flex flex-col gap-[5px]">
-                      <span className="large-medium-90">
-                        {formatCost(cost)}
-                      </span>
-                      <span className="base-normal-nospacing uppercase">
-                        {t("сум / блок")}
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
+            <CartItemsList lang={lang} />
 
             <div className="max-xs:px-[10px]">
               <Separator />
