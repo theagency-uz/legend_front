@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 
 import { X } from "lucide-react";
 import {
@@ -10,16 +9,18 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import LangSwitcher from "./lang-switcher";
 
 import { NAVBAR_LEFT, NAVBAR_RIGHT } from "@/constants/site";
 
-import LangSwitcher from "./lang-switcher";
 import { useTranslation } from "@/lib/i18n/client";
+
+import { useCart } from "@/context/cart.context";
 
 export default function NavbarMob({ lang }: { lang: string }) {
   const { t } = useTranslation(lang);
 
-  const path = usePathname().slice(0, 3);
+  const { cartItems } = useCart();
 
   return (
     <Sheet>
@@ -58,11 +59,16 @@ export default function NavbarMob({ lang }: { lang: string }) {
                 </SheetTrigger>
               </div>
               <div className="flex-1 flex justify-end cursor-pointer">
-                <img
-                  alt="cart icon"
-                  src="/assets/cart.svg"
-                  className={`w-[25px] h-[25px]`}
-                />
+                <Link href={`/${lang}/checkout`} className="relative">
+                  <img
+                    alt="cart icon"
+                    src="/assets/cart.svg"
+                    className={`w-[25px] h-[25px]`}
+                  />
+                  <div className="text-xs w-[20px] rounded-xl border-white border-2 flex items-center justify-center absolute bottom-[-40%] right-[-55%] bg-[#488493]">
+                    {cartItems?.length}
+                  </div>
+                </Link>
               </div>
             </nav>
           </SheetTitle>

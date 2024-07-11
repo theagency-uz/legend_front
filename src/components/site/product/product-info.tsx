@@ -57,7 +57,7 @@ export default function ProductInfo({
       id: product.id,
       imageUrl: product.previewImage,
       price: product.price,
-      title: product.name[lang],
+      title: product.name,
       quantity: count + 1,
     });
   }
@@ -70,7 +70,7 @@ export default function ProductInfo({
       id: product.id,
       imageUrl: product.previewImage,
       price: product.price,
-      title: product.name[lang],
+      title: product.name,
       quantity: count - 1,
     });
   }

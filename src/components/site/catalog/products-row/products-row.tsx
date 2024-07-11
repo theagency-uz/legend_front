@@ -1,9 +1,12 @@
 "use client";
 
+import { Language } from "@/types/language";
+
 import CatalogCard from "../card/card";
+
 import useFetch from "@/hooks/useFetch";
 
-export default function ProductsRow({ lang }: { lang: string }) {
+export default function ProductsRow({ lang }: { lang: keyof Language }) {
   const {
     data: products,
     error,
@@ -28,6 +31,7 @@ export default function ProductsRow({ lang }: { lang: string }) {
               volume={product_variation.value}
               lang={lang}
               slug={slug}
+              id={id}
             />
           )
         )}

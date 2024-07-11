@@ -1,10 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 import { useTranslation } from "@/lib/i18n/client";
-
-import { usePathname } from "next/navigation";
 import { formatCost } from "@/lib/utils";
+
+import { Language } from "@/types/language";
+
+import { useCart } from "@/context/cart.context";
 
 export default function CatalogCard({
   imgSrc,
@@ -14,19 +17,23 @@ export default function CatalogCard({
   cost,
   lang,
   slug,
+  id,
 }: {
   imgSrc: string;
   alt: any;
-  title: any;
+  title: Language;
   volume: string | number;
   cost: number;
-  lang: string;
+  lang: keyof Language;
   slug: string;
+  id: number;
 }) {
   const { i18n } = useTranslation(lang);
   const path = usePathname();
 
   const url = process.env.NEXT_PUBLIC_IMAGE_UPLOAD_URL + imgSrc;
+
+  const { addToCart } = useCart();
 
   return (
     <Link
@@ -61,16 +68,30 @@ export default function CatalogCard({
                 </span>
               </div>
 
-              <div className="flex flex-col items-center gap-[5px] justify-between cursor-pointer">
-                <img
-                  alt="cart icon"
-                  src="/assets/cart.svg"
-                  className={`w-[25px] h-[25px]`}
-                />
-                <span className="base-normal-nospacing uppercase">
-                  {i18n.t("в корзину")}
-                </span>
-              </div>
+              <Link
+                href=""
+                onClick={(e) => {
+                  e.preventDefault();
+                  addToCart({
+                    id,
+                    imageUrl: imgSrc,
+                    price: cost,
+                    quantity: 1,
+                    title: title,
+                  });
+                }}
+              >
+                <div className="flex flex-col items-center gap-[5px] justify-between cursor-pointer">
+                  <img
+                    alt="cart icon"
+                    src="/assets/cart.svg"
+                    className={`w-[25px] h-[25px]`}
+                  />
+                  <span className="base-normal-nospacing uppercase">
+                    {i18n.t("в корзину")}
+                  </span>
+                </div>
+              </Link>
             </div>
           </div>
         </div>

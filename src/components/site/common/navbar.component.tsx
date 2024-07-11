@@ -9,11 +9,14 @@ import LangSwitcher from "./lang-switcher";
 import NavbarMob from "./navbar-mob.component";
 
 import { useTranslation } from "@/lib/i18n/client";
+import { useCart } from "@/context/cart.context";
 
 export default function Navbar({ lang }: { lang: string }) {
-  const { t, i18n } = useTranslation(lang);
+  const { t } = useTranslation(lang);
 
   const [scrolling, setScrolling] = useState(false);
+
+  const { cartItems } = useCart();
 
   const handleScroll = function () {
     if (window.scrollY > 20) {
@@ -72,11 +75,16 @@ export default function Navbar({ lang }: { lang: string }) {
           ))}
         </ul>
         <span className="cursor-pointer">
-          <img
-            alt="cart icon"
-            src="/assets/cart.svg"
-            className={`max-xs:w-[25px] max-xs:h-[25px] w-[1.42vw] h-[1.42vw]`}
-          />
+          <Link href={`/${lang}/checkout`} className="relative">
+            <img
+              alt="cart icon"
+              src="/assets/cart.svg"
+              className={`max-xs:w-[25px] max-xs:h-[25px] w-[1.42vw] h-[1.42vw]`}
+            />
+            <div className="text-xs w-[20px] rounded-xl border-white border-2 flex items-center justify-center absolute bottom-[-40%] right-[-55%] bg-[#488493] max-xs:bottom-[-40%] max-xs:right-[-55%] max-xs:w-[20px]">
+              {cartItems?.length}
+            </div>
+          </Link>
         </span>
       </div>
     </nav>
