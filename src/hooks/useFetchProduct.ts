@@ -5,12 +5,10 @@ import { useSearchParams } from "next/navigation";
 
 import { httpClient } from "@/server/request";
 
-export default function useFetch({ url = "" }) {
+export default function useFetchProduct({ slug }: { slug: string }) {
   const [data, setData] = useState<any>();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
-
-  const searchParams = useSearchParams();
 
   useEffect(() => {
     const controller = new AbortController();
@@ -20,7 +18,7 @@ export default function useFetch({ url = "" }) {
         setLoading(true);
 
         const { data: resource } = await httpClient.get(
-          `${url}?${searchParams}`,
+          `/products/public/${slug}`,
           {
             signal: controller.signal,
           }
@@ -29,7 +27,6 @@ export default function useFetch({ url = "" }) {
         setData(resource);
       } catch (err) {
         setError("Произошла ошибка...");
-        console.log(err);
       } finally {
         setLoading(false);
       }
@@ -38,7 +35,7 @@ export default function useFetch({ url = "" }) {
     fetchData();
 
     return () => controller.abort();
-  }, [searchParams]);
+  }, []);
 
   return { data, error, loading };
 }

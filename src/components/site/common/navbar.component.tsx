@@ -81,11 +81,10 @@ export default function Navbar({ lang }: { lang: string }) {
               src="/assets/cart.svg"
               className={`max-xs:w-[25px] max-xs:h-[25px] w-[1.42vw] h-[1.42vw]`}
             />
-            {cartItems?.length ? (
-              <div className="text-xs w-[20px] rounded-xl border-white border-2 flex items-center justify-center absolute bottom-[-40%] right-[-55%] bg-[#488493] max-xs:bottom-[-40%] max-xs:right-[-55%] max-xs:w-[20px]">
-                {cartItems?.length}
-              </div>
-            ) : null}
+
+            <div className="text-xs w-[20px] rounded-xl border-white border-2 flex items-center justify-center absolute bottom-[-40%] right-[-55%] bg-[#488493] max-xs:bottom-[-40%] max-xs:right-[-55%] max-xs:w-[20px]">
+              {cartItems?.length}
+            </div>
           </Link>
         </span>
       </div>

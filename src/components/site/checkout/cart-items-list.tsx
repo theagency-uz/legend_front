@@ -24,39 +24,41 @@ export default function CartItemsList({ lang }: { lang: keyof Language }) {
       </h3>
 
       <div className="flex flex-col gap-10">
-        {cartItems.map((product: IItemInCart) => (
-          <div
-            key={product.id}
-            className="flex w-full items-center gap-[40px] justify-between max-xs:px-[10px]"
-          >
-            <div className="flex items-center">
-              <Image
-                src={
-                  process.env.NEXT_PUBLIC_IMAGE_UPLOAD_URL + product.imageUrl
-                }
-                width={1000}
-                height={2000}
-                alt="товар в корзине"
-                className="w-[100px] h-auto"
-              />
-            </div>
+        {cartItems.map((product: IItemInCart) => {
+          return (
+            <div
+              key={product.id}
+              className="flex w-full items-center gap-[40px] justify-between max-xs:px-[10px]"
+            >
+              <div className="flex items-center">
+                <Image
+                  src={
+                    process.env.NEXT_PUBLIC_IMAGE_UPLOAD_URL + product.imageUrl
+                  }
+                  width={1000}
+                  height={2000}
+                  alt="товар в корзине"
+                  className="w-[100px] h-auto"
+                />
+              </div>
 
-            <div className="flex justify-between flex-1 items-center max-xs:flex-col max-xs:items-start max-xs:gap-[20px]">
-              <p className="base-medium w-[20ch] max-xs:w-full">
-                {product.title[lang]}
-              </p>
-              <ProductCount product={product} lang={lang} />
-              <div className="flex flex-col gap-[5px]">
-                <span className="large-medium-90">
-                  {formatCost(product.price)}
-                </span>
-                <span className="base-normal-nospacing uppercase">
-                  {t("сум / блок")}
-                </span>
+              <div className="flex justify-between flex-1 items-center max-xs:flex-col max-xs:items-start max-xs:gap-[20px]">
+                <p className="base-medium w-[20ch] max-xs:w-full">
+                  {product.title[lang]}
+                </p>
+                <ProductCount product={product} lang={lang} />
+                <div className="flex flex-col gap-[5px]">
+                  <span className="large-medium-90">
+                    {formatCost(product.price)}
+                  </span>
+                  <span className="base-normal-nospacing uppercase">
+                    {t("сум / блок")}
+                  </span>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </div>
   );

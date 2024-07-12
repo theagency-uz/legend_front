@@ -19,10 +19,11 @@ import ProductGallery from "./product-gallery";
 
 import { Slash } from "lucide-react";
 
-import useFetch from "@/hooks/useFetch";
+import useFetchProduct from "@/hooks/useFetchProduct";
 
 import { IProduct } from "@/types/product";
 import { Language } from "@/types/language";
+import { useCart } from "@/context/cart.context";
 
 export default function ProductInfo({
   slug,
@@ -33,9 +34,11 @@ export default function ProductInfo({
 }) {
   const { t } = useTranslation(lang);
 
-  const { data, error, loading } = useFetch({
-    url: `/products/public/${slug}`,
+  const { data, error, loading } = useFetchProduct({
+    slug,
   });
+
+  const { addToCart, cartItems } = useCart();
 
   const product: IProduct = data;
 
@@ -114,7 +117,9 @@ export default function ProductInfo({
                     imageUrl: product.previewImage,
                     price: product.price,
                     title: product.name,
-                    quantity: 1,
+                    quantity:
+                      cartItems.find((item) => item.id === product.id)
+                        ?.quantity ?? 1,
                   }}
                 />
                 <span className="medium-normal uppercase tracking-[1px]">
@@ -134,7 +139,20 @@ export default function ProductInfo({
                   {t(product?.productCategoryId ? "сум / блок" : "сум / штука")}
                 </span>
               </div>
-              <Button className="px-[2.75vw] py-[0.5vw] base-normal-nospacing max-xs:w-[142px] max-xs:py-[8px] h-fit">
+              <Button
+                onClick={() =>
+                  cartItems.find((item) => item.id === product.id)?.quantity
+                    ? null
+                    : addToCart({
+                        id: product.id,
+                        imageUrl: product.previewImage,
+                        price: product.price,
+                        title: product.name,
+                        quantity: 1,
+                      })
+                }
+                className="px-[2.75vw] py-[0.5vw] base-normal-nospacing max-xs:w-[142px] max-xs:py-[8px] h-fit"
+              >
                 <Link href={`/${lang}/checkout`}>{t("Заказать")}</Link>
               </Button>
             </div>

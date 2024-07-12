@@ -14,6 +14,7 @@ import { Slash } from "lucide-react";
 import { useTranslation } from "@/lib/i18n";
 
 import { Language } from "@/types/language";
+import Link from "next/link";
 
 export default async function Catalog({
   params: { lang },
@@ -30,9 +31,9 @@ export default async function Catalog({
             <BreadcrumbItem>
               <BreadcrumbLink
                 className="uppercase medium-normal-nospacing"
-                href={`/${lang}`}
+                asChild
               >
-                {t("main")}
+                <Link href={`/${lang}`}>{t("main")}</Link>
               </BreadcrumbLink>
             </BreadcrumbItem>
             <BreadcrumbSeparator>
@@ -41,9 +42,9 @@ export default async function Catalog({
             <BreadcrumbItem>
               <BreadcrumbLink
                 className="uppercase medium-normal-nospacing"
-                href={`catalog`}
+                asChild
               >
-                {t("catalog")}
+                <Link href={`catalog`}>{t("catalog")}</Link>
               </BreadcrumbLink>
             </BreadcrumbItem>
           </BreadcrumbList>

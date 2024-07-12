@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { SheetTrigger } from "@/components/ui/sheet";
 import CheckboxCustom from "./checkbox";
 
-import useFetch from "@/hooks/useFetch";
+import useFetchCategories from "@/hooks/useFetchCategories";
 import { useTranslation } from "@/lib/i18n/client";
 
 import { X } from "lucide-react";
@@ -21,7 +21,7 @@ export default function FilterContent({
 }) {
   const { t } = useTranslation(lang);
 
-  const { data: filters, error, loading } = useFetch({ url: `/filters` });
+  const { data: filters, error, loading } = useFetchCategories();
 
   if (loading) {
     return <p>Loading ...</p>;

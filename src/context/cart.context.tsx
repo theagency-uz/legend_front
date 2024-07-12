@@ -15,11 +15,7 @@ interface ICartContext {
 export const CartContext = createContext<ICartContext | undefined>(undefined);
 
 export const CartProvider = ({ children }: { children: React.ReactNode }) => {
-  const [cartItems, setCartItems] = useState<IItemInCart[]>(() => {
-    if (typeof window !== "undefined") {
-      return JSON.parse(localStorage.getItem("cartItems") ?? "[]");
-    }
-  });
+  const [cartItems, setCartItems] = useState<IItemInCart[]>([]);
 
   const addToCart = (item: IItemInCart) => {
     const isItemInCart = cartItems.find(
@@ -71,15 +67,18 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
   };
 
   useEffect(() => {
-    localStorage.setItem("cartItems", JSON.stringify(cartItems));
-  }, [cartItems]);
-
-  useEffect(() => {
     const cartItems = localStorage.getItem("cartItems");
+
     if (cartItems) {
       setCartItems(JSON.parse(cartItems));
     }
   }, []);
+
+  useEffect(() => {
+    if (cartItems.length !== 0) {
+      localStorage.setItem("cartItems", JSON.stringify(cartItems));
+    }
+  }, [cartItems]);
 
   return (
     <CartContext.Provider

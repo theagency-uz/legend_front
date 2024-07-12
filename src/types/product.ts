@@ -12,3 +12,7 @@ export interface IProduct {
   productCategoryId: number;
   productTypeId: number;
 }
+
+export interface IProductVariation extends IProduct {
+  product_variation: { value: number };
+}

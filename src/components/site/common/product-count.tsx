@@ -26,6 +26,13 @@ export default function ProductCount({
     if (+e.target.value <= 1) return setCount(1);
 
     setCount(+e.target.value);
+    addToCart({
+      id: product.id,
+      imageUrl: product.imageUrl,
+      price: product.price,
+      title: product.title,
+      quantity: +e.target.value,
+    });
   }
 
   function handlePlusCount() {

@@ -5,39 +5,28 @@ import { usePathname } from "next/navigation";
 import { useTranslation } from "@/lib/i18n/client";
 import { formatCost } from "@/lib/utils";
 
-import { Language } from "@/types/language";
-
 import { useCart } from "@/context/cart.context";
 
+import { Language } from "@/types/language";
+import { IProductVariation } from "@/types/product";
+
 export default function CatalogCard({
-  imgSrc,
-  alt,
-  title,
-  volume,
-  cost,
+  product,
   lang,
-  slug,
-  id,
 }: {
-  imgSrc: string;
-  alt: any;
-  title: Language;
-  volume: string | number;
-  cost: number;
   lang: keyof Language;
-  slug: string;
-  id: number;
+  product: IProductVariation;
 }) {
   const { i18n } = useTranslation(lang);
   const path = usePathname();
 
-  const url = process.env.NEXT_PUBLIC_IMAGE_UPLOAD_URL + imgSrc;
+  const url = process.env.NEXT_PUBLIC_IMAGE_UPLOAD_URL + product.previewImage;
 
   const { addToCart } = useCart();
 
   return (
     <Link
-      href={`${path}/${slug}`}
+      href={`${path}/${product.slug}`}
       className="bg-catalog-card w-[21.67vw] h-[40.83vw] rounded-[10px] max-xs:w-full max-xs:h-auto cursor-pointer"
     >
       <div className="rounded-[10px] text-white p-[26px] w-full h-full backdrop-blur-[5px]">
@@ -45,7 +34,7 @@ export default function CatalogCard({
           <div className="h-[70%] flex justify-center items-center">
             <Image
               src={url}
-              alt={alt[lang]}
+              alt={product.name[lang]}
               width={1200}
               height={1200}
               className="self-center w-full h-auto"
@@ -55,29 +44,31 @@ export default function CatalogCard({
           <div className="flex flex-col gap-[35px]">
             <div className="flex flex-col gap-[5px]">
               <span className="medium-normal tracking-normal">
-                {volume} {i18n.t("Л")}
+                {product.product_variation.value} {i18n.t("Л")}
               </span>
-              <h3 className="large-medium">{title[lang]}</h3>
+              <h3 className="large-medium">{product.name[lang]}</h3>
             </div>
 
             <div className="flex justify-between">
               <div className="flex flex-col gap-[5px]">
-                <span className="large-medium-90">{formatCost(cost)}</span>
+                <span className="large-medium-90">
+                  {formatCost(product.price)}
+                </span>
                 <span className="base-normal-nospacing uppercase">
                   {i18n.t("сум / блок")}
                 </span>
               </div>
 
-              <Link
-                href=""
+              <div
                 onClick={(e) => {
                   e.preventDefault();
+                  
                   addToCart({
-                    id,
-                    imageUrl: imgSrc,
-                    price: cost,
+                    id: product.id,
+                    imageUrl: product.previewImage,
+                    price: product.price,
                     quantity: 1,
-                    title: title,
+                    title: product.name,
                   });
                 }}
               >
@@ -91,7 +82,7 @@ export default function CatalogCard({
                     {i18n.t("в корзину")}
                   </span>
                 </div>
-              </Link>
+              </div>
             </div>
           </div>
         </div>
