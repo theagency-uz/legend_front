@@ -1,12 +1,8 @@
 import type { Metadata } from "next";
+
 import localFont from "next/font/local";
 
-import "../../globals.css";
-
-import Navbar from "../../../components/site/common/navbar.component";
-import Footer from "@/components/site/common/footer.component";
-
-import Providers from "@/app/providers";
+import "./globals.css";
 
 const inter = localFont({
   src: [
@@ -24,19 +20,13 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-  params: { lang },
 }: {
   children: React.ReactNode;
-  params: { lang: string };
 }) {
   return (
-    <html lang={lang}>
+    <html lang="ru">
       <body className={`${inter.variable} font-inter relative`}>
-        <Providers>
-          <Navbar lang={lang} />
-          {children}
-          <Footer lang={lang} />
-        </Providers>
+        {children}
       </body>
     </html>
   );
