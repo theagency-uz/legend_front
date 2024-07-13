@@ -4,6 +4,8 @@ import localFont from "next/font/local";
 
 import "./globals.css";
 
+import AdminNavbar from "../components/common/navbar.component";
+
 const inter = localFont({
   src: [
     {
@@ -26,6 +28,7 @@ export default function RootLayout({
   return (
     <html lang="ru">
       <body className={`${inter.variable} font-inter relative`}>
+        <AdminNavbar />
         {children}
       </body>
     </html>
