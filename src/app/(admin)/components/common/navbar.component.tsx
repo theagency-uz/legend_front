@@ -29,7 +29,7 @@ export default function AdminNavbar() {
           <span className="sr-only">Legend</span>
         </Link>
 
-        <TooltipProvider>
+        <TooltipProvider delayDuration={0} skipDelayDuration={0}>
           <Tooltip>
             <TooltipTrigger asChild>
               <Link
@@ -44,7 +44,7 @@ export default function AdminNavbar() {
           </Tooltip>
         </TooltipProvider>
 
-        <TooltipProvider>
+        <TooltipProvider delayDuration={0} skipDelayDuration={0}>
           <Tooltip>
             <TooltipTrigger asChild>
               <Link
@@ -59,7 +59,7 @@ export default function AdminNavbar() {
           </Tooltip>
         </TooltipProvider>
 
-        <TooltipProvider>
+        <TooltipProvider delayDuration={0} skipDelayDuration={0}>
           <Tooltip>
             <TooltipTrigger asChild>
               <Link
@@ -74,7 +74,7 @@ export default function AdminNavbar() {
           </Tooltip>
         </TooltipProvider>
 
-        <TooltipProvider>
+        <TooltipProvider delayDuration={0} skipDelayDuration={0}>
           <Tooltip>
             <TooltipTrigger asChild>
               <Link
@@ -89,7 +89,7 @@ export default function AdminNavbar() {
           </Tooltip>
         </TooltipProvider>
 
-        <TooltipProvider>
+        <TooltipProvider delayDuration={0} skipDelayDuration={0}>
           <Tooltip>
             <TooltipTrigger asChild>
               <Link
@@ -105,7 +105,7 @@ export default function AdminNavbar() {
         </TooltipProvider>
       </nav>
       <nav className="mt-auto flex flex-col items-center gap-4 px-2 sm:py-5">
-        <TooltipProvider>
+        <TooltipProvider delayDuration={0} skipDelayDuration={0}>
           <Tooltip>
             <TooltipTrigger asChild>
               <Link
