@@ -23,6 +23,7 @@ import useFetchProduct from "@/hooks/useFetchProduct";
 
 import { IProduct } from "@/types/product";
 import { Language } from "@/types/language";
+
 import { useCart } from "@/context/cart.context";
 
 export default function ProductInfo({
@@ -59,10 +60,10 @@ export default function ProductInfo({
             <BreadcrumbList>
               <BreadcrumbItem>
                 <BreadcrumbLink
+                  asChild
                   className="uppercase medium-normal-nospacing"
-                  href={`/${lang}`}
                 >
-                  {t("main")}
+                  <Link href={`/${lang}`}>{t("main")}</Link>
                 </BreadcrumbLink>
               </BreadcrumbItem>
               <BreadcrumbSeparator>
@@ -70,10 +71,10 @@ export default function ProductInfo({
               </BreadcrumbSeparator>
               <BreadcrumbItem>
                 <BreadcrumbLink
+                  asChild
                   className="uppercase medium-normal-nospacing"
-                  href={`/${lang}/catalog`}
                 >
-                  {t("catalog")}
+                  <Link href={`/${lang}/catalog`}>{t("catalog")}</Link>
                 </BreadcrumbLink>
               </BreadcrumbItem>
               <BreadcrumbSeparator>
@@ -81,10 +82,12 @@ export default function ProductInfo({
               </BreadcrumbSeparator>
               <BreadcrumbItem>
                 <BreadcrumbLink
+                  asChild
                   className="uppercase medium-normal-nospacing"
-                  href={`/${lang}/catalog/${slug}`}
                 >
-                  {product?.name[lang]}
+                  <Link href={`/${lang}/catalog/${slug}`}>
+                    {product?.name[lang]}
+                  </Link>
                 </BreadcrumbLink>
               </BreadcrumbItem>
             </BreadcrumbList>

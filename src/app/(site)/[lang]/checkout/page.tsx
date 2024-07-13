@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -34,9 +36,9 @@ export default async function Checkout({
             <BreadcrumbItem>
               <BreadcrumbLink
                 className="uppercase medium-normal-nospacing"
-                href={`/${lang}`}
+                asChild
               >
-                {t("main")}
+                <Link href={`/${lang}`}>{t("main")}</Link>
               </BreadcrumbLink>
             </BreadcrumbItem>
             <BreadcrumbSeparator>
@@ -44,10 +46,10 @@ export default async function Checkout({
             </BreadcrumbSeparator>
             <BreadcrumbItem>
               <BreadcrumbLink
+                asChild
                 className="uppercase medium-normal-nospacing"
-                href={`/${lang}/catalog`}
               >
-                {t("catalog")}
+                <Link href={`/${lang}/catalog`}>{t("catalog")}</Link>
               </BreadcrumbLink>
             </BreadcrumbItem>
           </BreadcrumbList>

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 import {
   Breadcrumb,
@@ -6,6 +7,7 @@ import {
   BreadcrumbLink,
   BreadcrumbList,
 } from "@/components/ui/breadcrumb";
+
 import { useTranslation } from "@/lib/i18n";
 
 export default async function OrderSuccess({
@@ -23,9 +25,9 @@ export default async function OrderSuccess({
             <BreadcrumbItem>
               <BreadcrumbLink
                 className="uppercase medium-normal-nospacing"
-                href={`/${lang}`}
+                asChild
               >
-                {t("вернуться на главную")}
+                <Link href={`/${lang}`}>{t("вернуться на главную")}</Link>
               </BreadcrumbLink>
             </BreadcrumbItem>
           </BreadcrumbList>

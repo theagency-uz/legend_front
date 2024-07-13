@@ -1,6 +1,12 @@
 "use client";
 
-import React, { createContext, useState, useEffect, useContext } from "react";
+import React, {
+  createContext,
+  useState,
+  useEffect,
+  useContext,
+  useRef,
+} from "react";
 
 import { IItemInCart } from "@/types/itemInCart";
 
@@ -16,6 +22,8 @@ export const CartContext = createContext<ICartContext | undefined>(undefined);
 
 export const CartProvider = ({ children }: { children: React.ReactNode }) => {
   const [cartItems, setCartItems] = useState<IItemInCart[]>([]);
+
+  const initialRender = useRef(true);
 
   const addToCart = (item: IItemInCart) => {
     const isItemInCart = cartItems.find(
@@ -75,9 +83,12 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
   }, []);
 
   useEffect(() => {
-    if (cartItems.length !== 0) {
-      localStorage.setItem("cartItems", JSON.stringify(cartItems));
+    if (initialRender.current) {
+      initialRender.current = false;
+      return;
     }
+
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
   }, [cartItems]);
 
   return (
