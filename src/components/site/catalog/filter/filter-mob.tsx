@@ -2,13 +2,10 @@
 
 import {
   Sheet,
-  SheetClose,
   SheetContent,
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-
-import { X } from "lucide-react";
 
 import { useTranslation } from "@/lib/i18n/client";
 
@@ -19,7 +16,9 @@ import useWindowSize from "@/hooks/useWindowSize";
 
 import { MOBILE_SIZE } from "@/constants/site";
 
-export function FilterMob({ lang }: { lang: string }) {
+import { Language } from "@/types/language";
+
+export function FilterMob({ lang }: { lang: keyof Language }) {
   const { i18n } = useTranslation(lang);
 
   const windowSize = useWindowSize();
