@@ -23,7 +23,6 @@ export default function Form({ lang }: { lang: keyof Language }) {
     register,
     handleSubmit,
     formState: { errors },
-    setError,
   } = useForm<FormData>({ resolver: zodResolver(UserSchema) });
 
   function onSubmit(data: FormData) {
@@ -186,7 +185,7 @@ export default function Form({ lang }: { lang: keyof Language }) {
         <Separator className="max-xs:opacity-0" />
       </div>
 
-      <div className="w-[25%] max-xs:w-full max-xs:px-[10px]">
+      <div className="w-[25%] max-xs:w-full max-xs:px-[10px] relative">
         <CheckoutCard lang={lang} />
       </div>
     </form>

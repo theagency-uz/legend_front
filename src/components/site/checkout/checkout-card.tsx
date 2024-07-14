@@ -16,7 +16,7 @@ export default function CheckoutCard({ lang }: { lang: keyof Language }) {
   const { getCartTotal } = useCart();
 
   return (
-    <div className="w-full rounded-[10px] bg-white bg-opacity-20">
+    <div className="w-full rounded-[10px] bg-white bg-opacity-20 sticky top-40 right-0">
       <div className="w-full h-full base-normal-nospacing rounded-[10px] backdrop-blur-[5px]">
         <div className="py-[28px] px-[20px]">
           <h3 className="large-semibold mb-[30px]">{t("Ваш заказ:")}</h3>
