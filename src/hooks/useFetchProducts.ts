@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { useSearchParams } from "next/navigation";
+import { useEffect, useRef, useState } from "react";
+import { ReadonlyURLSearchParams, useSearchParams } from "next/navigation";
 
 import { httpClient } from "@/server/request";
 
@@ -11,24 +11,30 @@ export default function useFetchProducts() {
   const [error, setError] = useState("");
 
   const searchParams = useSearchParams();
+  let controllerRef = useRef(new AbortController());
 
   useEffect(() => {
-    const controller = new AbortController();
-
-    async function fetchData() {
+    async function fetchData(params?: ReadonlyURLSearchParams) {
       try {
         setLoading(true);
 
-        const { data: resource } = await httpClient.get(
-          `/products/public?${searchParams}`,
-          {
-            signal: controller.signal,
-          }
-        );
+        const url = params
+          ? `/products/public?${params.toString()}`
+          : `/products/public`;
 
-        await new Promise((resolve) => setTimeout(resolve, 500));
+        if (params) {
+          controllerRef.current.abort();
+        }
 
-        setData(resource);
+        controllerRef.current = new AbortController();
+
+        const { data } = await httpClient.get(url, {
+          signal: controllerRef.current.signal,
+        });
+
+        await new Promise((resolve) => setTimeout(resolve, 2000));
+
+        setData(data);
       } catch (err) {
         setError("Произошла ошибка...");
       } finally {
@@ -36,9 +42,13 @@ export default function useFetchProducts() {
       }
     }
 
-    fetchData();
+    if (searchParams.toString().length === 0) {
+      fetchData();
+    } else {
+      fetchData(searchParams);
+    }
 
-    return () => controller.abort();
+    return () => controllerRef.current.abort();
   }, [searchParams]);
 
   return { data, error, loading };

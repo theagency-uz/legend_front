@@ -103,5 +103,6 @@
   "address": "Toshkent viloyati,\nн.п. Yuqoriyuz\nNiyozbek Yo'li, 30",
   "Тел": "Tel.:",
   "отдел продаж": "sotuv bo'limi",
-  "сум": "so'm"
+  "сум": "so'm",
+  "required": "Это поле обязательное!"
 }

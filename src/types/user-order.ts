@@ -1,4 +1,20 @@
 import { FieldError, UseFormRegister } from "react-hook-form";
+import { z, ZodType } from "zod";
+
+import { Language } from "./language";
+
+export const UserSchema: ZodType<FormData> = z.object({
+  name: z.string().min(1, { message: "required" }),
+  surname: z.string().min(1, { message: "required" }),
+  phone: z.string().min(1, { message: "required" }),
+  city: z.string().min(1, { message: "required" }),
+  street: z.string().min(1, { message: "required" }),
+  house: z.string().min(1, { message: "required" }),
+  entrance: z.string().min(1, { message: "required" }),
+  floor: z.string().min(1, { message: "required" }),
+  flat: z.string().min(1, { message: "required" }),
+  comment: z.string(),
+});
 
 export type FormData = {
   name: string;
@@ -6,10 +22,10 @@ export type FormData = {
   phone: string;
   city: string;
   street: string;
-  house: string | number;
-  entrance: string | number;
-  floor: string | number;
-  flat: string | number;
+  house: string;
+  entrance: string;
+  floor: string;
+  flat: string;
   comment?: string;
 };
 
@@ -24,6 +40,7 @@ export type FormFieldProps = {
   required?: boolean;
   pattern?: string;
   textarea?: boolean;
+  lang?: keyof Language;
 };
 
 export type ValidFieldNames =

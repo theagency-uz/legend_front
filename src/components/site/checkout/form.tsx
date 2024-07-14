@@ -1,24 +1,20 @@
 "use client";
 
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+
 import { MapPin } from "lucide-react";
 
 import { Separator } from "@/components/ui/separator";
 import CheckoutCard from "./checkout-card";
-import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
-import { Input } from "@/components/ui/input";
-
 import CartItemsList from "./cart-items-list";
-
-import { Language } from "@/types/language";
-import { useTranslation } from "@/lib/i18n/client";
+import FormField from "./form-field";
 import { Button } from "@/components/ui/button";
 
-import { useForm } from "react-hook-form";
+import { FormData, UserSchema } from "@/types/user-order";
+import { Language } from "@/types/language";
 
-import { FormData } from "@/types/user-order";
-
-import FormField from "./form-field";
+import { useTranslation } from "@/lib/i18n/client";
 
 export default function Form({ lang }: { lang: keyof Language }) {
   const { t } = useTranslation(lang);
@@ -28,10 +24,17 @@ export default function Form({ lang }: { lang: keyof Language }) {
     handleSubmit,
     formState: { errors },
     setError,
-  } = useForm<FormData>();
+  } = useForm<FormData>({ resolver: zodResolver(UserSchema) });
+
+  function onSubmit(data: FormData) {
+    console.log(data);
+  }
 
   return (
-    <div className="flex gap-[80px] justify-between max-xs:flex-col max-xs:gap-0">
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      className="flex gap-[80px] justify-between max-xs:flex-col max-xs:gap-0"
+    >
       <div className="w-[75%] max-xs:w-full">
         <div className="max-xs:px-[10px]">
           <Separator className="mt-0 max-xs:mt-0 max-xs:px-[10px]" />
@@ -50,31 +53,31 @@ export default function Form({ lang }: { lang: keyof Language }) {
 
           <div className="flex flex-wrap w-full gap-7 max-xs:gap-[20px]">
             <FormField
-              required
               name="surname"
               label={t("Фамилия")}
               type="text"
               error={errors.surname}
               placeholder=""
               register={register}
+              lang={lang}
             />
             <FormField
-              required
               name="name"
               label={t("Имя")}
               type="text"
               error={errors.name}
               placeholder=""
               register={register}
+              lang={lang}
             />
             <FormField
-              required
               name="phone"
               label={t("Номер телефона")}
               type="tel"
               error={errors.phone}
               placeholder=""
               register={register}
+              lang={lang}
               pattern="+ [0-9]{3}-[0-9]{3}-[0-9]{2}-[0-9]{2}"
             />
           </div>
@@ -109,61 +112,61 @@ export default function Form({ lang }: { lang: keyof Language }) {
           <div className="flex flex-col gap-[40px] w-full max-xs:px-[10px]">
             <div className="flex flex-wrap w-full justify-between max-xs:gap-[20px]">
               <FormField
-                required
                 name="city"
                 label={t("Город")}
                 type="text"
                 error={errors.city}
                 placeholder=""
                 register={register}
+                lang={lang}
               />
               <FormField
-                required
                 name="street"
                 label={t("Улица")}
                 type="text"
                 error={errors.street}
                 placeholder=""
                 register={register}
+                lang={lang}
               />
             </div>
 
             <div className="flex flex-wrap w-full justify-between gap-[40px] max-xs:gap-[30px]">
               <FormField
-                required
                 name="house"
                 label={t("Дом")}
                 type="text"
                 error={errors.house}
                 placeholder=""
                 register={register}
+                lang={lang}
               />
               <FormField
-                required
                 name="entrance"
                 label={t("Подъезд")}
                 type="text"
                 error={errors.entrance}
                 placeholder=""
                 register={register}
+                lang={lang}
               />
               <FormField
-                required
                 name="floor"
                 label={t("Этаж")}
                 type="text"
                 error={errors.floor}
                 placeholder=""
                 register={register}
+                lang={lang}
               />
               <FormField
-                required
                 name="flat"
                 label={t("Квартира")}
                 type="text"
                 error={errors.flat}
                 placeholder=""
                 register={register}
+                lang={lang}
               />
             </div>
 
@@ -175,6 +178,7 @@ export default function Form({ lang }: { lang: keyof Language }) {
                 error={errors.comment}
                 placeholder=""
                 register={register}
+                lang={lang}
               />
             </div>
           </div>
@@ -185,6 +189,6 @@ export default function Form({ lang }: { lang: keyof Language }) {
       <div className="w-[25%] max-xs:w-full max-xs:px-[10px]">
         <CheckoutCard lang={lang} />
       </div>
-    </div>
+    </form>
   );
 }

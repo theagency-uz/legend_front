@@ -47,7 +47,10 @@ export default function CheckoutCard({ lang }: { lang: keyof Language }) {
             {t("Доступна только онлайн оплата Click или Payme")}
           </p>
           <div className="flex flex-col items-center justify-center gap-[20px] max-xs:gap-[10px]">
-            <Button className="flex justify-between w-fit gap-5 max-xs:gap-[20px] max-xs:justify-center">
+            <Button
+              type="submit"
+              className="flex justify-between w-fit gap-5 max-xs:gap-[20px] max-xs:justify-center"
+            >
               <span className="small-semibold">{t("Оплатить Payme")}</span>
               <img
                 alt="payme icon"
@@ -56,7 +59,10 @@ export default function CheckoutCard({ lang }: { lang: keyof Language }) {
                 className="w-[29px] h-auto max-xs:w-[20px]"
               />
             </Button>
-            <Button className="flex justify-between w-fit gap-5 max-xs:gap-[20px] max-xs:justify-center">
+            <Button
+              type="submit"
+              className="flex justify-between w-fit gap-5 max-xs:gap-[20px] max-xs:justify-center"
+            >
               <span className="small-semibold">{t("Оплатить Click")}</span>
               <img
                 alt="click icon"
