@@ -21,7 +21,14 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import { Input } from "@/components/ui/input";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -43,48 +50,53 @@ export default function AdminHeader() {
           </Button>
         </SheetTrigger>
         <SheetContent side="left" className="sm:max-w-xs px-5 pt-5">
+          <SheetHeader>
+            <SheetTitle>
+              <Link
+                href="/ru"
+                className="group flex h-10 w-10 shrink-0 items-center justify-center gap-2 rounded-full bg-accent text-lg font-semibold text-accent-foreground md:text-base mb-5"
+              >
+                <LayoutTemplate className="h-5 w-5 transition-all group-hover:scale-110" />
+                <span className="sr-only">Legend</span>
+              </Link>
+            </SheetTitle>
+            <SheetDescription></SheetDescription>
+          </SheetHeader>
           <nav className="grid gap-6 text-lg font-medium">
-            <Link
-              href="/ru"
-              className="group flex h-10 w-10 shrink-0 items-center justify-center gap-2 rounded-full bg-accent text-lg font-semibold text-accent-foreground md:text-base"
-            >
-              <LayoutTemplate className="h-5 w-5 transition-all group-hover:scale-110" />
-              <span className="sr-only">Legend</span>
-            </Link>
             <Link
               href="#"
               className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
             >
               <Home className="h-5 w-5" />
-              Dashboard
+              Дашборд
             </Link>
             <Link
               href="#"
               className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
             >
               <ShoppingCart className="h-5 w-5" />
-              Orders
+              Заказы
             </Link>
             <Link
               href="#"
               className="flex items-center gap-4 px-2.5 text-foreground"
             >
               <Package className="h-5 w-5" />
-              Products
+              Товары
             </Link>
             <Link
               href="#"
               className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
             >
               <Users2 className="h-5 w-5" />
-              Customers
+              Покупатели
             </Link>
             <Link
               href="#"
               className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
             >
               <LineChart className="h-5 w-5" />
-              Settings
+              Настройки
             </Link>
           </nav>
         </SheetContent>
@@ -93,18 +105,14 @@ export default function AdminHeader() {
         <BreadcrumbList>
           <BreadcrumbItem>
             <BreadcrumbLink asChild>
-              <Link href="#">Dashboard</Link>
+              <Link href="#">Дашборд</Link>
             </BreadcrumbLink>
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>
             <BreadcrumbLink asChild>
-              <Link href="#">Products</Link>
+              <Link href="#">Товары</Link>
             </BreadcrumbLink>
-          </BreadcrumbItem>
-          <BreadcrumbSeparator />
-          <BreadcrumbItem>
-            <BreadcrumbPage>All Products</BreadcrumbPage>
           </BreadcrumbItem>
         </BreadcrumbList>
       </Breadcrumb>
@@ -112,7 +120,7 @@ export default function AdminHeader() {
         <Search className="absolute left-2 h-4 w-4 text-muted-foreground" />
         <Input
           type="search"
-          placeholder="Search..."
+          placeholder="Поиск..."
           className="w-full rounded-lg bg-background pl-8 md:w-[200px] lg:w-[336px] h-fit"
         />
       </div>
@@ -127,12 +135,11 @@ export default function AdminHeader() {
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end">
-          <DropdownMenuLabel>My Account</DropdownMenuLabel>
+          <DropdownMenuLabel>Аккаунт</DropdownMenuLabel>
           <DropdownMenuSeparator />
-          <DropdownMenuItem>Settings</DropdownMenuItem>
-          <DropdownMenuItem>Support</DropdownMenuItem>
+          <DropdownMenuItem>Профиль</DropdownMenuItem>
           <DropdownMenuSeparator />
-          <DropdownMenuItem>Logout</DropdownMenuItem>
+          <DropdownMenuItem>Выйти</DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
     </header>

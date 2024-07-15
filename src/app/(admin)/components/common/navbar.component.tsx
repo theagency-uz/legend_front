@@ -37,10 +37,10 @@ export default function AdminNavbar() {
                 className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
               >
                 <Home className="h-5 w-5" />
-                <span className="sr-only">Dashboard</span>
+                <span className="sr-only">Дашборд</span>
               </Link>
             </TooltipTrigger>
-            <TooltipContent side="right">Dashboard</TooltipContent>
+            <TooltipContent side="right">Дашборд</TooltipContent>
           </Tooltip>
         </TooltipProvider>
 
@@ -52,10 +52,10 @@ export default function AdminNavbar() {
                 className="flex h-9 w-9 items-center justify-center rounded-lg  text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
               >
                 <ShoppingCart className="h-5 w-5" />
-                <span className="sr-only">Orders</span>
+                <span className="sr-only">Заказы</span>
               </Link>
             </TooltipTrigger>
-            <TooltipContent side="right">Orders</TooltipContent>
+            <TooltipContent side="right">Заказы</TooltipContent>
           </Tooltip>
         </TooltipProvider>
 
@@ -67,10 +67,10 @@ export default function AdminNavbar() {
                 className="flex h-9 w-9 items-center justify-center rounded-lg bg-accent text-accent-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
               >
                 <Package className="h-5 w-5" />
-                <span className="sr-only">Products</span>
+                <span className="sr-only">Товары</span>
               </Link>
             </TooltipTrigger>
-            <TooltipContent side="right">Products</TooltipContent>
+            <TooltipContent side="right">Товары</TooltipContent>
           </Tooltip>
         </TooltipProvider>
 
@@ -82,10 +82,10 @@ export default function AdminNavbar() {
                 className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
               >
                 <Users2 className="h-5 w-5" />
-                <span className="sr-only">Customers</span>
+                <span className="sr-only">Покупатели</span>
               </Link>
             </TooltipTrigger>
-            <TooltipContent side="right">Customers</TooltipContent>
+            <TooltipContent side="right">Покупатели</TooltipContent>
           </Tooltip>
         </TooltipProvider>
 
@@ -97,10 +97,10 @@ export default function AdminNavbar() {
                 className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
               >
                 <LineChart className="h-5 w-5" />
-                <span className="sr-only">Analytics</span>
+                <span className="sr-only">Аналитика</span>
               </Link>
             </TooltipTrigger>
-            <TooltipContent side="right">Analytics</TooltipContent>
+            <TooltipContent side="right">Аналитика</TooltipContent>
           </Tooltip>
         </TooltipProvider>
       </nav>
@@ -113,10 +113,10 @@ export default function AdminNavbar() {
                 className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
               >
                 <Settings className="h-5 w-5" />
-                <span className="sr-only">Settings</span>
+                <span className="sr-only">Настройки</span>
               </Link>
             </TooltipTrigger>
-            <TooltipContent side="right">Settings</TooltipContent>
+            <TooltipContent side="right">Настройки</TooltipContent>
           </Tooltip>
         </TooltipProvider>
       </nav>
