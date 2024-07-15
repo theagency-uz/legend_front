@@ -62,7 +62,7 @@ export default function CatalogCard({
               <div
                 onClick={(e) => {
                   e.preventDefault();
-                  
+
                   addToCart({
                     id: product.id,
                     imageUrl: product.previewImage,

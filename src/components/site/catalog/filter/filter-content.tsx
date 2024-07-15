@@ -3,8 +3,10 @@ import React from "react";
 import { Button } from "@/components/ui/button";
 import { SheetTrigger } from "@/components/ui/sheet";
 import CheckboxCustom from "./checkbox";
+import FilterPlaceholder from "../filter-skelet";
 
 import useFetchCategories from "@/hooks/useFetchCategories";
+
 import { useTranslation } from "@/lib/i18n/client";
 
 import { X } from "lucide-react";
@@ -21,10 +23,10 @@ export default function FilterContent({
 }) {
   const { t } = useTranslation(lang);
 
-  const { data: filters, error, loading } = useFetchCategories();
+  const { data: filters, loading } = useFetchCategories();
 
   if (loading) {
-    return <p>Loading ...</p>;
+    return <FilterPlaceholder lang={lang} isMob={isMob} />;
   }
 
   if (filters) {

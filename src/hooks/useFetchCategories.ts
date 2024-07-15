@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 
 import { httpClient } from "@/server/request";
+import { sleep } from "@/lib/utils";
 
 export default function useFetchCategories() {
   const [data, setData] = useState<any>();
@@ -13,18 +14,15 @@ export default function useFetchCategories() {
   const searchParams = useSearchParams();
 
   useEffect(() => {
-    const controller = new AbortController();
-
     async function fetchData() {
       try {
         setLoading(true);
 
         const { data: resource } = await httpClient.get(
-          `/filters?${searchParams}`,
-          {
-            signal: controller.signal,
-          }
+          `/filters?${searchParams}`
         );
+
+        await sleep(1000);
 
         setData(resource);
       } catch (err) {
@@ -35,8 +33,6 @@ export default function useFetchCategories() {
     }
 
     fetchData();
-
-    return () => controller.abort();
   }, []);
 
   return { data, error, loading };

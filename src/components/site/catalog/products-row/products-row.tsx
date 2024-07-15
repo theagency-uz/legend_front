@@ -10,7 +10,7 @@ import CatalogCardPlaceholder from "../catalog-card-skelet";
 import { IProductVariation } from "@/types/product";
 
 export default function ProductsRow({ lang }: { lang: keyof Language }) {
-  const { data, error, loading } = useFetchProducts();
+  const { data, loading } = useFetchProducts();
 
   const products: IProductVariation[] = data;
 

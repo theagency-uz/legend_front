@@ -4,13 +4,11 @@ import { MouseEventHandler, ReactNode } from "react";
 import Link, { LinkProps } from "next/link";
 import { useRouter } from "next//navigation";
 
+import { sleep } from "../lib/utils";
+
 interface ITransitionLinkProps extends LinkProps {
   children: ReactNode;
   href: string;
-}
-
-async function sleep(ms: number) {
-  return await new Promise((resolve) => setTimeout(resolve, ms));
 }
 
 export default function TransitionLink({
