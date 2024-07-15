@@ -22,11 +22,11 @@ const FormField: React.FC<FormFieldProps> = ({
 
   return (
     <div
-      className={`grid w-full ${
+      className={`grid flex-1 ${
         textarea ? "" : "max-w-sm"
       } items-center gap-1.5`}
     >
-      <Label className="max-xs:small-medium" htmlFor={name}>
+      <Label className="" htmlFor={name}>
         {label}
       </Label>
       {textarea ? (
@@ -34,7 +34,7 @@ const FormField: React.FC<FormFieldProps> = ({
           id={name}
           placeholder={placeholder}
           required={required ?? false}
-          className="resize-none w-full"
+          className="resize-none w-full h-48"
           {...register(name, { valueAsNumber })}
         />
       ) : (
@@ -49,7 +49,7 @@ const FormField: React.FC<FormFieldProps> = ({
 
       <span
         className={`text-sm text-yellow-200 flex items-center gap-2 mt-2 ${
-          error ? "" : "opacity-0"
+          error ? "" : "hidden"
         }`}
       >
         <TriangleAlert width={17} />{" "}

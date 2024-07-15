@@ -32,9 +32,9 @@ export default function Form({ lang }: { lang: keyof Language }) {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="flex gap-[80px] justify-between max-xs:flex-col max-xs:gap-0"
+      className="flex gap-20 flex-wrap max-xs:flex-col max-xs:gap-0"
     >
-      <div className="w-[75%] max-xs:w-full">
+      <div className="w-full lg:w-[500px] lg:flex-1 2xl:w-[60%] 2xl:flex-none">
         <div className="max-xs:px-[10px]">
           <Separator className="mt-0 max-xs:mt-0 max-xs:px-[10px]" />
         </div>
@@ -45,7 +45,7 @@ export default function Form({ lang }: { lang: keyof Language }) {
           <Separator />
         </div>
 
-        <div className="px-[20px] max-xs:px-[10px]">
+        <div className="flex flex-col gap-[40px] px-[20px] max-xs:px-[10px]">
           <h3 className="h3 mb-[46px] max-xs:mb-[23px]">
             {t("Данные получателя:")}
           </h3>
@@ -69,6 +69,8 @@ export default function Form({ lang }: { lang: keyof Language }) {
               register={register}
               lang={lang}
             />
+          </div>
+          <div className="flex flex-wrap w-full gap-7 max-xs:gap-[20px]">
             <FormField
               name="phone"
               label={t("Номер телефона")}
@@ -84,7 +86,7 @@ export default function Form({ lang }: { lang: keyof Language }) {
 
         <Separator className="max-xs:opacity-0" />
 
-        <div className="px-[20px] w-[850px] max-xs:w-full max-xs:px-0">
+        <div className="px-[20px] w-full max-xs:w-full max-xs:px-0">
           <h3 className="h3 mb-[46px] max-xs:mb-[23px] max-xs:px-[10px]">
             {t("Адрес доставки:")}
           </h3>
@@ -109,7 +111,7 @@ export default function Form({ lang }: { lang: keyof Language }) {
           </div>
 
           <div className="flex flex-col gap-[40px] w-full max-xs:px-[10px]">
-            <div className="flex flex-wrap w-full justify-between max-xs:gap-[20px]">
+            <div className="flex flex-wrap w-full gap-[40px] max-xs:gap-[20px]">
               <FormField
                 name="city"
                 label={t("Город")}
@@ -130,7 +132,7 @@ export default function Form({ lang }: { lang: keyof Language }) {
               />
             </div>
 
-            <div className="flex flex-wrap w-full justify-between gap-[40px] max-xs:gap-[30px]">
+            <div className="flex flex-wrap w-full justify-between gap-[40px] max-xs:gap-[10px]">
               <FormField
                 name="house"
                 label={t("Дом")}
@@ -182,10 +184,10 @@ export default function Form({ lang }: { lang: keyof Language }) {
             </div>
           </div>
         </div>
-        <Separator className="max-xs:opacity-0" />
+        <Separator className="max-xs:opacity-0 max-lg:mb-0" />
       </div>
 
-      <div className="w-[25%] max-xs:w-full max-xs:px-[10px] relative">
+      <div className="mx-auto max-xs:px-[10px] lg:w-fit relative 2xl:w-[30%]">
         <CheckoutCard lang={lang} />
       </div>
     </form>

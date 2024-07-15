@@ -14,7 +14,7 @@ export default async function CatalogBlock({ lang }: { lang: string }) {
   //aspect-[1200/1932]
   return (
     <section className="text-white pb-[130px] max-xs:pb-[60px]">
-      <section className="flex flex-col items-center justify-center mb-[20px] gap-[20px]">
+      <section className="flex flex-col items-center justify-center mb-[70px] gap-[20px]">
         <div className="flex flex-col items-center gap-[5px]">
           <h2 className="base-normal uppercase">{t("catalog")}</h2>
           <h3 className="h3">{t("Выберите свой формат")}</h3>

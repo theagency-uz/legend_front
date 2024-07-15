@@ -56,7 +56,7 @@ export default async function CatalogCard({
           src={`/assets/bottle-shadow-${index + 1}.svg`}
           width={width}
           height={width}
-          className={`absolute bottom-[0] left-[50%] translate-x-[-50%] ${
+          className={`absolute bottom-[0px] ${
             index + 1 === 3 || index + 1 === 1 ? "w-[85px]" : ""
           }`}
         />
