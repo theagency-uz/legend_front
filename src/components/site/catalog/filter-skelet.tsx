@@ -40,7 +40,7 @@ export default function FilterPlaceholder({
             {Array.from({ length: 3 }).map((_, i) => (
               <Skeleton
                 key={i}
-                className="w-full h-[20px] rounded-[5px] bg-catalog-card"
+                className="w-[50%] h-[25px] rounded-[5px] bg-catalog-card"
               />
             ))}
           </div>
@@ -52,7 +52,7 @@ export default function FilterPlaceholder({
             {Array.from({ length: 3 }).map((_, i) => (
               <Skeleton
                 key={i}
-                className="w-full h-[20px] rounded-[5px] bg-catalog-card"
+                className="w-[50%] h-[25px] rounded-[5px] bg-catalog-card"
               />
             ))}
           </div>
@@ -64,7 +64,7 @@ export default function FilterPlaceholder({
             {Array.from({ length: 3 }).map((_, i) => (
               <Skeleton
                 key={i}
-                className="w-full h-[20px] rounded-[5px] bg-catalog-card"
+                className="w-[50%] h-[25px] rounded-[5px] bg-catalog-card"
               />
             ))}
           </div>
