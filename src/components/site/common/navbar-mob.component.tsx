@@ -30,7 +30,7 @@ export default function NavbarMob({ lang }: { lang: string }) {
           height={25}
           width={25}
           alt="Иконка навигации"
-          className="xs:hidden"
+          className="lg:hidden"
         />
       </SheetTrigger>
       <SheetContent

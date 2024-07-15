@@ -10,15 +10,15 @@ export default async function Footer({ lang }: { lang: string }) {
   const { t } = await useTranslation(lang);
 
   return (
-    <footer className="px-[100px] py-[50px] max-xs:px-[10px] bg-white">
-      <div className="flex justify-between mb-[4.67vw] max-xs:flex-col max-xs:gap-[40px]">
+    <footer className="px-[100px] py-[50px] max-xs:px-[10px] bg-white max-sm:px-[10px] max-md:px-[20px]">
+      <div className="flex justify-between mb-[4.67vw] max-xs:flex-col max-xs:gap-[40px] max-sm:flex-col max-sm:gap-[40px]">
         <div className="flex flex-col gap-[41px] justify-between">
           <img
             src="/assets/footer-logo.svg"
             width={149}
             height="auto"
             alt="Лого в футере"
-            className="cursor-pointer w-[12.42vw] max-xs:w-[40%]"
+            className="cursor-pointer w-[12.42vw] max-xs:w-[40%] max-sm:w-[40%]"
           />
 
           <div className="flex gap-[20px]">
@@ -27,14 +27,14 @@ export default async function Footer({ lang }: { lang: string }) {
               alt="лого instagram"
               width={22}
               height="auto"
-              className="cursor-pointer w-[1.83vw] max-xs:w-[8%]"
+              className="cursor-pointer w-[22px] max-xs:w-[8%]"
             />
             <img
               src="/assets/footer-tg.svg"
               alt="лого telegram"
               width={22}
               height="auto"
-              className="cursor-pointer w-[1.83vw] max-xs:w-[8%]"
+              className="cursor-pointer w-[22px] max-xs:w-[8%]"
             />
           </div>
         </div>
