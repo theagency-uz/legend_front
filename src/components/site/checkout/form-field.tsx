@@ -42,13 +42,14 @@ const FormField: React.FC<FormFieldProps> = ({
           id={name}
           placeholder={placeholder}
           type={type}
+          className="max-sm:h-[35px]"
           required={required ?? false}
           {...register(name, { valueAsNumber })}
         />
       )}
 
       <span
-        className={`text-sm text-yellow-200 flex items-center gap-2 mt-2 ${
+        className={`text-xs text-yellow-200 flex items-center gap-2 mt-2 ${
           error ? "" : "hidden"
         }`}
       >

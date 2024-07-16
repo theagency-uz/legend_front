@@ -132,7 +132,7 @@ export default function Form({ lang }: { lang: keyof Language }) {
               />
             </div>
 
-            <div className="flex flex-wrap w-full justify-between gap-[40px] max-xs:gap-[10px]">
+            <div className="flex flex-wrap w-full justify-between gap-[40px] max-xs:gap-[20px]">
               <FormField
                 name="house"
                 label={t("Дом")}

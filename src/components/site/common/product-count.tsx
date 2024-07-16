@@ -75,6 +75,7 @@ export default function ProductCount({
       <div>
         <button
           className="flex items-center"
+          type="button"
           onClick={() => handleMinusCount()}
         >
           <Minus />
@@ -102,6 +103,7 @@ export default function ProductCount({
       <div className="">
         <button
           className="flex items-center"
+          type="button"
           onClick={() => {
             handlePlusCount();
           }}
