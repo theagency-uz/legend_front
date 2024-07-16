@@ -33,7 +33,7 @@ export default function Navbar({ lang }: { lang: string }) {
 
   return (
     <nav
-      className={`w-screen flex items-center  container pt-[1.67vw] pb-[40px] max-xs:pt-[15px] max-xs:pl-[20px] max-xs:pr-[20px] fixed z-50 top-0 left-0 text-white ${
+      className={`w-screen flex items-center container pt-[1.67vw] pb-[40px] max-xs:pt-[15px] max-xs:pl-[20px] max-xs:pr-[20px] fixed z-50 top-0 left-0 text-white ${
         scrolling ? "bg-nav-gradient-scrolling" : "bg-nav-gradient"
       }`}
     >

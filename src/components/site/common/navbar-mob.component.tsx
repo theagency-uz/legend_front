@@ -40,25 +40,25 @@ export default function NavbarMob({ lang }: { lang: string }) {
         <SheetHeader>
           <SheetTitle>
             <nav
-              className={`w-screen flex items-center container pt-[15px] pl-[20px] pr-[20px] z-50 text-white bg-nav-gradient`}
+              className={`w-screen flex items-center container pt-[1.67vw] pb-[40px] max-xs:pt-[15px] max-xs:pl-[20px] max-xs:pr-[20px] fixed z-50 top-0 left-0 text-white`}
             >
-              <div className="flex-1 flex justify-start">
+              <div className="flex-1 flex justify-start lg:flex-[2]">
                 <SheetClose>
                   <X className="h-[25px] w-[25px]" />
                 </SheetClose>
               </div>
               <div className="flex-1 justify-center cursor-pointer">
                 <SheetTrigger asChild>
-                  <Link href={`/${lang}`}>
+                  <Link className="flex justify-center" href={`/${lang}`}>
                     <img
                       src={`${"/assets/legend-logo.svg"}`}
                       alt="Legend logo"
-                      className={`w-[150px] h-auto`}
+                      className={`max-xs:w-[150px] h-auto max-sm:w-[150px] max-md:w-[150px] max-lg:w-[150px] w-[7.92vw]`}
                     />
                   </Link>
                 </SheetTrigger>
               </div>
-              <div className="flex-1 flex justify-end cursor-pointer">
+              <div className="flex-1 flex justify-end cursor-pointer lg:flex-[2]">
                 <Link href={`/${lang}/checkout`} className="relative">
                   <img
                     alt="cart icon"
@@ -74,8 +74,8 @@ export default function NavbarMob({ lang }: { lang: string }) {
               </div>
             </nav>
           </SheetTitle>
-          <div className="h-[90vh] flex flex-col items-center justify-between pt-[90px] pb-[50px]">
-            <ul className="flex flex-col justify-center gap-[30px] h3 cursor-pointer">
+          <div className="h-[90vh] flex flex-col items-center justify-between pt-[90px] pb-[50px] md:pt-[150px]">
+            <ul className="flex flex-col justify-center gap-[30px] h3 cursor-pointer md:h2">
               {NAVBAR_LEFT.map(({ name, link }, i) => (
                 <li key={i}>
                   <SheetTrigger asChild>
@@ -85,11 +85,15 @@ export default function NavbarMob({ lang }: { lang: string }) {
               ))}
             </ul>
 
-            <div className="flex flex-col gap-[40px]">
-              <ul className="flex gap-[20px]">
+            <div className="flex flex-col gap-[40px] md:gap-[50px]">
+              <ul className="flex gap-[20px] md:gap-[40px]">
                 {NAVBAR_RIGHT.map(({ src, alt }, i) => (
                   <li className="cursor-pointer" key={i}>
-                    <img src={src} alt={alt} className="w-[30px] h-[30px]" />
+                    <img
+                      src={src}
+                      alt={alt}
+                      className="w-[30px] h-[30px] md:w-[50px] md:h-[50px]"
+                    />
                   </li>
                 ))}
               </ul>

@@ -21,7 +21,7 @@ export default function LangSwitcher({
           : variant === "footer"
           ? "text-primary-100 small-semibold"
           : variant === "nav-mob"
-          ? "small-semibold"
+          ? "small-semibold md:large-semibold md:flex md:justify-center"
           : ""
       }
     >

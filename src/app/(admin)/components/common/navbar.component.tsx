@@ -16,6 +16,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import AdminNavLink from "./nav-link";
 
 export default function AdminNavbar() {
   return (
@@ -32,13 +33,10 @@ export default function AdminNavbar() {
         <TooltipProvider delayDuration={0} skipDelayDuration={0}>
           <Tooltip>
             <TooltipTrigger asChild>
-              <Link
-                href="#"
-                className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
-              >
+              <AdminNavLink tooltip={"Дашборд"} href="/admin/dashboard">
                 <Home className="h-5 w-5" />
                 <span className="sr-only">Дашборд</span>
-              </Link>
+              </AdminNavLink>
             </TooltipTrigger>
             <TooltipContent side="right">Дашборд</TooltipContent>
           </Tooltip>
@@ -47,13 +45,10 @@ export default function AdminNavbar() {
         <TooltipProvider delayDuration={0} skipDelayDuration={0}>
           <Tooltip>
             <TooltipTrigger asChild>
-              <Link
-                href="#"
-                className="flex h-9 w-9 items-center justify-center rounded-lg  text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
-              >
+              <AdminNavLink tooltip={"Заказы"} href="/admin/orders">
                 <ShoppingCart className="h-5 w-5" />
                 <span className="sr-only">Заказы</span>
-              </Link>
+              </AdminNavLink>
             </TooltipTrigger>
             <TooltipContent side="right">Заказы</TooltipContent>
           </Tooltip>
@@ -62,13 +57,10 @@ export default function AdminNavbar() {
         <TooltipProvider delayDuration={0} skipDelayDuration={0}>
           <Tooltip>
             <TooltipTrigger asChild>
-              <Link
-                href="#"
-                className="flex h-9 w-9 items-center justify-center rounded-lg bg-accent text-accent-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
-              >
+              <AdminNavLink tooltip={"Товары"} href="/admin/products">
                 <Package className="h-5 w-5" />
                 <span className="sr-only">Товары</span>
-              </Link>
+              </AdminNavLink>
             </TooltipTrigger>
             <TooltipContent side="right">Товары</TooltipContent>
           </Tooltip>
@@ -77,13 +69,10 @@ export default function AdminNavbar() {
         <TooltipProvider delayDuration={0} skipDelayDuration={0}>
           <Tooltip>
             <TooltipTrigger asChild>
-              <Link
-                href="#"
-                className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
-              >
+              <AdminNavLink tooltip={"Покупатели"} href="/admin/customers">
                 <Users2 className="h-5 w-5" />
                 <span className="sr-only">Покупатели</span>
-              </Link>
+              </AdminNavLink>
             </TooltipTrigger>
             <TooltipContent side="right">Покупатели</TooltipContent>
           </Tooltip>
@@ -92,13 +81,10 @@ export default function AdminNavbar() {
         <TooltipProvider delayDuration={0} skipDelayDuration={0}>
           <Tooltip>
             <TooltipTrigger asChild>
-              <Link
-                href="#"
-                className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
-              >
+              <AdminNavLink tooltip={"Аналитика"} href="/admin/analytics">
                 <LineChart className="h-5 w-5" />
                 <span className="sr-only">Аналитика</span>
-              </Link>
+              </AdminNavLink>
             </TooltipTrigger>
             <TooltipContent side="right">Аналитика</TooltipContent>
           </Tooltip>
@@ -108,13 +94,10 @@ export default function AdminNavbar() {
         <TooltipProvider delayDuration={0} skipDelayDuration={0}>
           <Tooltip>
             <TooltipTrigger asChild>
-              <Link
-                href="#"
-                className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
-              >
+              <AdminNavLink tooltip={"Настройки"} href="/admin/settings">
                 <Settings className="h-5 w-5" />
                 <span className="sr-only">Настройки</span>
-              </Link>
+              </AdminNavLink>
             </TooltipTrigger>
             <TooltipContent side="right">Настройки</TooltipContent>
           </Tooltip>
