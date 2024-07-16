@@ -16,6 +16,7 @@ interface ICartContext {
   removeFromCart: (item: IItemInCart) => void;
   clearCart: () => void;
   getCartTotal: () => number;
+  getTotalItems: () => number;
 }
 
 export const CartContext = createContext<ICartContext | undefined>(undefined);
@@ -74,6 +75,13 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
     );
   };
 
+  const getTotalItems = () => {
+    return cartItems.reduce(
+      (total: number, item: IItemInCart) => total + item.quantity,
+      0
+    );
+  };
+
   useEffect(() => {
     const cartItems = localStorage.getItem("cartItems");
 
@@ -99,6 +107,7 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
         removeFromCart,
         clearCart,
         getCartTotal,
+        getTotalItems,
       }}
     >
       {children}

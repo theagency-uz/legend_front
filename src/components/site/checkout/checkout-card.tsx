@@ -13,7 +13,7 @@ import { useCart } from "@/context/cart.context";
 export default function CheckoutCard({ lang }: { lang: keyof Language }) {
   const { t } = useTranslation(lang);
 
-  const { getCartTotal } = useCart();
+  const { getCartTotal, getTotalItems } = useCart();
 
   return (
     <div className="w-full rounded-[10px] bg-white bg-opacity-20 sticky top-40 right-0">
@@ -21,7 +21,9 @@ export default function CheckoutCard({ lang }: { lang: keyof Language }) {
         <div className="py-[28px] px-[20px]">
           <h3 className="large-semibold mb-[30px]">{t("Ваш заказ:")}</h3>
           <p className="flex justify-between items-center mb-[20px] max-xs:mb-[5px]">
-            <span>{t("Товары")} (5):</span>{" "}
+            <span>
+              {t("Товары")} ({getTotalItems()}):
+            </span>{" "}
             <span>
               {formatCost(getCartTotal())} {t("сум")}
             </span>
