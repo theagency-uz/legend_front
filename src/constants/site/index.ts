@@ -34,8 +34,8 @@ const CATALOG_CARDS = [
     volume: "менее 1 литра",
     src: "/assets/catalog-1.png",
     alt: "Буталка из каталога",
-    width: 151,
-    height: 367,
+    width: 1000,
+    height: 1000,
     isEmpty: true,
   },
   {
@@ -43,8 +43,8 @@ const CATALOG_CARDS = [
     volume: "19 литров",
     src: "/assets/catalog-2.png",
     alt: "Буталка из каталога",
-    width: 196,
-    height: 367,
+    width: 1000,
+    height: 1000,
     isEmpty: false,
     isMain: true,
   },
@@ -53,8 +53,8 @@ const CATALOG_CARDS = [
     volume: "менее 1 литра",
     src: "/assets/catalog-3.png",
     alt: "Буталка из каталога",
-    width: 132,
-    height: 367,
+    width: 1000,
+    height: 1000,
     isEmpty: true,
   },
 ];
@@ -166,7 +166,7 @@ const DEFAULT_ICON_SIZE = 1.42;
 const DEFAULT_LOGO_SIZE = 7.92;
 const DEFAULT_VIEWPORT_WIDTH = 1200;
 
-const MOBILE_SIZE = 450;
+const MOBILE_SIZE = 768;
 
 const PRODUCTS = [
   {

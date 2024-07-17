@@ -27,7 +27,7 @@ export default function CatalogCard({
   return (
     <Link
       href={`${path}/${product.slug}`}
-      className="bg-catalog-card w-[21.67vw] h-[40.83vw] rounded-[10px] max-xs:w-full max-xs:h-auto cursor-pointer"
+      className="cursor-pointer bg-catalog-card w-[21.67vw] h-[40.83vw] rounded-[10px] max-sm:w-full max-sm:h-auto"
     >
       <div className="rounded-[10px] text-white p-[26px] w-full h-full backdrop-blur-[5px]">
         <div className="flex flex-col h-full gap-[10px]">

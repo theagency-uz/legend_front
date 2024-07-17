@@ -1,10 +1,11 @@
+"use client";
+
 import Image from "next/image";
+import { motion } from "framer-motion";
 
-import { useTranslation } from "@/lib/i18n";
+import { useTranslation } from "@/lib/i18n/client";
 
-import { DEFAULT_VIEWPORT_WIDTH } from "@/constants/site";
-
-export default async function CatalogCard({
+export default function CatalogCard({
   width,
   height,
   volume,
@@ -27,7 +28,7 @@ export default async function CatalogCard({
   lang: string;
   index: number;
 }) {
-  const { t } = await useTranslation(lang);
+  const { t } = useTranslation(lang);
 
   return (
     <div
@@ -36,28 +37,34 @@ export default async function CatalogCard({
       }`}
     >
       <div className={`relative w-full flex justify-center h-[75%]`}>
-        <Image
-          alt={alt}
-          src={src}
-          width={width}
-          height={height}
-          className="z-30 lg:hover:translate-y-[-30px] transition-all object-cover"
-        />
-        {isEmpty ? (
-          <span className="uppercase large-normal absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]">
-            {t("Скоро")}
-          </span>
-        ) : null}
+        <motion.div
+          whileHover={{ translateY: "-30px" }}
+          onHoverStart={(e) => {}}
+          onHoverEnd={(e) => {}}
+        >
+          <Image
+            alt={alt}
+            src={src}
+            width={width}
+            height={height}
+            className="z-30 transition-all object-cover w-[200px] h-full"
+          />
+          {isEmpty ? (
+            <span className="uppercase large-normal absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]">
+              {t("Скоро")}
+            </span>
+          ) : null}
+        </motion.div>
 
         {/* {isMain ? <video autoPlay muted src="/assets/video.mp4" /> : null} */}
 
         <Image
           alt="тень от бутылки"
-          src={`/assets/bottle-shadow-${index + 1}.svg`}
+          src={`/assets/bottle-shadow-1.svg`}
           width={width}
           height={width}
-          className={`absolute bottom-[0px] ${
-            index + 1 === 3 || index + 1 === 1 ? "w-[85px]" : ""
+          className={`absolute bottom-[-10px] ${
+            index + 1 === 3 || index + 1 === 1 ? "w-[85px]" : "w-[116px]"
           }`}
         />
       </div>

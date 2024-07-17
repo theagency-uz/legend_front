@@ -7,13 +7,22 @@ const nextConfig = {
         destination: "/ru",
         permanent: true,
       },
+      {
+        source: "/admin",
+        destination: "/admin/login",
+        permanent: true,
+      },
     ];
   },
 
   reactStrictMode: true,
   images: {
     formats: ["image/webp"],
-    domains: ["localhost"],
+    domains: [
+      "localhost",
+      "192.168.0.133",
+      "b155-94-158-59-244.ngrok-free.app",
+    ],
   },
 };
 

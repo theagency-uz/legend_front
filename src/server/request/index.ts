@@ -13,6 +13,7 @@ export const initRequestInterceptor = (
   req.headers = {
     ...(req.headers || {}),
     "Content-Type": "application/json",
+    "ngrok-skip-browser-warning": "69420",
   };
 
   return req;
@@ -33,4 +34,16 @@ const initResponseInterceptor = (baseURL: string) => {
 request.interceptors.request.use(initRequestInterceptor as any);
 request.interceptors.response.use(...initResponseInterceptor(`${url}`));
 
-export const httpClient = request;
+function setJwt(jwt: string) {
+  axios.defaults.headers.common["x-auth-token"] = jwt;
+}
+
+export const httpClient = {
+  get: request.get,
+  post: request.post,
+  put: request.put,
+  delete: request.delete,
+  setJwt,
+};
+
+export const tokenKey = "legend_auth_token";

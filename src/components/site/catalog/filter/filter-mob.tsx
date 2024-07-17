@@ -26,7 +26,7 @@ export function FilterMob({ lang }: { lang: keyof Language }) {
   return (windowSize.width ?? 0) <= MOBILE_SIZE ? (
     <Sheet>
       <SheetTrigger asChild>
-        <h3 className="flex items-center gap-[1.08vw] xs:hidden">
+        <h3 className="flex items-center gap-[1.08vw] md:hidden">
           <img
             src="/assets/filter.svg"
             width={16}

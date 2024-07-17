@@ -52,7 +52,7 @@ export default function ProductRow({ product }: { product: IProductRow }) {
           <DropdownMenuContent align="end">
             <DropdownMenuLabel>Действия</DropdownMenuLabel>
             <DropdownMenuItem>Редактировать</DropdownMenuItem>
-            <DropdownMenuItem>Удалить</DropdownMenuItem>
+            <DropdownMenuItem className="focus:bg-red-600">Удалить</DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
       </TableCell>

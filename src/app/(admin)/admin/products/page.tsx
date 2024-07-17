@@ -26,7 +26,7 @@ import ProductRow from "../../components/products/product-row.component";
 
 import { IProductRow } from "@/types/admin/product-row";
 
-export default function Dashboard() {
+export default function Dashboard(): JSX.Element {
   const { data: products } = useFetchProductsAdmin();
 
   const [filterName, setFilterName] = useQueryState("filter");
@@ -106,7 +106,7 @@ export default function Dashboard() {
                       </TableRow>
                     </TableHeader>
                     <TableBody>
-                      {products.map((product: IProductRow) => (
+                      {products?.map((product: IProductRow) => (
                         <ProductRow key={product.id} product={product} />
                       ))}
                     </TableBody>
