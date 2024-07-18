@@ -27,22 +27,22 @@ export default function CatalogCard({
   return (
     <Link
       href={`${path}/${product.slug}`}
-      className="cursor-pointer bg-catalog-card w-[21.67vw] h-[40.83vw] rounded-[10px] max-sm:w-full max-sm:h-auto"
+      className="cursor-pointer bg-catalog-card w-[21.67vw] h-[42vw] rounded-[10px] max-sm:w-full max-sm:h-auto"
     >
       <div className="rounded-[10px] text-white p-[26px] w-full h-full backdrop-blur-[5px]">
         <div className="flex flex-col h-full gap-[10px]">
-          <div className="h-[70%] flex justify-center items-center">
+          <div className="flex-[2] flex justify-center items-center">
             <Image
               src={url}
               alt={product.name[lang]}
-              width={1200}
-              height={1200}
+              width={1600}
+              height={1400}
               className="self-center w-full h-auto"
             />
           </div>
 
-          <div className="flex flex-col gap-[35px]">
-            <div className="flex flex-col gap-[5px]">
+          <div className="flex flex-1 justify-between flex-col gap-[35px]">
+            <div className="flex flex-col gap-[5px] justify-between">
               <span className="medium-normal tracking-normal">
                 {product.product_variation.value} {i18n.t("Л")}
               </span>

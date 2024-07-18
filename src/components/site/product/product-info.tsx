@@ -1,11 +1,11 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Link from "next/link";
 
 import { formatCost } from "@/lib/utils";
 import { useTranslation } from "@/lib/i18n/client";
 
-import { Button } from "@/components/ui/button";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -25,6 +25,7 @@ import { IProduct } from "@/types/product";
 import { Language } from "@/types/language";
 
 import { useCart } from "@/context/cart.context";
+import LinkButton from "../common/link-button.component";
 
 export default function ProductInfo({
   slug,
@@ -39,9 +40,16 @@ export default function ProductInfo({
     slug,
   });
 
-  const { addToCart, cartItems } = useCart();
+  const { addToCartQuantity, cartItems } = useCart();
 
   const product: IProduct = data;
+  const productInCart = cartItems.find((item) => item.id === product?.id);
+  const [count, setCount] = useState(productInCart?.quantity ?? 1);
+
+  useEffect(() => {
+    const productInCart = cartItems.find((item) => item.id === product?.id);
+    setCount(productInCart?.quantity ?? 1);
+  }, [cartItems, product]);
 
   const gallery = product?.images?.map((imgUrl: string, id: number) => ({
     id,
@@ -113,18 +121,7 @@ export default function ProductInfo({
                 })}
               </p>
               <div className="flex items-center gap-[34px] max-xs:gap-[17px]">
-                <ProductCount
-                  lang={lang}
-                  product={{
-                    id: product.id,
-                    imageUrl: product.previewImage,
-                    price: product.price,
-                    title: product.name,
-                    quantity:
-                      cartItems.find((item) => item.id === product.id)
-                        ?.quantity ?? 1,
-                  }}
-                />
+                <ProductCount lang={lang} setCount={setCount} count={count} />
                 <span className="medium-normal uppercase tracking-[1px]">
                   {product?.productCategoryId
                     ? t("в блоке", { number: product?.itemsPerBlock })
@@ -136,28 +133,23 @@ export default function ProductInfo({
             <div className="flex justify-between items-center">
               <div className="flex flex-col gap-[5px]">
                 <span className="large-medium-90">
-                  {formatCost(product?.price)}
+                  {formatCost(product?.price * (count ?? 1))}
                 </span>
                 <span className="base-normal-nospacing uppercase">
                   {t(product?.productCategoryId ? "сум / блок" : "сум / штука")}
                 </span>
               </div>
-              <Button
+              <LinkButton
                 onClick={() =>
-                  cartItems.find((item) => item.id === product.id)?.quantity
-                    ? null
-                    : addToCart({
-                        id: product.id,
-                        imageUrl: product.previewImage,
-                        price: product.price,
-                        title: product.name,
-                        quantity: 1,
-                      })
+                  addToCartQuantity({
+                    ...product,
+                    quantity: count,
+                  })
                 }
-                className="px-[2.75vw] py-[0.5vw] base-normal-nospacing max-xs:w-[142px] max-xs:py-[8px] h-fit"
+                href={`/${lang}/checkout`}
               >
-                <Link href={`/${lang}/checkout`}>{t("Заказать")}</Link>
-              </Button>
+                {t("Заказать")}
+              </LinkButton>
             </div>
           </div>
         </section>

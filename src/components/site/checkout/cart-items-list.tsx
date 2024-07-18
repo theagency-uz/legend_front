@@ -33,7 +33,8 @@ export default function CartItemsList({ lang }: { lang: keyof Language }) {
               <div className="flex items-center">
                 <Image
                   src={
-                    process.env.NEXT_PUBLIC_IMAGE_UPLOAD_URL + product.imageUrl
+                    process.env.NEXT_PUBLIC_IMAGE_UPLOAD_URL +
+                    product.previewImage
                   }
                   width={1000}
                   height={2000}
@@ -44,9 +45,9 @@ export default function CartItemsList({ lang }: { lang: keyof Language }) {
 
               <div className="flex justify-between flex-1 items-center max-xs:flex-col max-xs:items-start max-xs:gap-[20px]">
                 <p className="base-medium w-[20ch] max-xs:w-full">
-                  {product.title[lang]}
+                  {product.name[lang]}
                 </p>
-                <ProductCount product={product} lang={lang} />
+                <ProductCount product={product} lang={lang} isCheckout />
                 <div className="flex flex-col gap-[5px]">
                   <span className="large-medium-90">
                     {formatCost(product.price)}

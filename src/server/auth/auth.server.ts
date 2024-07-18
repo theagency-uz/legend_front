@@ -6,7 +6,7 @@ import { getCookie, setCookie } from "@/lib/cookie";
 
 const apiEndpoint = process.env.NEXT_PUBLIC_BASE_URL + "/auth";
 
-import { IUserLogin } from "@/types/admin/user";
+import { IUserLogin, IUserLoginResponse } from "@/types/admin/user";
 
 function getUserByJwt(jwt: string) {
   if (typeof window !== "undefined") {
@@ -19,7 +19,9 @@ function getUserByJwt(jwt: string) {
   }
 }
 
-async function login(user: IUserLogin) {
+async function login(
+  user: IUserLogin
+): Promise<IUserLoginResponse | undefined> {
   try {
     let { data: token } = await httpClient.post(apiEndpoint, user);
 
@@ -32,8 +34,8 @@ async function login(user: IUserLogin) {
 
       return { status: 200, user: user };
     }
-  } catch (err) {
-    return err;
+  } catch (err: any) {
+    return { status: 200, user: user, errorMsg: err.message };
   }
 }
 

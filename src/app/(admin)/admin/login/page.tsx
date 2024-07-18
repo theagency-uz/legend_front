@@ -1,5 +1,6 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
@@ -15,8 +16,15 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
-import { IUserLogin, UserLoginSchema } from "@/types/admin/user";
 import { TriangleAlert } from "lucide-react";
+
+import {
+  IUserLogin,
+  IUserLoginResponse,
+  UserLoginSchema,
+  UserRole,
+} from "@/types/admin/user";
+
 import { useTranslation } from "@/lib/i18n/client";
 
 import { login } from "@/server/auth/auth.server";
@@ -28,11 +36,17 @@ export default function Login() {
     formState: { errors },
   } = useForm<IUserLogin>({ resolver: zodResolver(UserLoginSchema) });
 
+  const router = useRouter();
+
   const { t } = useTranslation("ru");
 
   async function onSubmit(data: IUserLogin) {
     try {
-      const result = await login(data);
+      const result: IUserLoginResponse | undefined = await login(data);
+
+      if (result?.status === 200 && result?.user.role === UserRole.Admin) {
+        router.push("/admin/products");
+      }
 
       console.log(result);
     } catch (err) {

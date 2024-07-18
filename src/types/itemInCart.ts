@@ -1,9 +1,6 @@
-import { Language } from "./language";
 
-export interface IItemInCart {
-  id: number | string;
+import { IProduct } from "./product";
+
+export interface IItemInCart extends IProduct {
   quantity: number;
-  price: number;
-  title: Language;
-  imageUrl: string;
 }

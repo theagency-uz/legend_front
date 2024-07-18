@@ -9,8 +9,8 @@ export interface IProduct {
   previewImage: string;
   price: number;
   slug: string;
-  productCategoryId: number;
-  productTypeId: number;
+  productCategoryId?: number;
+  productTypeId?: number;
 }
 
 export interface IProductVariation extends IProduct {

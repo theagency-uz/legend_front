@@ -24,7 +24,9 @@ export default async function Product({
       <section>
         <Accordion type="single" collapsible>
           <AccordionItem value="item-1" className="border-t">
-            <AccordionTrigger>{t("Состав и характеристики")}</AccordionTrigger>
+            <AccordionTrigger className="base-bold">
+              {t("Состав и характеристики")}
+            </AccordionTrigger>
             <AccordionContent className="w-2/4 max-xs:w-full">
               <div className="row-span-1 flex flex-col gap-[14px]">
                 <p className="small-normal-nospacing">
@@ -46,8 +48,10 @@ export default async function Product({
 
         <Accordion type="single" collapsible>
           <AccordionItem value="item-2">
-            <AccordionTrigger>{t("Оплата и доставка")}</AccordionTrigger>
-            <AccordionContent className="w-[50%] max-xs:w-full">
+            <AccordionTrigger className="base-bold">
+              {t("Оплата и доставка")}
+            </AccordionTrigger>
+            <AccordionContent className="w-[50%] max-xs:w-full leading-snug">
               {t("Оплата и доставка (текст)")}
             </AccordionContent>
           </AccordionItem>

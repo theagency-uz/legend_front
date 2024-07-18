@@ -1,73 +1,44 @@
 "use client";
 
-import React, { ChangeEvent, useState } from "react";
+import React, { Dispatch, SetStateAction } from "react";
 
 import { Minus, Plus } from "lucide-react";
 
 import { useTranslation } from "@/lib/i18n/client";
 
 import { useCart } from "@/context/cart.context";
-
 import { IItemInCart } from "@/types/itemInCart";
 
 export default function ProductCount({
   lang,
+  isCheckout,
   product,
+  count,
+  setCount,
 }: {
   lang: string;
-  product: IItemInCart;
+  isCheckout?: boolean;
+  product?: IItemInCart;
+  count?: number;
+  setCount?: Dispatch<SetStateAction<number>>;
 }) {
   const { i18n } = useTranslation(lang);
-  const [count, setCount] = useState(product.quantity);
 
   const { addToCart, removeFromCart } = useCart();
 
-  function handleInputCount(e: ChangeEvent<HTMLInputElement>) {
-    if (+e.target.value <= 1) return setCount(1);
-
-    setCount(+e.target.value);
-    addToCart({
-      id: product.id,
-      imageUrl: product.imageUrl,
-      price: product.price,
-      title: product.title,
-      quantity: +e.target.value,
-    });
-  }
-
   function handlePlusCount() {
-    setCount((count) => count + 1);
-    addToCart({
-      id: product.id,
-      imageUrl: product.imageUrl,
-      price: product.price,
-      title: product.title,
-      quantity: count + 1,
-    });
+    setCount && setCount((count) => count + 1);
+    isCheckout && product && addToCart(product);
   }
 
   function handleMinusCount() {
-    if (count <= 1) {
-      setCount(1);
-      removeFromCart({
-        id: product.id,
-        imageUrl: product.imageUrl,
-        price: product.price,
-        title: product.title,
-        quantity: 1,
-      });
-
+    if ((count ?? product?.quantity ?? 1) <= 1) {
+      setCount && setCount(1);
+      isCheckout && product && removeFromCart({ ...product, quantity: 1 });
       return;
     }
-
-    setCount((count) => count - 1);
-    removeFromCart({
-      id: product.id,
-      imageUrl: product.imageUrl,
-      price: product.price,
-      title: product.title,
-      quantity: count - 1,
-    });
+    setCount && setCount((count) => count - 1);
+    isCheckout && product && removeFromCart(product);
   }
 
   return (
@@ -84,21 +55,13 @@ export default function ProductCount({
       <div className="flex items-center justify-center">
         <div
           className="small-semibold w-[1ch] min-w-[1ch] max-w-[3ch]"
-          style={{ width: `${String(count).length}ch` }}
+          style={{
+            width: `${String(count ?? product?.quantity).length}ch`,
+          }}
         >
-          <input
-            id="count"
-            className="w-full text-end"
-            min="1"
-            name="quantity"
-            value={count}
-            type="number"
-            onChange={handleInputCount}
-          />
+          <span className="w-full text-end">{count ?? product?.quantity}</span>
         </div>
-        <label className="small-semibold" htmlFor="count">
-          {i18n.t("шт.")}
-        </label>
+        <span className="small-semibold">{i18n.t("шт.")}</span>
       </div>
       <div className="">
         <button

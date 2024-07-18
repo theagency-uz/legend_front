@@ -13,6 +13,7 @@ import { IItemInCart } from "@/types/itemInCart";
 interface ICartContext {
   cartItems: IItemInCart[];
   addToCart: (item: IItemInCart) => void;
+  addToCartQuantity: (item: IItemInCart) => void;
   removeFromCart: (item: IItemInCart) => void;
   clearCart: () => void;
   getCartTotal: () => number;
@@ -36,6 +37,24 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
         cartItems.map((cartItem: IItemInCart) =>
           cartItem.id === item.id
             ? { ...cartItem, quantity: cartItem.quantity + 1 }
+            : cartItem
+        )
+      );
+    } else {
+      setCartItems([...cartItems, { ...item, quantity: item.quantity }]);
+    }
+  };
+
+  const addToCartQuantity = (item: IItemInCart) => {
+    const isItemInCart = cartItems.find(
+      (cartItem: IItemInCart) => cartItem.id === item.id
+    );
+
+    if (isItemInCart) {
+      setCartItems(
+        cartItems.map((cartItem: IItemInCart) =>
+          cartItem.id === item.id
+            ? { ...cartItem, quantity: item.quantity }
             : cartItem
         )
       );
@@ -108,6 +127,7 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
         clearCart,
         getCartTotal,
         getTotalItems,
+        addToCartQuantity,
       }}
     >
       {children}

@@ -1,3 +1,5 @@
+import { JwtPayload } from "jwt-decode";
+
 import { z, ZodType } from "zod";
 
 export enum UserRole {
@@ -19,4 +21,10 @@ export const UserLoginSchema: ZodType<IUserLogin> = z.object({
 export interface IUserLogin {
   email: string;
   password: string;
+}
+
+export interface IUserLoginResponse extends JwtPayload {
+  status: number;
+  user: IUser;
+  errorMsg: string;
 }
