@@ -111,7 +111,7 @@ export default function ProductInfo({
             <div className="flex flex-col gap-[1.42vw] max-xs:gap-[20px]">
               <h2 className="h3">{product?.name[lang]}</h2>
               {product?.productCategoryId !== 1000 ? (
-                <ProductVolumeDropdown productId={product.id} />
+                <ProductVolumeDropdown lang={lang} productId={product.id} />
               ) : null}
             </div>
 
