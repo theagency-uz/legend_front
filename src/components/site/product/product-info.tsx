@@ -110,7 +110,9 @@ export default function ProductInfo({
           <div className="flex flex-col w-[55%] gap-[4vw] max-xs:w-full max-xs:gap-[20px]">
             <div className="flex flex-col gap-[1.42vw] max-xs:gap-[20px]">
               <h2 className="h3">{product?.name[lang]}</h2>
-              {product?.productCategoryId ? <ProductVolumeDropdown /> : null}
+              {product?.productCategoryId !== 1000 ? (
+                <ProductVolumeDropdown productId={product.id} />
+              ) : null}
             </div>
 
             <div className="flex flex-col gap-[1.08vw] max-xs:gap-[31px] max-xs:mb-[21px]">

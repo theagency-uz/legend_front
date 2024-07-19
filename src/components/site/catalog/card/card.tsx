@@ -22,7 +22,7 @@ export default function CatalogCard({
 
   const url = process.env.NEXT_PUBLIC_IMAGE_UPLOAD_URL + product.previewImage;
 
-  const { addToCart } = useCart();
+  const { addToCartQuantity } = useCart();
 
   return (
     <Link
@@ -62,14 +62,7 @@ export default function CatalogCard({
               <div
                 onClick={(e) => {
                   e.preventDefault();
-
-                  addToCart({
-                    id: product.id,
-                    imageUrl: product.previewImage,
-                    price: product.price,
-                    quantity: 1,
-                    title: product.name,
-                  });
+                  addToCartQuantity({ ...product, quantity: 1 });
                 }}
               >
                 <div className="flex flex-col items-center gap-[5px] justify-between cursor-pointer">

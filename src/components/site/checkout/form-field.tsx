@@ -24,7 +24,7 @@ const FormField: React.FC<FormFieldProps> = ({
     <div
       className={`grid flex-1 ${
         textarea ? "" : "max-w-sm"
-      } items-center gap-1.5`}
+      } items-center gap-1.5 small-normal-nospacing`}
     >
       <Label className="" htmlFor={name}>
         {label}

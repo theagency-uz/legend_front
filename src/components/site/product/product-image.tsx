@@ -25,8 +25,8 @@ export default function ProductImage({ gallery, thumbsSwiper }: any) {
           <Image
             src={process.env.NEXT_PUBLIC_IMAGE_UPLOAD_URL + item.imgUrl}
             alt={`Product gallery ${item.id}`}
-            width={1200}
-            height={1200}
+            width={1600}
+            height={1400}
           />
         </SwiperSlide>
       ))}

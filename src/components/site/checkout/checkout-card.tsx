@@ -20,7 +20,7 @@ export default function CheckoutCard({ lang }: { lang: keyof Language }) {
       <div className="w-full h-full base-normal-nospacing rounded-[10px] backdrop-blur-[5px]">
         <div className="py-[28px] px-[20px]">
           <h3 className="large-semibold mb-[30px]">{t("Ваш заказ:")}</h3>
-          <p className="flex justify-between items-center mb-[20px] max-xs:mb-[5px]">
+          <p className="flex justify-between items-center mb-[20px] max-xs:mb-[20px] large-semibold">
             <span>
               {t("Товары")} ({getTotalItems()}):
             </span>{" "}
@@ -28,7 +28,7 @@ export default function CheckoutCard({ lang }: { lang: keyof Language }) {
               {formatCost(getCartTotal())} {t("сум")}
             </span>
           </p>
-          <p className="flex justify-between items-center">
+          <p className="flex justify-between items-center large-semibold">
             <span>{t("Доставка")}</span> <span>{t("бесплатно")}</span>
           </p>
         </div>
