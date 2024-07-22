@@ -102,27 +102,27 @@ export default function ProductInfo({
           </Breadcrumb>
         </div>
 
-        <section className="flex justify-end gap-[10vw] items-center mb-[4.5vw] max-xs:flex-col max-xs:mb-[48px]">
-          <div className="w-[45%] max-xs:w-full">
+        <section className="flex justify-end gap-[10vw] items-center mb-[4.5vw] max-md:flex-col max-md:mb-[48px]">
+          <div className="w-[45%] max-md:w-full">
             <ProductGallery gallery={gallery} />
           </div>
 
-          <div className="flex flex-col w-[55%] gap-[4vw] max-xs:w-full max-xs:gap-[20px]">
-            <div className="flex flex-col gap-[1.42vw] max-xs:gap-[20px]">
+          <div className="flex flex-col w-[55%] gap-[4vw] max-md:w-full max-md:gap-[20px]">
+            <div className="flex flex-col gap-[1.42vw] max-md:gap-[20px]">
               <h2 className="h3">{product?.name[lang]}</h2>
               {product?.productCategoryId !== 1000 ? (
                 <ProductVolumeDropdown lang={lang} productId={product.id} />
               ) : null}
             </div>
 
-            <div className="flex flex-col gap-[1.08vw] max-xs:gap-[31px] max-xs:mb-[21px]">
+            <div className="flex flex-col gap-[1.08vw] max-md:gap-[31px] max-md:mb-[21px]">
               <p className="medium-normal-nospacing leading-normal">
                 {t("product-description", {
                   isGaz:
                     product?.productTypeId === 1 ? t("c газом") : t("без газа"),
                 })}
               </p>
-              <div className="flex items-center gap-[34px] max-xs:gap-[17px]">
+              <div className="flex items-center gap-[34px] max-md:gap-[17px]">
                 <ProductCount lang={lang} setCount={setCount} count={count} />
                 <span className="medium-normal uppercase tracking-[1px]">
                   {product?.productCategoryId

@@ -187,7 +187,7 @@ export default function Form({ lang }: { lang: keyof Language }) {
         <Separator className="max-xs:opacity-0 max-lg:mb-0" />
       </div>
 
-      <div className="mx-auto max-xs:px-[10px] lg:w-fit relative 2xl:w-[30%]">
+      <div className="max-md:w-full mx-auto max-xs:px-[10px] lg:w-fit relative 2xl:w-[30%]">
         <CheckoutCard lang={lang} />
       </div>
     </form>

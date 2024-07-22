@@ -31,7 +31,7 @@ export function FilterMob({ lang }: { lang: keyof Language }) {
             src="/assets/filter.svg"
             width={16}
             height={16}
-            className="w-[4.69vw] h-[4.69vw]"
+            className="w-[20px] h-[20px]"
           />{" "}
           <span>{i18n.t("Фильтры")}</span>
         </h3>

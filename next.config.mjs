@@ -18,7 +18,12 @@ const nextConfig = {
   reactStrictMode: true,
   images: {
     formats: ["image/webp"],
-    domains: ["localhost", "192.168.0.133", "*.ngrok-free.app"],
+    domains: [
+      "localhost",
+      "192.168.0.133",
+      "*.ngrok-free.app",
+      "5efc-94-158-59-40.ngrok-free.app",
+    ],
   },
 };
 

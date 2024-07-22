@@ -24,7 +24,7 @@ export default async function Catalog({
   const { t } = await useTranslation(lang);
 
   return (
-    <main className="px-[80px] py-[11.83vw] max-xs:py-[28vw] w-full h-auto bg-catalog bg-cover aspect-[1200/1942] text-white max-xs:px-[10px] max-xs:bg-catalog-mob max-xs:aspect-[442/1878] bg-top bg-fixed">
+    <main className="px-[80px] py-[11.83vw] max-xs:py-[28vw] w-full h-auto bg-catalog bg-cover aspect-[1200/1942] text-white max-xs:px-[10px] max-xs:bg-catalog-mob max-xs:aspect-[442/1878] bg-top bg-fixed max-sm:px-[10px] max-lg:px-[50px]">
       <div className="flex flex-col gap-[50px] mb-[3.92vw] max-xs:mb-[19vw]">
         <Breadcrumb>
           <BreadcrumbList>
@@ -56,12 +56,12 @@ export default async function Catalog({
         </div>
       </div>
 
-      <div className="flex w-full justify-between max-xs:flex-col">
-        <div className="flex w-[10%] max-xs:hidden">
+      <div className="flex w-full justify-between max-xs:flex-col max-xl:gap-10">
+        <div className="flex w-[15%] max-md:hidden">
           <Filter lang={lang} />
         </div>
 
-        <div className="flex w-[80%] justify-start flex-wrap gap-[2.5vw] max-sm:flex-col max-xs:gap-[6.26vw] max-md:w-full">
+        <div className="flex w-[80%] justify-start flex-wrap gap-[2.5vw] max-sm:flex-col max-xs:gap-[6.26vw] max-sm:flex max-sm:flex-wrap max-lg:w-full max-lg:grid max-lg:grid-cols-2">
           <ProductsRow lang={lang} />
         </div>
       </div>

@@ -45,10 +45,9 @@ export default function Login() {
       const result: IUserLoginResponse | undefined = await login(data);
 
       if (result?.status === 200 && result?.user.role === UserRole.Admin) {
+        console.log(result);
         router.push("/admin/products");
       }
-
-      console.log(result);
     } catch (err) {
       console.log(err);
     }

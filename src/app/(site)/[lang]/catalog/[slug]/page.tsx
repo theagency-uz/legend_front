@@ -18,7 +18,7 @@ export default async function Product({
   const { t } = await useTranslation(lang);
 
   return (
-    <main className="px-[11.75vw] py-[11.83vw] max-xs:py-[60px] w-full h-auto bg-product bg-cover text-white max-xs:px-[10px] max-xs:bg-catalog-mob bg-top bg-fixed max-xs:pt-[100px]">
+    <main className="px-[11.75vw] py-[11.83vw] max-md:py-[60px] w-full h-auto bg-product bg-cover text-white max-md:px-[10px] max-md:bg-catalog-mob bg-top bg-fixed max-md:pt-[100px]">
       <ProductInfo lang={lang} slug={slug} />
 
       <section>
@@ -27,7 +27,7 @@ export default async function Product({
             <AccordionTrigger className="base-bold">
               {t("Состав и характеристики")}
             </AccordionTrigger>
-            <AccordionContent className="w-2/4 max-xs:w-full">
+            <AccordionContent className="w-2/4 max-md:w-full">
               <div className="row-span-1 flex flex-col gap-[14px]">
                 <p className="small-normal-nospacing">
                   {t("Основной состав, мг/л:")}
@@ -51,7 +51,7 @@ export default async function Product({
             <AccordionTrigger className="base-bold">
               {t("Оплата и доставка")}
             </AccordionTrigger>
-            <AccordionContent className="w-[50%] max-xs:w-full leading-snug">
+            <AccordionContent className="w-[50%] max-md:w-full leading-snug">
               {t("Оплата и доставка (текст)")}
             </AccordionContent>
           </AccordionItem>
