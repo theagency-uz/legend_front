@@ -27,11 +27,11 @@ export default function CatalogCard({
   return (
     <Link
       href={`${path}/${product.slug}`}
-      className="cursor-pointer bg-catalog-card w-[21.67vw] h-[42vw] rounded-[10px] max-sm:h-auto max-md:h-[80vw] max-lg:w-full max-xl:w-[48%] max-xl:h-[50vw]"
+      className="cursor-pointer bg-catalog-card w-[21.67vw] h-[42vw] rounded-[10px] max-sm:h-auto max-md:h-[80vw] max-lg:w-full max-lg:h-[80vw] max-xl:w-[48%] max-xl:h-[50vw]"
     >
-      <div className="rounded-[10px] text-white p-[26px] w-full h-full backdrop-blur-[5px]">
+      <div className="rounded-[10px] text-white w-full h-full backdrop-blur-[5px]">
         <div className="flex flex-col h-full gap-[10px]">
-          <div className="flex-[2] flex justify-center items-center">
+          <div className="flex-[2] flex justify-center items-center pt-[26px]">
             <Image
               src={url}
               alt={product.name[lang]}
@@ -41,12 +41,14 @@ export default function CatalogCard({
             />
           </div>
 
-          <div className="flex flex-1 justify-between flex-col gap-[35px]">
+          <div className="flex flex-1 justify-between flex-col gap-[35px] p-[26px]">
             <div className="flex flex-col gap-[5px] justify-between">
               <span className="medium-normal tracking-normal">
                 {product.product_variation.value} {i18n.t("Л")}
               </span>
-              <h3 className="large-medium">{product.name[lang]}</h3>
+              <h3 className="large-medium leading-tight">
+                {product.name[lang]}
+              </h3>
             </div>
 
             <div className="flex justify-between">

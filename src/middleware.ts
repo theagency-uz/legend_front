@@ -33,6 +33,7 @@ export async function middleware(request: NextRequest) {
       }
     }
 
+    console.log(isUserAuthenticated);
     if (
       !isUserAuthenticated &&
       protectedRoutes.includes(request?.nextUrl?.pathname)

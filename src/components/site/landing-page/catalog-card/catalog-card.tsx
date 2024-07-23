@@ -32,13 +32,15 @@ export default function CatalogCard({
 
   return (
     <div
-      className={`flex-1 flex flex-col items-center gap-[30px] h-[500px] ${
-        !isMain ? "max-xs:hidden" : ""
+      className={`flex-1 flex flex-col items-center gap-[30px] h-fit ${
+        !isMain ? "max-md:hidden" : ""
       }`}
     >
-      <div className={`relative w-full flex justify-center h-[75%]`}>
+      <div
+        className={`relative w-full flex justify-center h-[75%] max-lg:w-1/3 max-lg:h-auto`}
+      >
         <motion.div
-          whileHover={{ translateY: "-30px" }}
+          whileHover={index + 1 === 2 ? { translateY: "-30px" } : {}}
           onHoverStart={(e) => {}}
           onHoverEnd={(e) => {}}
         >
@@ -64,11 +66,13 @@ export default function CatalogCard({
           width={width}
           height={width}
           className={`absolute bottom-[-10px] ${
-            index + 1 === 3 || index + 1 === 1 ? "w-[85px]" : "w-[116px]"
-          }`}
+            index + 1 === 3 || index + 1 === 1
+              ? ""
+              : "w-[116px] max-lg:w-[60px]"
+          } ${index + 1 === 3 || index + 1 === 1 ? "hidden" : ""}`}
         />
       </div>
-      <div className="flex flex-col items-center gap-[3px] max-xs:gap-[15px]">
+      <div className="flex flex-col items-center gap-[3px] max-md:gap-[15px]">
         <span className="medium-normal uppercase">{t(volume)}</span>
         <p className="base-medium">{t(name)}</p>
       </div>

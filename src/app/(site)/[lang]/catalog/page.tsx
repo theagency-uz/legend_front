@@ -56,8 +56,8 @@ export default async function Catalog({
         </div>
       </div>
 
-      <div className="flex w-full justify-between max-xs:flex-col max-xl:gap-10">
-        <div className="flex w-[15%] max-md:hidden">
+      <div className="flex w-full justify-between max-xs:flex-col max-xl:gap-10 relative">
+        <div className="flex w-[15%] max-md:hidden relative">
           <Filter lang={lang} />
         </div>
 

@@ -31,7 +31,7 @@ export default function FilterContent({
 
   if (filters) {
     return (
-      <div className="flex flex-col gap-[3.08vw] max-xs:gap-[40px] text-white medium-normal-nospacing w-full">
+      <div className="flex flex-col gap-[3.08vw] max-xs:gap-[40px] text-white medium-normal-nospacing w-full sticky top-40 left-0 h-fit">
         <div className="flex justify-between">
           <h3 className="flex items-center gap-[1.08vw]">
             <img

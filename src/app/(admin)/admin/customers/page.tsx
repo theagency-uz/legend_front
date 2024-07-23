@@ -26,7 +26,7 @@ import ProductRow from "../../components/products/product-row.component";
 
 import { IProductRow } from "@/types/admin/product-row";
 
-export default function Products(): JSX.Element {
+export default function Customers(): JSX.Element {
   const { data: products } = useFetchProductsAdmin();
 
   const [filterName, setFilterName] = useQueryState("filter");
