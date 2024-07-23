@@ -4,6 +4,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 
 import { useTranslation } from "@/lib/i18n/client";
+import { ArrowRight, ChevronRight } from "lucide-react";
 
 export default function CatalogCard({
   width,
@@ -74,7 +75,9 @@ export default function CatalogCard({
       </div>
       <div className="flex flex-col items-center gap-[3px] max-md:gap-[15px]">
         <span className="medium-normal uppercase">{t(volume)}</span>
-        <p className="base-medium">{t(name)}</p>
+        <p className="base-medium flex items-center gap-1">
+          {t(name)} {index + 1 === 2 ? <ArrowRight /> : ""}
+        </p>
       </div>
     </div>
   );

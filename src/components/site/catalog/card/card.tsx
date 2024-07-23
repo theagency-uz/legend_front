@@ -41,9 +41,9 @@ export default function CatalogCard({
             />
           </div>
 
-          <div className="flex flex-1 justify-between flex-col gap-[35px] p-[26px]">
+          <div className="flex h-[270px] justify-between flex-col gap-[35px] p-[26px]">
             <div className="flex flex-col gap-[5px] justify-between">
-              <span className="medium-normal tracking-normal">
+              <span className="normal-medium tracking-normal">
                 {product.product_variation.value} {i18n.t("Л")}
               </span>
               <h3 className="large-medium leading-tight">
@@ -67,7 +67,7 @@ export default function CatalogCard({
                   addToCartQuantity({ ...product, quantity: 1 });
                 }}
               >
-                <div className="flex flex-col items-center justify-between cursor-pointer">
+                <div className="flex flex-col items-center justify-between cursor-pointer gap-[5px]">
                   <img
                     alt="cart icon"
                     src="/assets/cart.svg"

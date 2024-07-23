@@ -22,7 +22,7 @@ export default function CheckboxCustom({
         }}
         id={id}
       />
-      <label htmlFor={id} className="medium-normal-nospacing">
+      <label htmlFor={id} className="md:medium-normal-nospacing">
         {filterVal}
       </label>
     </div>

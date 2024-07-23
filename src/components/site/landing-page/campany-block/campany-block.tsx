@@ -54,14 +54,14 @@ export default async function CampanyBlock({ lang }: { lang: string }) {
           alt="Лого Legend"
           width={968}
           height={196}
-          className="w-[80.67vw] h-[16.33vw]"
+          className="w-[80.67vw] h-[16.33vw] max-sm:w-full max-sm:h-auto"
         />
       </div>
 
-      <div className="px-[100px] pb-[100px] max-md:px-0 max-md:pb-[60px]">
+      <div className="px-[100px] pb-[100px] max-xs:px-[0px] max-md:px-[10px] max-md:pb-[60px]">
         <h3 className="h3 mb-[40px] max-md:px-[10px]">{t("Новости")}</h3>
 
-        <div className="flex justify-between max-md:flex-col max-md:gap-[40px] max-md:items-center max-lg:flex-wrap max-lg:gap-10 max-lg:jus">
+        <div className="flex justify-between max-xs:flex-col max-md:gap-[40px] max-md:items-center max-lg:flex-wrap max-lg:gap-10">
           {NEWS_CARDS.map(
             ({ src, alt, width, height, date, text, title }, index) => {
               return (

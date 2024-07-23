@@ -31,14 +31,14 @@ export default function FilterContent({
 
   if (filters) {
     return (
-      <div className="flex flex-col gap-[3.08vw] max-xs:gap-[40px] text-white medium-normal-nospacing w-full sticky top-40 left-0 h-fit">
+      <div className="flex flex-col gap-[3.08vw] max-md:gap-[40px] text-white medium-normal-nospacing w-full sticky top-40 left-0 h-fit">
         <div className="flex justify-between">
           <h3 className="flex items-center gap-[1.08vw]">
             <img
               src="/assets/filter.svg"
               width={16}
               height={16}
-              className="w-[1.33vw] max-xs:w-[4.69vw] max-xs:h-[4.69vw]"
+              className="w-[1.33vw] max-md:w-[4.69vw] max-md:h-[4.69vw]"
             />{" "}
             <span>{t("Фильтры")}</span>
           </h3>
@@ -49,10 +49,10 @@ export default function FilterContent({
           ) : null}
         </div>
 
-        <div className="flex flex-col gap-[2.5vw] max-xs:gap-[20px]">
-          <div className="flex flex-col gap-[0.83vw] max-xs:gap-[10px]">
+        <div className="flex flex-col gap-[2.5vw] max-md:gap-[20px]">
+          <div className="flex flex-col gap-[0.83vw] max-md:gap-[10px]">
             <h3>{t("Газ")}</h3>
-            <div className="flex flex-col gap-[0.67vw] max-xs:gap-[5px]">
+            <div className="flex flex-col gap-[0.67vw] max-md:gap-[5px]">
               {filters?.["types"].map(({ name, id, slug }: IFilter) => (
                 <CheckboxCustom
                   key={id}
@@ -64,9 +64,9 @@ export default function FilterContent({
             </div>
           </div>
 
-          <div className="flex flex-col gap-[0.83vw] max-xs:gap-[10px]">
+          <div className="flex flex-col gap-[0.83vw] max-md:gap-[10px]">
             <h3>{t("Материал")}</h3>
-            <div className="flex flex-col gap-[0.67vw] max-xs:gap-[5px]">
+            <div className="flex flex-col gap-[0.67vw] max-md:gap-[5px]">
               {filters?.["categories"].map(({ name, id, slug }: IFilter) => (
                 <CheckboxCustom
                   key={id}
@@ -78,9 +78,9 @@ export default function FilterContent({
             </div>
           </div>
 
-          <div className="flex flex-col gap-[0.83vw] max-xs:gap-[10px]">
+          <div className="flex flex-col gap-[0.83vw] max-md:gap-[10px]">
             <h3>{t("Литраж")}</h3>
-            <div className="flex flex-col gap-[0.67vw] max-xs:gap-[5px]">
+            <div className="flex flex-col gap-[0.67vw] max-md:gap-[5px]">
               {filters?.["variations"].map(({ slug, id }: IFilter) => (
                 <CheckboxCustom
                   key={id}
@@ -94,7 +94,7 @@ export default function FilterContent({
         </div>
 
         {isMob ? (
-          <div className="xs:hidden flex justify-center mt-[40px]">
+          <div className="md:hidden flex justify-center mt-[40px]">
             <SheetTrigger asChild>
               <Button className="px-[70px]" type="submit">
                 {t("Применить")}

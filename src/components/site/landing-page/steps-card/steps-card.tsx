@@ -28,7 +28,7 @@ export default async function StepsCard({
         height={height}
         className="mb-[14px]"
       />
-      <div className="flex flex-col gap-1">
+      <div className="flex flex-col gap-[3px]">
         <h4 className="small-normal">{t(name)}</h4>
         <p className="small-light">{t(text)}</p>
       </div>

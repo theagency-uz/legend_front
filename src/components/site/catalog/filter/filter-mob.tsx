@@ -36,7 +36,7 @@ export function FilterMob({ lang }: { lang: keyof Language }) {
           <span>{i18n.t("Фильтры")}</span>
         </h3>
       </SheetTrigger>
-      <SheetContent className="text-white w-full border-none bg-nav-mob aspect-[320/736] bg-cover bg-center overflow-y-scroll">
+      <SheetContent className="text-white w-full max-w-full border-none bg-nav-mob aspect-[320/736] bg-cover bg-center overflow-y-scroll">
         <SheetTitle>
           <Navbar lang={lang} />
         </SheetTitle>

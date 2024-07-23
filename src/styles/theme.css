@@ -4,43 +4,47 @@
 
 @layer utilities {
   .small-light {
-    @apply xl:text-[1vw] text-[14px] font-extralight leading-[150%];
+    @apply xl:text-[1vw] text-[14px] font-light leading-[150%];
   }
 
   .base-light {
-    @apply xl:text-[1.17vw] text-[14px] font-extralight leading-[150%];
-  }
-
-  .base-light-100 {
-    @apply xl:text-[1.17vw] text-[14px] font-extralight leading-[100%];
-  }
-
-  .small-normal {
-    @apply xl:text-[1vw] text-[14px] font-light leading-[150%] tracking-widest;
-  }
-
-  .small-normal-nospacing {
-    @apply xl:text-[1vw] text-[14px] font-light leading-[100%];
-  }
-
-  .base-normal {
-    @apply xl:text-[0.83vw] text-[10px] font-light leading-[150%] tracking-widest;
-  }
-
-  .base-normal-nospacing {
-    @apply xl:text-[0.83vw] text-[14px] font-light leading-[150%];
-  }
-
-  .medium-normal-nospacing {
     @apply xl:text-[1.17vw] text-[14px] font-light leading-[150%];
   }
 
+  .base-light-100 {
+    @apply xl:text-[1.17vw] text-[14px] font-light leading-[100%];
+  }
+
+  .small-normal {
+    @apply xl:text-[1vw] text-[14px] font-normal leading-[150%] tracking-widest;
+  }
+
+  .small-normal-nospacing {
+    @apply xl:text-[1vw] text-[14px] font-normal leading-[100%];
+  }
+
+  .base-normal {
+    @apply xl:text-[0.83vw] text-[10px] font-normal leading-[150%] tracking-widest;
+  }
+
+  .base-normal-nospacing {
+    @apply xl:text-[0.83vw] text-[14px] font-normal leading-[150%];
+  }
+
+  .medium-normal-nospacing {
+    @apply xl:text-[1.17vw] text-[14px] font-normal leading-[150%];
+  }
+
   .medium-normal {
-    @apply xl:text-[1vw] text-[12px] font-light leading-[150%] tracking-widest;
+    @apply xl:text-[1vw] text-[12px] font-normal leading-[150%] tracking-widest;
   }
 
   .large-normal {
-    @apply xl:text-[2.08vw] text-[25px] font-light leading-[150%] tracking-[5px];
+    @apply xl:text-[2.08vw] text-[25px] font-normal leading-[150%] tracking-[5px];
+  }
+
+  .large-normal-nospacing {
+    @apply xl:text-[2.08vw] text-[25px] font-normal leading-[100%];
   }
 
   .small-medium {
@@ -48,19 +52,23 @@
   }
 
   .base-medium {
-    @apply xl:text-[1.67vw] text-[20px] font-light leading-[100%] tracking-[-1px];
+    @apply xl:text-[1.67vw] text-[20px] font-medium leading-[100%] tracking-[-1px];
+  }
+
+  .normal-medium {
+    @apply xl:text-[1vw] text-[12px] font-medium leading-[150%] tracking-widest;
   }
 
   .large-medium {
-    @apply xl:text-[1.83vw] text-[22px] font-light leading-[100%] tracking-[-1px];
+    @apply xl:text-[1.83vw] text-[22px] font-medium leading-[100%] tracking-[-1px];
   }
 
   .large-medium-90 {
-    @apply xl:text-[1.83vw] text-[22px] font-light leading-[90%] tracking-[-1px];
+    @apply xl:text-[1.83vw] text-[22px] font-medium leading-[90%] tracking-[-1px];
   }
 
   .small-semibold {
-    @apply xl:text-[1vw] text-[14px] font-medium leading-[150%];
+    @apply xl:text-[1vw] text-[14px] font-semibold leading-[150%];
   }
 
   .base-semibold {
@@ -76,14 +84,14 @@
   }
 
   .h1 {
-    @apply xl:text-[1.33vw] text-[14px] font-light leading-[150%] tracking-[0.083vw];
+    @apply xl:text-[1.33vw] text-[14px] font-normal leading-[150%] tracking-[0.083vw];
   }
 
   .h2 {
-    @apply xl:text-[3.33vw] text-[40px] font-light leading-[90%] tracking-[-2px];
+    @apply xl:text-[3.33vw] text-[40px] font-normal leading-[90%] tracking-[-2px];
   }
 
   .h3 {
-    @apply xl:text-[2.5vw] text-[30px] font-light leading-[100%] tracking-[-2px];
+    @apply xl:text-[2.5vw] text-[30px] font-normal leading-[100%] tracking-[-2px];
   }
 }
