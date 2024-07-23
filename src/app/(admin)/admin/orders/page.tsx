@@ -112,6 +112,7 @@ export default function Orders() {
                     <Table>
                       <TableHeader>
                         <TableRow>
+                          <TableHead>ID</TableHead>
                           <TableHead>Покупатель</TableHead>
                           <TableHead className="hidden sm:table-cell">
                             Статус
@@ -128,10 +129,10 @@ export default function Orders() {
                       <TableBody>
                         <TableRow className="cursor-pointer">
                           <TableCell>
+                            <div className="font-medium">Oe31b70H</div>
+                          </TableCell>
+                          <TableCell>
                             <div className="font-medium">Test</div>
-                            <div className="hidden text-sm text-muted-foreground md:inline">
-                              test@example.com
-                            </div>
                           </TableCell>
                           <TableCell className="hidden sm:table-cell">
                             <Badge className="text-xs" variant="secondary">
