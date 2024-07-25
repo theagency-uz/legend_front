@@ -41,6 +41,7 @@ export type FormFieldProps = {
   pattern?: string;
   textarea?: boolean;
   lang?: keyof Language;
+  className?: string;
 };
 
 export type ValidFieldNames =

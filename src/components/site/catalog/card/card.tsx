@@ -41,7 +41,7 @@ export default function CatalogCard({
             />
           </div>
 
-          <div className="flex h-[270px] justify-between flex-col gap-[35px] p-[26px]">
+          <div className="flex h-[300px] justify-between flex-col gap-[35px] p-[26px]">
             <div className="flex flex-col gap-[5px] justify-between">
               <span className="normal-medium tracking-normal">
                 {product.product_variation.value} {i18n.t("Л")}

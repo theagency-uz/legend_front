@@ -12,7 +12,7 @@ export default async function Footer({ lang }: { lang: string }) {
   return (
     <footer className="px-[100px] py-[40px] pb-[61px] max-xs:px-[10px] bg-white max-sm:px-[10px] max-md:px-[20px]">
       <div className="flex justify-between mb-[4.67vw] max-xs:flex-col max-xs:gap-[40px] max-sm:flex-col max-sm:gap-[40px]">
-        <div className="flex flex-col gap-[15px] justify-between">
+        <div className="flex flex-col gap-[30px] justify-between">
           <img
             src="/assets/footer-logo.svg"
             width={149}
@@ -27,19 +27,19 @@ export default async function Footer({ lang }: { lang: string }) {
               alt="лого instagram"
               width={22}
               height="auto"
-              className="cursor-pointer w-[22px] max-xs:w-[8%]"
+              className="cursor-pointer w-[30px] max-xs:w-[8%]"
             />
             <img
               src="/assets/footer-tg.svg"
               alt="лого telegram"
               width={22}
               height="auto"
-              className="cursor-pointer w-[22px] max-xs:w-[8%]"
+              className="cursor-pointer w-[30px] max-xs:w-[8%]"
             />
           </div>
         </div>
 
-        <div className="flex flex-col gap-[15px] max-xs:gap-[20px]">
+        <div className="flex flex-col gap-[30px] max-xs:gap-[20px]">
           <h3 className="small-semibold uppercase text-primary-100">
             {t("catalog")}
           </h3>
@@ -60,7 +60,7 @@ export default async function Footer({ lang }: { lang: string }) {
           </ul>
         </div>
 
-        <div className="flex flex-col gap-[15px] max-xs:gap-[20px]">
+        <div className="flex flex-col gap-[30px] max-xs:gap-[20px]">
           <h3 className="small-semibold uppercase text-primary-100">
             {t("меню")}
           </h3>
@@ -81,7 +81,7 @@ export default async function Footer({ lang }: { lang: string }) {
           </ul>
         </div>
 
-        <div className="flex flex-col gap-[15px] max-xs:gap-[20px]">
+        <div className="flex flex-col gap-[30px] max-xs:gap-[20px]">
           <LangSwitcher lang={lang} variant="footer" />
         </div>
       </div>

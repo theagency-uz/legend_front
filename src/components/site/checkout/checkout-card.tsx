@@ -20,7 +20,7 @@ export default function CheckoutCard({ lang }: { lang: keyof Language }) {
       <div className="w-full h-full base-normal-nospacing rounded-[10px] backdrop-blur-[5px]">
         <div className="py-[28px] px-[20px]">
           <h3 className="large-semibold mb-[30px]">{t("Ваш заказ:")}</h3>
-          <p className="flex justify-between items-center mb-[20px] max-xs:mb-[20px] large-semibold">
+          <p className="flex justify-between items-center mb-[20px] max-xs:mb-[6px] base-normal-nospacing">
             <span>
               {t("Товары")} ({getTotalItems()}):
             </span>{" "}
@@ -28,7 +28,7 @@ export default function CheckoutCard({ lang }: { lang: keyof Language }) {
               {formatCost(getCartTotal())} {t("сум")}
             </span>
           </p>
-          <p className="flex justify-between items-center large-semibold">
+          <p className="flex justify-between items-center base-normal-nospacing">
             <span>{t("Доставка")}</span> <span>{t("бесплатно")}</span>
           </p>
         </div>
@@ -37,9 +37,9 @@ export default function CheckoutCard({ lang }: { lang: keyof Language }) {
           <Separator className="m-0" />
         </div>
 
-        <div className="py-[28px] px-[20px] flex justify-between flex-wrap gap-[20px] items-end max-xs:py-0 large-semibold">
+        <div className="py-[28px] px-[20px] flex justify-between items-center flex-wrap gap-[20px] max-xs:py-0 large-semibold">
           <h3>{t("Итого")}</h3>
-          <span>
+          <span className="small-medium">
             {formatCost(getCartTotal())} {t("сум")}
           </span>
         </div>

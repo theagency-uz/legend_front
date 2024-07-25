@@ -22,7 +22,7 @@ const nextConfig = {
       "localhost",
       "192.168.0.133",
       "*.ngrok-free.app",
-      "80c9-94-158-59-89.ngrok-free.app",
+      "fcfc-94-158-59-117.ngrok-free.app.app",
     ],
   },
 };
