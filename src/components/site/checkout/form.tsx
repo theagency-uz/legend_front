@@ -99,9 +99,9 @@ export default function Form({ lang }: { lang: keyof Language }) {
               {t("Напишите точный адрес доставки или укажите его на карте:")}
             </p>
 
-            <Button className="rounded-[5px] small-semibold leading-[130%] flex gap-[15px] items-center w-fit">
+            <Button className="rounded-[5px] leading-[130%] flex gap-[15px] items-center w-fit">
               <MapPin />
-              <span>{t("Указать адрес на карте")}</span>
+              <span className="xsmall-medium">{t("Указать адрес на карте")}</span>
             </Button>
           </div>
 

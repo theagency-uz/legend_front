@@ -51,9 +51,9 @@ export default function CheckoutCard({ lang }: { lang: keyof Language }) {
           <div className="flex flex-col items-center justify-center gap-[20px] max-xs:gap-[10px]">
             <Button
               type="submit"
-              className="flex justify-between w-fit gap-5 max-xs:gap-[20px] max-xs:justify-center"
+              className="flex justify-between min-w-[230px] max-w-[300px] gap-5 max-xs:gap-[20px] max-xs:justify-center"
             >
-              <span className="small-semibold">{t("Оплатить Payme")}</span>
+              <span className="xsmall-medium">{t("Оплатить Payme")}</span>
               <img
                 alt="payme icon"
                 src="/assets/payme.svg"
@@ -63,9 +63,9 @@ export default function CheckoutCard({ lang }: { lang: keyof Language }) {
             </Button>
             <Button
               type="submit"
-              className="flex justify-between w-fit gap-5 max-xs:gap-[20px] max-xs:justify-center"
+              className="flex justify-between min-w-[230px] max-w-[300px] gap-5 max-xs:gap-[20px] max-xs:justify-center"
             >
-              <span className="small-semibold">{t("Оплатить Click")}</span>
+              <span className="xsmall-medium">{t("Оплатить Click")}</span>
               <img
                 alt="click icon"
                 src="/assets/click.svg"
