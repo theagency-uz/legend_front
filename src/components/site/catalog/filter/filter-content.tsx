@@ -36,9 +36,9 @@ export default function FilterContent({
           <h3 className="flex items-center gap-[1.08vw]">
             <img
               src="/assets/filter.svg"
-              width={16}
-              height={16}
-              className="w-[1.33vw] max-md:w-[4.69vw] max-md:h-[4.69vw]"
+              width={18}
+              height={18}
+              className="w-[18px] h-[18px] xl:w-[1.8vw] xl:h-[1.8vw]"
             />{" "}
             <span>{t("Фильтры")}</span>
           </h3>
