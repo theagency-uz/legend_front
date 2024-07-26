@@ -61,7 +61,12 @@ export default async function Catalog({
           <Filter lang={lang} />
         </div>
 
-        <div className="flex w-[80%] justify-start flex-wrap gap-[2.5vw] max-sm:flex-col max-xs:gap-[6.26vw] max-sm:flex max-sm:flex-wrap max-lg:w-full max-lg:grid max-lg:grid-cols-2">
+        <div className="flex w-[80%] justify-start flex-wrap gap-[2.5vw] max-sm:flex-col max-xs:gap-[6.26vw] max-sm:flex max-sm:flex-wrap max-lg:w-full max-lg:grid max-lg:grid-cols-2 relative">
+          <img
+            alt="legend logo"
+            src="/assets/legend-logo-v2.svg"
+            className="w-full absolute top-[-10vw]"
+          />
           <ProductsRow lang={lang} />
         </div>
       </div>

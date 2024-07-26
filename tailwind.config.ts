@@ -90,13 +90,15 @@ const config: Config = {
         "campany-mob": "url('/assets/campany-mob.webp')",
         "nav-mob": "url('/assets/nav-mob.webp')",
         catalog:
-          "url('/assets/bg-catalog.webp'), linear-gradient(to bottom right, #4A8FA1 53%, #347384 100%)",
-        "catalog-mob": "url('/assets/bg-catalog-mob.webp')",
+          "url('/assets/bg.webp'), linear-gradient(to bottom right, #4A8FA1 53%, #347384 100%)",
+        "catalog-mob":
+          "url('/assets/bg.webp'), linear-gradient(to bottom right, #4A8FA1 53%, #347384 100%)",
         "catalog-card":
           "linear-gradient(to bottom right, #FFFFFF44 0%, #4A8FA144 53%, #34738444 100%)",
         "filter-mob":
           "linear-gradient(to bottom right, #22779244 0%, #4A8FA144 26%, #143F4B66 65%)",
-        product: "url('/assets/bg-product.webp')",
+        product:
+          "url('/assets/bg.webp'), linear-gradient(to bottom right, #4A8FA1 53%, #347384 100%)",
         "checkout-mob":
           "url('/assets/bg.webp'), linear-gradient(to bottom right, #4A8FA1 53%, #347384 100%)",
         legend: "linear-gradient(to bottom right, #4A8FA1 53%, #347384 100%)",
