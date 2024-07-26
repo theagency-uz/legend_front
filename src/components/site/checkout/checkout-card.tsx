@@ -1,5 +1,7 @@
 "use client";
 
+import { UseFormHandleSubmit, UseFormRegister } from "react-hook-form";
+
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 
@@ -7,13 +9,31 @@ import { useTranslation } from "@/lib/i18n/client";
 import { formatCost } from "@/lib/utils";
 
 import { Language } from "@/types/language";
+import { FormData } from "@/types/user-order";
 
 import { useCart } from "@/context/cart.context";
 
-export default function CheckoutCard({ lang }: { lang: keyof Language }) {
+export default function CheckoutCard({
+  lang,
+  register,
+  handleSubmit,
+}: {
+  lang: keyof Language;
+  register: UseFormRegister<FormData>;
+  handleSubmit: UseFormHandleSubmit<FormData, undefined>;
+}) {
   const { t } = useTranslation(lang);
 
   const { getCartTotal, getTotalItems } = useCart();
+
+  async function onSubmit(data: FormData) {
+    try {
+      console.log(data);
+      // const { data: resource } = await httpClient.post(`/api/orders`);
+    } catch (err) {
+      console.log(err);
+    }
+  }
 
   return (
     <div className="w-full rounded-[10px] bg-white bg-opacity-20 sticky top-40 right-0">
@@ -52,6 +72,9 @@ export default function CheckoutCard({ lang }: { lang: keyof Language }) {
             <Button
               type="submit"
               className="flex justify-between min-w-[230px] max-w-[300px] gap-5 max-xs:gap-[20px] max-xs:justify-center"
+              {...register("payme", { value: true })}
+              onClick={handleSubmit(onSubmit)}
+              value="payme"
             >
               <span className="xsmall-medium">{t("Оплатить Payme")}</span>
               <img
@@ -64,6 +87,8 @@ export default function CheckoutCard({ lang }: { lang: keyof Language }) {
             <Button
               type="submit"
               className="flex justify-between min-w-[230px] max-w-[300px] gap-5 max-xs:gap-[20px] max-xs:justify-center"
+              {...register("click", { value: true })}
+              onClick={handleSubmit(onSubmit)}
             >
               <span className="xsmall-medium">{t("Оплатить Click")}</span>
               <img

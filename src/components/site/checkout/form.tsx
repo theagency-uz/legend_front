@@ -16,6 +16,8 @@ import { Language } from "@/types/language";
 
 import { useTranslation } from "@/lib/i18n/client";
 
+import { httpClient } from "@/server/request";
+
 export default function Form({ lang }: { lang: keyof Language }) {
   const { t } = useTranslation(lang);
 
@@ -25,13 +27,8 @@ export default function Form({ lang }: { lang: keyof Language }) {
     formState: { errors },
   } = useForm<FormData>({ resolver: zodResolver(UserSchema) });
 
-  function onSubmit(data: FormData) {
-    console.log(data);
-  }
-
   return (
     <form
-      onSubmit={handleSubmit(onSubmit)}
       className="flex gap-20 flex-wrap max-md:flex-col max-md:gap-0"
     >
       <div className="w-full lg:w-[500px] lg:flex-1 2xl:w-[60%] 2xl:flex-none">
@@ -101,7 +98,9 @@ export default function Form({ lang }: { lang: keyof Language }) {
 
             <Button className="rounded-[5px] leading-[130%] flex gap-[15px] items-center w-fit">
               <MapPin />
-              <span className="xsmall-medium">{t("Указать адрес на карте")}</span>
+              <span className="xsmall-medium">
+                {t("Указать адрес на карте")}
+              </span>
             </Button>
           </div>
 
@@ -194,7 +193,7 @@ export default function Form({ lang }: { lang: keyof Language }) {
       </div>
 
       <div className="max-md:w-full mx-auto max-md:px-[10px] lg:w-fit relative 2xl:w-[30%]">
-        <CheckoutCard lang={lang} />
+        <CheckoutCard handleSubmit={handleSubmit} register={register} lang={lang} />
       </div>
     </form>
   );

@@ -14,6 +14,8 @@ export const UserSchema: ZodType<FormData> = z.object({
   floor: z.string().min(1, { message: "required" }),
   flat: z.string().min(1, { message: "required" }),
   comment: z.string(),
+  click: z.boolean(),
+  payme: z.boolean(),
 });
 
 export type FormData = {
@@ -27,6 +29,8 @@ export type FormData = {
   floor: string;
   flat: string;
   comment?: string;
+  click: boolean;
+  payme: boolean;
 };
 
 export type FormFieldProps = {
@@ -54,4 +58,6 @@ export type ValidFieldNames =
   | "entrance"
   | "floor"
   | "flat"
-  | "comment";
+  | "comment"
+  | "click"
+  | "payme";
