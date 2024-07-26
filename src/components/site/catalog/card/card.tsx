@@ -31,7 +31,7 @@ export default function CatalogCard({
     >
       <div className="rounded-[10px] text-white w-full h-full backdrop-blur-[5px]">
         <div className="flex flex-col h-full gap-[10px]">
-          <div className="flex-[2] flex justify-center items-center pt-[26px]">
+          <div className="flex-1 flex justify-center items-center pt-[26px]">
             <Image
               src={url}
               alt={product.name[lang]}
@@ -41,9 +41,9 @@ export default function CatalogCard({
             />
           </div>
 
-          <div className="flex h-[300px] max-sm:h-auto justify-between flex-col gap-[35px] p-[26px]">
+          <div className="flex h-[270px] max-sm:h-auto justify-between flex-col gap-[35px] p-[26px]">
             <div className="flex flex-col gap-[5px] justify-between">
-              <span className="normal-medium tracking-normal">
+              <span className="normal-medium font-light tracking-normal">
                 {product.product_variation.value} {i18n.t("Л")}
               </span>
               <h3 className="large-medium leading-tight">
@@ -56,7 +56,7 @@ export default function CatalogCard({
                 <span className="large-medium-90">
                   {formatCost(product.price)}
                 </span>
-                <span className="base-normal-nospacing uppercase">
+                <span className="base-normal-nospacing font-light uppercase">
                   {i18n.t("сум / блок")}
                 </span>
               </div>
@@ -73,7 +73,7 @@ export default function CatalogCard({
                     src="/assets/cart.svg"
                     className={`w-[25px] h-[25px]`}
                   />
-                  <span className="base-normal-nospacing uppercase">
+                  <span className="base-normal-nospacing font-light uppercase">
                     {i18n.t("в корзину")}
                   </span>
                 </div>

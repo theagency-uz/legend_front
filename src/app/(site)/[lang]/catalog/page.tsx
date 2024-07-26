@@ -24,7 +24,7 @@ export default async function Catalog({
   const { t } = await useTranslation(lang);
 
   return (
-    <main className="px-[80px] py-[11.83vw] max-md:py-[28vw] w-full h-auto bg-catalog bg-cover aspect-[1200/1942] text-white max-xs:px-[10px] max-xs:bg-catalog-mob max-xs:aspect-[442/1878] bg-top bg-fixed max-sm:px-[10px] max-lg:px-[50px]">
+    <main className="px-[80px] py-[11.83vw] max-md:py-[28vw] w-full h-auto bg-catalog bg-cover text-white max-xs:px-[10px] max-xs:bg-catalog-mob bg-top bg-fixed max-sm:px-[10px] max-lg:px-[50px]">
       <div className="flex flex-col gap-[50px] mb-[3.92vw] max-xs:mb-[19vw]">
         <Breadcrumb>
           <BreadcrumbList>
