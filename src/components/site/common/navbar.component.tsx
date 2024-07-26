@@ -15,6 +15,7 @@ export default function Navbar({ lang }: { lang: string }) {
   const { t } = useTranslation(lang);
 
   const [scrolling, setScrolling] = useState(false);
+  const [numItems, setNumItems] = useState(0);
 
   const { cartItems } = useCart();
 
@@ -30,6 +31,10 @@ export default function Navbar({ lang }: { lang: string }) {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  useEffect(() => {
+    setNumItems(cartItems.length);
+  }, [cartItems]);
 
   return (
     <nav
@@ -75,19 +80,19 @@ export default function Navbar({ lang }: { lang: string }) {
             </li>
           ))}
         </ul>
-        <span className="cursor-pointer">
-          <Link href={`/${lang}/checkout`} className="relative">
-            <img
-              alt="cart icon"
-              src="/assets/cart.svg"
-              className={`max-xs:w-[25px] max-xs:h-[25px] max-sm:w-[25px] max-sm:h-[25px] max-md:w-[25px] max-md:h-[25px] max-lg:w-[25px] max-lg:h-[25px] lg:w-[2vw] lg:h-[2vw]`}
-            />
+        <Link href={`/${lang}/checkout`} className="relative cursor-pointer">
+          <img
+            alt="cart icon"
+            src="/assets/cart.svg"
+            className={`max-xs:w-[25px] max-xs:h-[25px] max-sm:w-[25px] max-sm:h-[25px] max-md:w-[25px] max-md:h-[25px] max-lg:w-[25px] max-lg:h-[25px] lg:w-[2vw] lg:h-[2vw]`}
+          />
 
+          {numItems ? (
             <div className="text-xs w-[20px] rounded-full border-white border-2 flex items-center justify-center absolute bottom-[-40%] right-[-55%] bg-[#488493] max-xs:bottom-[-40%] max-xs:right-[-55%] max-xs:w-[20px] xl:-bottom-3 xl:-right-3">
-              {cartItems?.length}
+              {numItems}
             </div>
-          </Link>
-        </span>
+          ) : null}
+        </Link>
       </div>
     </nav>
   );
