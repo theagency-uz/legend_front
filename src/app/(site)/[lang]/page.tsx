@@ -12,7 +12,7 @@ export default async function Home({
   return (
     <main>
       <HeroBlock lang={lang} />
-      <section className="bg-gradient-linear bg-top bg-cover w-[100%] h-auto max-xs:bg-gradient-linear-mob max-xs:bg-contain max-xs:bg-primary-200 max-xs:aspect-[320/1878] bg-no-repeat">
+      <section className="bg-gradient-linear bg-top bg-cover w-[100%] h-auto max-md:bg-gradient-linear-mob max-md:bg-contain max-md:bg-primary-200 max-md:aspect-[320/1878] bg-no-repeat">
         <CatalogBlock lang={lang} />
         <PropertiesBlock lang={lang} />
         <StepsBlock lang={lang} />

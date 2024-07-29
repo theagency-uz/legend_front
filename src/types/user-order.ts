@@ -3,6 +3,11 @@ import { z, ZodType } from "zod";
 
 import { Language } from "./language";
 
+export enum PAYMENT_TYPE {
+  PAYME = "payme",
+  CLICK = "click",
+}
+
 export const UserSchema: ZodType<FormData> = z.object({
   name: z.string().min(1, { message: "required" }),
   surname: z.string().min(1, { message: "required" }),
@@ -14,8 +19,6 @@ export const UserSchema: ZodType<FormData> = z.object({
   floor: z.string().min(1, { message: "required" }),
   flat: z.string().min(1, { message: "required" }),
   comment: z.string(),
-  click: z.boolean(),
-  payme: z.boolean(),
 });
 
 export type FormData = {
@@ -29,8 +32,6 @@ export type FormData = {
   floor: string;
   flat: string;
   comment?: string;
-  click: boolean;
-  payme: boolean;
 };
 
 export type FormFieldProps = {
@@ -58,6 +59,4 @@ export type ValidFieldNames =
   | "entrance"
   | "floor"
   | "flat"
-  | "comment"
-  | "click"
-  | "payme";
+  | "comment";

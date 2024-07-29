@@ -11,6 +11,25 @@ body {
   white-space: pre-line;
 }
 
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #285f71;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #285f71ee;
+}
+
 *,
 *::before,
 *::after {

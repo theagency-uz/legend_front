@@ -16,8 +16,6 @@ import { Language } from "@/types/language";
 
 import { useTranslation } from "@/lib/i18n/client";
 
-import { httpClient } from "@/server/request";
-
 export default function Form({ lang }: { lang: keyof Language }) {
   const { t } = useTranslation(lang);
 
@@ -28,9 +26,7 @@ export default function Form({ lang }: { lang: keyof Language }) {
   } = useForm<FormData>({ resolver: zodResolver(UserSchema) });
 
   return (
-    <form
-      className="flex gap-20 flex-wrap max-md:flex-col max-md:gap-0"
-    >
+    <form className="flex gap-20 flex-wrap max-md:flex-col max-md:gap-0">
       <div className="w-full lg:w-[500px] lg:flex-1 2xl:w-[60%] 2xl:flex-none">
         <Separator className="mt-0 max-md:mt-0 max-md:px-[10px]" />
         <CartItemsList lang={lang} />
@@ -193,7 +189,7 @@ export default function Form({ lang }: { lang: keyof Language }) {
       </div>
 
       <div className="max-md:w-full mx-auto max-md:px-[10px] lg:w-fit relative 2xl:w-[30%]">
-        <CheckoutCard handleSubmit={handleSubmit} register={register} lang={lang} />
+        <CheckoutCard handleSubmit={handleSubmit} lang={lang} />
       </div>
     </form>
   );
