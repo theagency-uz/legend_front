@@ -134,7 +134,7 @@ export default function ProductInfo({
 
             <div className="flex justify-between items-center">
               <div className="flex flex-col gap-[5px]">
-                <span className="large-medium-90">
+                <span className="xlarge-medium-90">
                   {formatCost(product?.price * (count ?? 1))}
                 </span>
                 <span className="base-normal-nospacing uppercase">

@@ -116,8 +116,13 @@ export default function Form({ lang }: { lang: keyof Language }) {
                   type="button"
                   className="rounded-[5px] leading-[130%] flex gap-[15px] items-center w-fit"
                 >
-                  <MapPin />
-                  <span className="xsmall-medium">
+                  <img
+                    src="/assets/map.svg"
+                    alt="map icon"
+                    width={15}
+                    height={15}
+                  />
+                  <span className="xsmall-medium text-primary-500">
                     {t("Указать адрес на карте")}
                   </span>
                 </Button>
@@ -139,10 +144,7 @@ export default function Form({ lang }: { lang: keyof Language }) {
                     />
                   </DialogDescription>
                 </DialogHeader>
-                <YandexMap
-                  mapState={mapState}
-                  setMapState={setMapState}
-                />
+                <YandexMap mapState={mapState} setMapState={setMapState} />
                 <Button
                   type="button"
                   className="bg-primary-100 text-white rounded-md hover:bg-primary-100/95 text-base"

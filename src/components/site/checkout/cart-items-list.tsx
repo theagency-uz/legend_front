@@ -50,8 +50,8 @@ export default function CartItemsList({ lang }: { lang: keyof Language }) {
                 <div className="flex flex-col gap-5 md:flex-row items-start md:items-center md:flex-1 md:justify-around md:flex-wrap">
                   <ProductCount product={product} lang={lang} isCheckout />
                   <div className="flex flex-col gap-[5px]">
-                    <span className="large-medium-90">
-                      {formatCost(product.price)}
+                    <span className="xlarge-medium-90">
+                      {formatCost(product?.price * (product.quantity ?? 1))}
                     </span>
                     <span className="base-normal-nospacing uppercase">
                       {t("сум / блок")}

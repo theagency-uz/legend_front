@@ -29,7 +29,7 @@ export default async function StepsCard({
         className="mb-[14px]"
       />
       <div className="flex flex-col gap-[3px]">
-        <h4 className="small-normal">{t(name)}</h4>
+        <h4 className="small-normal uppercase">{t(name)}</h4>
         <p className="small-light">{t(text)}</p>
       </div>
     </div>
