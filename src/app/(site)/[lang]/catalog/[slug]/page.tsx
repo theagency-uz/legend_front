@@ -18,7 +18,7 @@ export default async function Product({
   const { t } = await useTranslation(lang);
 
   return (
-    <main className="px-[11.75vw] py-[11.83vw] max-md:py-[60px] w-full h-auto bg-product bg-cover text-white max-md:px-[10px] max-md:bg-catalog-mob bg-top bg-fixed max-md:pt-[100px]">
+    <main className="px-[11.75vw] py-[11.83vw] max-md:py-[60px] w-full bg-product bg-cover text-white max-md:px-[10px] bg-top bg-fixed max-md:pt-[100px]">
       <ProductInfo lang={lang} slug={slug} />
 
       <section>
