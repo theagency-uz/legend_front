@@ -19,6 +19,7 @@ export const UserSchema: ZodType<FormData> = z.object({
   floor: z.string().min(1, { message: "required" }),
   flat: z.string().min(1, { message: "required" }),
   comment: z.string(),
+  location: z.string(),
 });
 
 export type FormData = {
@@ -32,6 +33,7 @@ export type FormData = {
   floor: string;
   flat: string;
   comment?: string;
+  location?: string;
 };
 
 export type FormFieldProps = {
@@ -41,7 +43,7 @@ export type FormFieldProps = {
   register: UseFormRegister<FormData>;
   error: FieldError | undefined;
   valueAsNumber?: boolean;
-  label: string;
+  label?: string;
   required?: boolean;
   pattern?: string;
   textarea?: boolean;
@@ -59,4 +61,5 @@ export type ValidFieldNames =
   | "entrance"
   | "floor"
   | "flat"
-  | "comment";
+  | "comment"
+  | "location";

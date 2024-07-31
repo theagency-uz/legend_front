@@ -7,6 +7,7 @@ import Navbar from "../../../components/site/common/navbar.component";
 import Footer from "@/components/site/common/footer.component";
 
 import Providers from "@/app/providers";
+import YandexMapsProvider from "@/yandex-maps/yandex-maps.provider";
 
 const inter = localFont({
   src: [
@@ -32,11 +33,13 @@ export default function RootLayout({
   return (
     <html lang={lang}>
       <body className={`${inter.variable} font-inter relative`}>
-        <Providers>
-          <Navbar lang={lang} />
-          {children}
-          <Footer lang={lang} />
-        </Providers>
+        <YandexMapsProvider>
+          <Providers>
+            <Navbar lang={lang} />
+            {children}
+            <Footer lang={lang} />
+          </Providers>
+        </YandexMapsProvider>
       </body>
     </html>
   );

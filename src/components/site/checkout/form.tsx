@@ -5,16 +5,26 @@ import { zodResolver } from "@hookform/resolvers/zod";
 
 import { MapPin } from "lucide-react";
 
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 import { Separator } from "@/components/ui/separator";
 import CheckoutCard from "./checkout-card";
 import CartItemsList from "./cart-items-list";
 import FormField from "./form-field";
 import { Button } from "@/components/ui/button";
+import YandexMap from "@/yandex-maps/components/map";
 
 import { FormData, UserSchema } from "@/types/user-order";
 import { Language } from "@/types/language";
 
 import { useTranslation } from "@/lib/i18n/client";
+import { useState } from "react";
 
 export default function Form({ lang }: { lang: keyof Language }) {
   const { t } = useTranslation(lang);
@@ -24,6 +34,14 @@ export default function Form({ lang }: { lang: keyof Language }) {
     handleSubmit,
     formState: { errors },
   } = useForm<FormData>({ resolver: zodResolver(UserSchema) });
+
+  const initialMapState = {
+    title: "",
+    center: [41.311151, 69.279737],
+    zoom: 12,
+  };
+
+  const [mapState, setMapState] = useState({ ...initialMapState });
 
   return (
     <form className="flex gap-20 flex-wrap max-md:flex-col max-md:gap-0">
@@ -92,12 +110,47 @@ export default function Form({ lang }: { lang: keyof Language }) {
               {t("Напишите точный адрес доставки или укажите его на карте:")}
             </p>
 
-            <Button className="rounded-[5px] leading-[130%] flex gap-[15px] items-center w-fit">
-              <MapPin />
-              <span className="xsmall-medium">
-                {t("Указать адрес на карте")}
-              </span>
-            </Button>
+            <Dialog>
+              <DialogTrigger asChild>
+                <Button
+                  type="button"
+                  className="rounded-[5px] leading-[130%] flex gap-[15px] items-center w-fit"
+                >
+                  <MapPin />
+                  <span className="xsmall-medium">
+                    {t("Указать адрес на карте")}
+                  </span>
+                </Button>
+              </DialogTrigger>
+              <DialogContent>
+                <DialogHeader>
+                  <DialogTitle className="mb-5">
+                    {t("Адрес доставки")}
+                  </DialogTitle>
+                  <DialogDescription asChild>
+                    <FormField
+                      name="location"
+                      type="text"
+                      error={errors.phone}
+                      placeholder={t("Введите адресс доставки")}
+                      lang={lang}
+                      register={register}
+                      className="w-full"
+                    />
+                  </DialogDescription>
+                </DialogHeader>
+                <YandexMap
+                  mapState={mapState}
+                  setMapState={setMapState}
+                />
+                <Button
+                  type="button"
+                  className="bg-primary-100 text-white rounded-md hover:bg-primary-100/95 text-base"
+                >
+                  {t("Подтвердить")}
+                </Button>
+              </DialogContent>
+            </Dialog>
           </div>
 
           <div className="flex flex-col gap-[40px] w-full max-md:px-[10px]">

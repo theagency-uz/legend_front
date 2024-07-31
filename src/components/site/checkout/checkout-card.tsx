@@ -62,7 +62,7 @@ export default function CheckoutCard({
       console.log(result);
 
       window.open(
-        `${process.env.NEXT_PUBLIC_PAYME_ENDPOINT}/${encode(
+        `${process.env.NEXT_PUBLIC_TEST_PAYME_ENDPOINT}/${encode(
           `m=${process.env.NEXT_PUBLIC_PAYME_MERCHANT_ID};ac.order_id=${
             result.data?.id
           };a=${

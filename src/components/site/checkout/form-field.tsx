@@ -25,9 +25,11 @@ const FormField: React.FC<FormFieldProps> = ({
     <div
       className={`grid items-center gap-1.5 small-normal-nospacing ${className}`}
     >
-      <Label className="" htmlFor={name}>
-        {label}
-      </Label>
+      {label && (
+        <Label className="" htmlFor={name}>
+          {label}
+        </Label>
+      )}
       {textarea ? (
         <Textarea
           id={name}
@@ -41,7 +43,7 @@ const FormField: React.FC<FormFieldProps> = ({
           id={name}
           placeholder={placeholder}
           type={type}
-          className="max-sm:h-[35px]"
+          className="max-sm:h-[35px] placeholder:text-slate-500"
           required={required ?? false}
           {...register(name, { valueAsNumber })}
         />
