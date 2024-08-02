@@ -7,5 +7,11 @@ export default function YandexMapsProvider({
 }: {
   children: React.ReactNode;
 }) {
-  return <YMaps query={{ lang: "ru_RU" }}>{children}</YMaps>;
+  return (
+    <YMaps
+      query={{ lang: "ru_RU", apikey: process.env.NEXT_PUBLIC_YANDEX_MAPS_KEY }}
+    >
+      {children}
+    </YMaps>
+  );
 }

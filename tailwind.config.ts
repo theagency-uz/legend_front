@@ -99,7 +99,7 @@ const config: Config = {
         "filter-mob":
           "linear-gradient(to bottom right, #22779244 0%, #4A8FA144 26%, #143F4B66 65%)",
         product:
-          "url('/assets/bg.webp'), linear-gradient(to bottom right, #4A8FA1 53%, #347384 100%)",
+          "linear-gradient(to bottom right, #4A8FA1 53%, #347384 100%)",
         "checkout-mob":
           "url('/assets/bg.webp'), linear-gradient(to bottom right, #4A8FA1 53%, #347384 100%)",
         legend: "linear-gradient(to bottom right, #4A8FA1 53%, #347384 100%)",

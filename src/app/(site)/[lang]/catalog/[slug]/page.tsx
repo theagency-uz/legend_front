@@ -9,6 +9,7 @@ import ProductInfo from "@/components/site/product/product-info";
 
 import { useTranslation } from "@/lib/i18n";
 import { Language } from "@/types/language";
+import Image from "next/image";
 
 export default async function Product({
   params: { lang, slug },
@@ -18,7 +19,10 @@ export default async function Product({
   const { t } = await useTranslation(lang);
 
   return (
-    <main className="px-[11.75vw] py-[11.83vw] max-md:py-[60px] w-full bg-product bg-cover text-white max-md:px-[10px] bg-top bg-fixed max-md:pt-[100px]">
+    <main className="px-[11.75vw] py-[11.83vw] max-md:py-[60px] w-full text-white max-md:px-[10px] max-md:pt-[100px]">
+      <div className="w-full h-screen fixed top-0 left-0 z-[-1] bg-product">
+        <Image quality={100} fill src="/assets/bg.webp" alt="bg" />
+      </div>
       <ProductInfo lang={lang} slug={slug} />
 
       <section>
