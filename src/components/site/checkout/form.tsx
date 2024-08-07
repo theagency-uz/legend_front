@@ -13,9 +13,12 @@ import { FormData, UserSchema } from "@/types/user-order";
 import { Language } from "@/types/language";
 
 import { useTranslation } from "@/lib/i18n/client";
+import { useState } from "react";
 
 export default function Form({ lang }: { lang: keyof Language }) {
   const { t } = useTranslation(lang);
+
+  const [mapAddress, setMapAddress] = useState("");
 
   const {
     register,
@@ -90,7 +93,11 @@ export default function Form({ lang }: { lang: keyof Language }) {
               {t("Напишите точный адрес доставки или укажите его на карте:")}
             </p>
 
-            <YandexMap lang={lang} />
+            <YandexMap
+              lang={lang}
+              mapAddress={mapAddress}
+              setMapAddress={setMapAddress}
+            />
           </div>
 
           <div className="flex flex-col gap-[40px] w-full max-md:px-[10px]">
@@ -182,7 +189,11 @@ export default function Form({ lang }: { lang: keyof Language }) {
       </div>
 
       <div className="max-md:w-full mx-auto max-md:px-[10px] lg:w-fit relative 2xl:w-[30%]">
-        <CheckoutCard handleSubmit={handleSubmit} lang={lang} />
+        <CheckoutCard
+          handleSubmit={handleSubmit}
+          lang={lang}
+          mapAddress={mapAddress}
+        />
       </div>
     </form>
   );

@@ -265,6 +265,8 @@ const PRODUCTS = [
   },
 ];
 
+const MIN_CART_PRICE = 100_000;
+
 export {
   NAVBAR_LEFT,
   NAVBAR_RIGHT,
@@ -278,4 +280,5 @@ export {
   FOOTER_MENU_LINKS,
   MOBILE_SIZE,
   PRODUCTS,
+  MIN_CART_PRICE,
 };

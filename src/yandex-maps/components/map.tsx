@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { Map, useYMaps, ZoomControl } from "@pbe/react-yandex-maps";
 import { debounce } from "lodash";
 
@@ -22,7 +22,15 @@ import { useTranslation } from "@/lib/i18n/client";
 
 import { Language } from "@/types/language";
 
-export default function YandexMap({ lang }: { lang: keyof Language }) {
+export default function YandexMap({
+  lang,
+  mapAddress,
+  setMapAddress,
+}: {
+  lang: keyof Language;
+  mapAddress: string;
+  setMapAddress: Dispatch<SetStateAction<string>>;
+}) {
   const { t } = useTranslation(lang);
 
   const initialMapState = {
@@ -38,6 +46,7 @@ export default function YandexMap({ lang }: { lang: keyof Language }) {
   const mapOptions = {
     modules: ["geocode", "geolocation"],
     defaultOptions: { suppressMapOpenBlock: true },
+
     width: "100%",
     height: "600px",
   };
@@ -47,6 +56,18 @@ export default function YandexMap({ lang }: { lang: keyof Language }) {
   const [searchActive, setSearchActive] = useState(false);
   const [boundsChanging, setBoundsChanging] = useState(false);
   const debouncedSearchText = useDebounce(searchText, 500);
+
+  function handleChangeLocation(sr: any) {
+    setMapState({
+      zoom: 18,
+      title: `${sr.mainAddress}, ${sr.address}`,
+      center: sr.coordinates,
+    });
+  }
+
+  function handleConfirmAddress() {
+    setMapAddress(mapState.title);
+  }
 
   useEffect(() => {
     async function findSuggestions() {
@@ -124,11 +145,11 @@ export default function YandexMap({ lang }: { lang: keyof Language }) {
       <DialogTrigger asChild>
         <Button
           type="button"
-          className="rounded-[5px] leading-[130%] flex gap-[15px] items-center w-fit"
+          className="rounded-[5px] leading-[130%] flex gap-[15px] items-center w-fit max-w-full"
         >
           <img src="/assets/map.svg" alt="map icon" width={15} height={15} />
-          <span className="xsmall-medium text-primary-500">
-            {t("Указать адрес на карте")}
+          <span className="xsmall-medium text-primary-500 w-full overflow-hidden">
+            {mapAddress || t("Указать адрес на карте")}
           </span>
         </Button>
       </DialogTrigger>
@@ -156,8 +177,12 @@ export default function YandexMap({ lang }: { lang: keyof Language }) {
                   className="flex flex-col gap-2 w-full absolute bg-white rounded-lg"
                   style={{ top: "100%", zIndex: 15, padding: "12px" }}
                 >
-                  {searchResults?.map((sr: any) => (
-                    <li className="cursor-pointer hover:bg-white/80">
+                  {searchResults?.map((sr: any, i: number) => (
+                    <li
+                      onClick={() => handleChangeLocation(sr)}
+                      className="cursor-pointer"
+                      key={i}
+                    >
                       {sr.mainAddress}, {sr.address}
                     </li>
                   ))}
@@ -182,20 +207,25 @@ export default function YandexMap({ lang }: { lang: keyof Language }) {
           }}
         >
           <ZoomControl options={{ position: { top: "10px", left: "10px" } }} />
-          <img
-            src="/assets/map.svg"
-            alt="map icon"
-            width={30}
-            height={30}
-            className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] z-10"
-          />
+          <button type="button">
+            <img
+              src="/assets/map.svg"
+              alt="map icon"
+              width={30}
+              height={30}
+              className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] z-10"
+            />
+          </button>
         </Map>
-        <Button
-          type="button"
-          className="bg-primary-100 text-white rounded-md hover:bg-primary-100/95 text-base"
-        >
-          {t("Подтвердить")}
-        </Button>
+        <DialogTrigger asChild>
+          <Button
+            onClick={() => handleConfirmAddress()}
+            type="button"
+            variant="map"
+          >
+            {t("Подтвердить")}
+          </Button>
+        </DialogTrigger>
       </DialogContent>
     </Dialog>
   );

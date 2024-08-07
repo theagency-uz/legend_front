@@ -16,12 +16,16 @@ import { IItemInCart } from "@/types/itemInCart";
 import { useCart } from "@/context/cart.context";
 import { httpClient } from "@/server/request";
 
+import { MIN_CART_PRICE } from "@/constants/site";
+
 export default function CheckoutCard({
   lang,
+  mapAddress,
   handleSubmit,
 }: {
   lang: keyof Language;
   handleSubmit: UseFormHandleSubmit<FormData, undefined>;
+  mapAddress: string;
 }) {
   const { t } = useTranslation(lang);
 
@@ -29,11 +33,7 @@ export default function CheckoutCard({
 
   async function onSubmitPayme(data: FormData) {
     try {
-      console.log(data, PAYMENT_TYPE.PAYME);
-      console.log(cartItems);
-      console.log(getCartTotal());
-
-      if (getCartTotal() === 0) {
+      if (getCartTotal() === 0 || getCartTotal() < MIN_CART_PRICE) {
         return;
       }
 
@@ -42,13 +42,15 @@ export default function CheckoutCard({
         name: data.name,
         surname: data.surname,
         phone: data.phone,
-        address: JSON.stringify({
-          street: data.street,
-          house: data.house,
-          flat: data.flat,
-          floor: data.floor,
-          entrance: data.entrance,
-        }),
+        address: mapAddress
+          ? JSON.stringify(mapAddress)
+          : JSON.stringify({
+              street: data.street,
+              house: data.house,
+              flat: data.flat,
+              floor: data.floor,
+              entrance: data.entrance,
+            }),
         paymentType: PAYMENT_TYPE.PAYME,
         bag: JSON.stringify(
           cartItems.map((item: IItemInCart) => ({

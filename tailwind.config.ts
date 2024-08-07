@@ -6,6 +6,7 @@ const config: Config = {
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./@/**/*.{ts,tsx}",
   ],
   theme: {
     screens: {
@@ -98,8 +99,7 @@ const config: Config = {
           "linear-gradient(to bottom right, #FFFFFF44 0%, #4A8FA144 53%, #34738444 100%)",
         "filter-mob":
           "linear-gradient(to bottom right, #22779244 0%, #4A8FA144 26%, #143F4B66 65%)",
-        product:
-          "linear-gradient(to bottom right, #4A8FA1 53%, #347384 100%)",
+        product: "linear-gradient(to bottom right, #4A8FA1 53%, #347384 100%)",
         "checkout-mob":
           "url('/assets/bg.webp'), linear-gradient(to bottom right, #4A8FA1 53%, #347384 100%)",
         legend: "linear-gradient(to bottom right, #4A8FA1 53%, #347384 100%)",

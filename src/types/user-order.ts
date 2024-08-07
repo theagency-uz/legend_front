@@ -12,14 +12,13 @@ export const UserSchema: ZodType<FormData> = z.object({
   name: z.string().min(1, { message: "required" }),
   surname: z.string().min(1, { message: "required" }),
   phone: z.string().min(1, { message: "required" }),
-  city: z.string().min(1, { message: "required" }),
-  street: z.string().min(1, { message: "required" }),
-  house: z.string().min(1, { message: "required" }),
-  entrance: z.string().min(1, { message: "required" }),
-  floor: z.string().min(1, { message: "required" }),
-  flat: z.string().min(1, { message: "required" }),
+  city: z.string(),
+  street: z.string(),
+  house: z.string(),
+  entrance: z.string(),
+  floor: z.string(),
+  flat: z.string(),
   comment: z.string(),
-  location: z.string(),
 });
 
 export type FormData = {
@@ -33,7 +32,6 @@ export type FormData = {
   floor: string;
   flat: string;
   comment?: string;
-  location?: string;
 };
 
 export type FormFieldProps = {
@@ -61,5 +59,4 @@ export type ValidFieldNames =
   | "entrance"
   | "floor"
   | "flat"
-  | "comment"
-  | "location";
+  | "comment";
