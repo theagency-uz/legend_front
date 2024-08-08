@@ -28,7 +28,7 @@ export default function CartItemsList({ lang }: { lang: keyof Language }) {
           return (
             <div
               key={product.id}
-              className="flex w-full items-center justify-between max-md:px-[10px]"
+              className="flex w-full items-center justify-between"
             >
               <div className="flex max-md:flex-1 md:w-[150px] items-center">
                 <Image

@@ -32,8 +32,6 @@ export default function ProductVolumeDropdown({
 
   const productVars: any[] = data;
 
-  console.log(productVars);
-
   if (productVars) {
     return (
       <DropdownMenu modal={false}>

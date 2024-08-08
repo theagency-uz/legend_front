@@ -56,7 +56,7 @@ export default function CatalogCard({
                 <span className="large-medium-90">
                   {formatCost(product.price)}
                 </span>
-                <span className="base-normal-nospacing font-light uppercase">
+                <span className="base-normal-nospacing font-normal uppercase">
                   {i18n.t("сум / блок")}
                 </span>
               </div>
@@ -73,7 +73,7 @@ export default function CatalogCard({
                     src="/assets/cart.svg"
                     className={`w-[25px] h-[25px]`}
                   />
-                  <span className="base-normal-nospacing font-light uppercase">
+                  <span className="base-normal-nospacing font-normal uppercase">
                     {i18n.t("в корзину")}
                   </span>
                 </div>
