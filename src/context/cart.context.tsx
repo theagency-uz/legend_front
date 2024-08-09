@@ -15,6 +15,7 @@ interface ICartContext {
   addToCart: (item: IItemInCart) => void;
   addToCartQuantity: (item: IItemInCart) => void;
   removeFromCart: (item: IItemInCart) => void;
+  deleteFromCart: (id: number) => void;
   clearCart: () => void;
   getCartTotal: () => number;
   getTotalItems: () => number;
@@ -83,6 +84,10 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
     }
   };
 
+  const deleteFromCart = (id: number) => {
+    setCartItems(cartItems.filter((item: IItemInCart) => item.id !== id));
+  };
+
   const clearCart = () => {
     setCartItems([]);
   };
@@ -124,6 +129,7 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
         cartItems,
         addToCart,
         removeFromCart,
+        deleteFromCart,
         clearCart,
         getCartTotal,
         getTotalItems,

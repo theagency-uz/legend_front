@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 
+import { Toaster } from "@/components/ui/toaster";
+
 import "../../globals.css";
 
 import Navbar from "../../../components/site/common/navbar.component";
@@ -40,6 +42,7 @@ export default function RootLayout({
             <Footer lang={lang} />
           </Providers>
         </YandexMapsProvider>
+        <Toaster />
       </body>
     </html>
   );
