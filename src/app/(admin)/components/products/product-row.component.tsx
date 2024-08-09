@@ -16,6 +16,7 @@ import { MoreHorizontal } from "lucide-react";
 import { IProductRow } from "@/types/admin/product-row";
 
 import { formatCost } from "@/lib/utils";
+import Link from "next/link";
 
 export default function ProductRow({ product }: { product: IProductRow }) {
   return (
@@ -51,8 +52,14 @@ export default function ProductRow({ product }: { product: IProductRow }) {
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
             <DropdownMenuLabel>Действия</DropdownMenuLabel>
-            <DropdownMenuItem>Редактировать</DropdownMenuItem>
-            <DropdownMenuItem className="focus:bg-red-600">Удалить</DropdownMenuItem>
+            <DropdownMenuItem>
+              <Link href={`/admin/products/${product.slug}`}>
+                Редактировать
+              </Link>
+            </DropdownMenuItem>
+            <DropdownMenuItem className="focus:bg-red-600">
+              Удалить
+            </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
       </TableCell>
