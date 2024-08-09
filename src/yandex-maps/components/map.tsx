@@ -207,13 +207,16 @@ export default function YandexMap({
           }}
         >
           <ZoomControl options={{ position: { top: "10px", left: "10px" } }} />
-          <button type="button">
+          <button
+            type="button"
+            className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] z-10"
+          >
             <img
               src="/assets/map.svg"
               alt="map icon"
               width={30}
               height={30}
-              className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] z-10"
+              className=""
             />
           </button>
         </Map>
